@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <hr color="black">
+    <link rel="icon" href="https://i.ibb.co/jw8npKS/artt-2-0.jpg" type="image">
+	<title>Paint App</title>
+    
+    <div class="image-container">
+    <img src="https://i.ibb.co/jw8npKS/artt-2-0.jpg" class="image">
+</div>
+<hr color="black">
+<div class="button-container">
+    <button onclick="window.location.href='https://teju0051.github.io/TService/home.html';">Back</button>
+    <button onclick="window.location.href='https://forms.gle/oQ8hCKpXBDWU2S1AA';">Save your art</button>
+  </div>
+    <hr>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+      
+	<style>
+    
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100;
+          }
+        
+          button {
+            margin: 0 10px;
+          }
+        
+            h2{
+                color:white;
+                text-align: center;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                background-color: #333;
+                align-items: center;
+            }
+            
+        
+		body {
+			margin: 0;
+			padding: 0;
+            background-color: hotpink;
+		}
+        @media only screen and (max-width: 600px) {
+            canvas {
+                width: 100%;
+                height: auto;
+            }
+            .button-container {
+                flex-direction: column;
+                height: auto;
+            }
+        }
+		
+		canvas {
+			display: block;
+			margin: auto;
+			background-color: white;
+			border: 4px solid black;
+		}
+        input[type="color"] {
+			display: block;
+			margin: 30px auto;
+		}
+        .image-container {
+			display: flex;
+			justify-content: center;
+			align-items: auto;
+			height: 10;
+            border-color: black;
+		}
+
+		.image {
+			max-width: 200px;
+			max-height: 200px;
+			width: auto;
+			height: auto;
+            border-color: black;
+		}
+        footer {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            }
+            
+            footer p {
+            margin: 0;
+            padding: 0;
+            }
+          h3{
+            text-align: center;
+            background-color: black;
+            color:red;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          }
+        
+	</style>
+    
+</head>
+<body>
+    <footer>
+		<p id="welcome-text">&copy; 2023 T-Services. All rights reserved.</p>
+	</footer>
+    <hr color="black">
+	<canvas id="canvas"></canvas>
+	<input type="color" id="colorPicker" alt="Under_Development" disabled> 
+	<script>
+		const canvas = document.querySelector('#canvas');
+		const context = canvas.getContext('2d');
+        const rect = canvas.getBoundingClientRect();
+
+
+		canvas.width = window.innerWidth * 0.8;
+		canvas.height = window.innerHeight * 0.8;
+
+		let isDrawing = false;
+		let color = 'black';
+
+		function startDrawing(event) {
+			isDrawing = true;
+			draw(event);
+		}
+
+		function stopDrawing() {
+			isDrawing = false;
+			context.beginPath();
+		}
+    
+        
+
+		function draw(event) {
+            if (!isDrawing) return;
+            const rect = canvas.getBoundingClientRect();
+            context.lineWidth = 10;
+            context.lineCap = 'round';
+            context.strokeStyle = 'Color';
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            context.lineTo(x, y);
+            context.stroke();
+            context.beginPath();
+            context.moveTo(x, y);
+          }
+          function setColor(newColor) {
+			color = newColor;
+			draw(event); // redraw the current drawing with the new color
+		}
+
+		canvas.addEventListener('mousedown', startDrawing);
+		canvas.addEventListener('mouseup', stopDrawing);
+		canvas.addEventListener('mousemove', draw);
+
+	
+        const colorPicker = document.querySelector('#colorPicker');
+colorPicker.addEventListener('change', function(event) {
+  setColor(this.value, event); // pass the 'event' variable as an argument
+});
+const img = new Image();
+img.src = 'https://i.ibb.co/jw8npKS/artt-2-0.jpg';
+
+img.onload = function() {
+  context.globalAlpha = 0.3; // set opacity level
+  context.drawImage(img, 0, 0, canvas.width, canvas.height); // draw image
+  context.globalAlpha = 1; // reset opacity level
+}
+
+	</script>
+    <hr color="black">
+    <h3 align:center>COLOR CHANGE HAS BEEN DISABLED DUE TO SOME ERRORS WE ARE WORKING ON IT!</h3>
+    <hr color="black">
+</body>
+</html>
