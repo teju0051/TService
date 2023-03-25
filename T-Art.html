@@ -160,8 +160,20 @@
 			draw(event); // redraw the current drawing with the new color
 		}
 canvas.addEventListener("mousedown", startDrawing);
+canvas.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    isDrawing = true;
+    lastX = event.clientX;
+    lastY = event.clientY;
+  });
 canvas.addEventListener("touchstart", function(event) {
   startDrawing(event.touches[0]);
+});
+canvas.addEventListener('touchstart', (event) => {
+  event.preventDefault();
+  isDrawing = true;
+  lastX = event.touches[0].clientX;
+  lastY = event.touches[0].clientY;
 });
 
 
