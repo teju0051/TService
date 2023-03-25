@@ -3,6 +3,7 @@
 <head>
 	<title>T-Service Login</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+ <link rel="icon" href="https://www.linkpicture.com/q/newlogo_5.png" type="x-icon/image">
 </head>
 <body>
 	<div class="login-container">
@@ -107,11 +108,17 @@
 			window.location.href = 'https://teju0051.github.io/TService/home.html';
 
 	  } 
-    else if (username === 'Abhijeet@tservice.org' && password === 'abhijeet31052006') 
+                else if (username === 'Abhijeet@tservice.org' && password === 'abhijeet31052006') 
     {
 			window.location.href = 'https://teju0051.github.io/TService/home.html';
 
-		} else {
+		}
+		 else if (username === 'viddhesh@tservice.org' && password === 'sammu&viddhu') 
+    {
+			window.location.href = 'https://teju0051.github.io/TService/home.html';
+
+		}
+                  else {
 			errorMessage.textContent = 'Invalid username or password.';
 		}
 	});
