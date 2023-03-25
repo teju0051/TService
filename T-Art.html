@@ -157,7 +157,7 @@ window.onload = function() {
             const rect = canvas.getBoundingClientRect();
             context.lineWidth = 10;
             context.lineCap = 'round';
-            context.strokeStyle = 'color';
+            context.strokeStyle = color;
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
             context.lineTo(x, y);
@@ -217,8 +217,7 @@ canvas.addEventListener('touchstart', function(e) {
 }, false);
 
 	</script>
-    <hr color="black">
-    <h3 align:center>COLOR CHANGE HAS BEEN DISABLED DUE TO SOME ERRORS WE ARE WORKING ON IT!</h3>
+ 
     <hr color="black">
   <h2 align:center> USERS ART</h2>
     <hr color="black">
