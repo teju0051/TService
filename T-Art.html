@@ -159,10 +159,14 @@
 			color = newColor;
 			draw(event); // redraw the current drawing with the new color
 		}
+canvas.addEventListener("mousedown", startDrawing);
+canvas.addEventListener("touchstart", startDrawing);
 
-		canvas.addEventListener('mousedown', startDrawing);
-		canvas.addEventListener('mouseup', stopDrawing);
-		canvas.addEventListener('mousemove', draw);
+canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("touchmove", draw);
+
+canvas.addEventListener("mouseup", stopDrawing);
+canvas.addEventListener("touchend", stopDrawing);
 
 	
         const colorPicker = document.querySelector('#colorPicker');
