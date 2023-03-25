@@ -119,7 +119,7 @@
 	<canvas id="canvas"></canvas>
 	<input type="color" id="colorPicker" alt="Under_Development" disabled> 
 	<script>
-		const canvas = document.querySelector('#canvas');
+		const canvas = document.querySelector('canvas');
 		const context = canvas.getContext('2d');
         const rect = canvas.getBoundingClientRect();
 
@@ -147,7 +147,7 @@
             const rect = canvas.getBoundingClientRect();
             context.lineWidth = 10;
             context.lineCap = 'round';
-            context.strokeStyle = 'Color';
+            context.strokeStyle = 'color';
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
             context.lineTo(x, y);
