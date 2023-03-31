@@ -1,3 +1,9 @@
+<!doctype html>
+<html>
+<head>
+<title>Staff Viewer</title>
+</head>
+<body>
 <div class="profile-container">
 	<div class="profile-card">
 	  <div class="profile-header">
@@ -122,3 +128,5 @@
 	margin-bottom: 10px;
   }
   </style>  
+</body>
+</html>
