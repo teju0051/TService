@@ -8,7 +8,7 @@
 <body>
 	<div class="login-container">
       <img src="https://www.linkpicture.com/q/newlogo_5.png" type="image">
-		<h1>Welcome to T-Service!</h1>
+		<h1>Welcome Back</h1>
 		<form  id="login-form" method="post">
 			<label for="username">Username:</label>
 			<input type="text" id="username" name="username" required>
@@ -18,68 +18,98 @@
 		</form>
     <p id="error-message"></p>
 	</div>
-  <style>body {
-    font-family: Arial, sans-serif;
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .login-container {
-    background-color: #444;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 50px auto;
-    max-width: 400px;
-    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.75);
-    border: 1px solid #777;
-  }
-  img{
-    width: 40%;
-      display: block;
-      margin: 0 auto;
-      background-color: white
-      
-      ;
-    }
-    
+  <style>
 
-  
-  h1 {
-    text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-top: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  input[type="text"],
-  input[type="password"],
-  input[type="submit"] {
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  input[type="submit"] {
-    background-color: #f60;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-    border: 2px solid #444;
-    border-radius: 5px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
+		body {
+			font-family: Arial, sans-serif;
+			background-image: url("https://wallpaperaccess.com/full/5622205.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			color: #fff;
+		  }
+		  
+		  .login-container {
+			background-color: rgba(0, 0, 0, 0.7);
+			border-radius: 10px;
+			padding: 20px;
+			margin: 50px auto;
+			max-width: 400px;
+			box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+			border: 1px solid #fff;
+		  }
+		  
+		  img {
+			width: 40%;
+			display: block;
+			margin: 0 auto;
+			background-color: white;
+		  }
+		  
+		  h1 {
+			text-align: center;
+			font-family: 'Press Start 2P', cursive;
+			font-size: 36px;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		  }
+		  
+		  form {
+			display: flex;
+			flex-direction: column;
+		  }
+		  
+		  label {
+			margin-top: 10px;
+			font-family: 'Press Start 2P', cursive;
+			font-size: 24px;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		  }
+		  
+		  input[type="text"],
+		  input[type="password"],
+		  input[type="submit"] {
+			padding: 10px;
+			margin-top: 5px;
+			border-radius: 5px;
+			border: none;
+			font-family: 'Press Start 2P', cursive;
+			font-size: 18px;
+			color: #fff;
+			background-color: rgba(255, 255, 255, 0.2);
+		  }
+		  
+		  input[type="submit"] {
+			background-color: #f00;
+			color: #fff;
+			font-weight: bold;
+			cursor: pointer;
+			box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+			border: 2px solid #fff;
+			border-radius: 5px;
+			font-family: 'Press Start 2P', cursive;
+			font-size: 18px;
+		  }
+		  
+		  #error-message {
+			color: red;
+			font-family: 'Press Start 2P', cursive;
+			font-size: 18px;
+		  }
+		  
+	
+	#error-message {
+		color: #f00;
+	}
+	
+	@media only screen and (max-width: 600px) {
+		.login-container {
+			margin: 20px auto;
+			max-width: 90%;
+		}
+		img {
+			width: 60%;
+		}
+	}
   #error-message {
     color: red;
   }
