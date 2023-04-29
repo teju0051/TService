@@ -574,27 +574,46 @@ var countdownInterval = setInterval(function() {
         text-shadow: 2px 2px #222;
     }
     
-    table {
+  table {
         border-collapse: collapse;
         width: 100%;
-    }
-    
-    th, td {
-        border: 2px solid #ff9933;
+        background-color: #333;
+        color: #fff;
+        font-size: 16px;
+      }
+      
+      th, td {
+        border: 2px solid #fff;
         padding: 10px;
         text-align: center;
-    }
-    
-    thead {
+      }
+      
+      thead {
         background-color: #ff9933;
-        color: #222;
         text-transform: uppercase;
         letter-spacing: 1px;
-    }
-    
-    tbody tr:nth-child(even) {
-        background-color: #333;
-    }
+      }
+      
+      tbody tr:nth-child(even) {
+        background-color: #444;
+      }
+      
+      tbody td:first-child {
+        font-weight: bold;
+        color: #ff9933;
+        font-size: 24px;
+      }
+      
+      tbody td:nth-child(2) {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      tbody td:last-child {
+        font-weight: bold;
+        color: #fff;
+        font-size: 24px;
+      }
     
     /* Footer Styles */
     footer {
