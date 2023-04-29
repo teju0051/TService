@@ -574,33 +574,39 @@ var countdownInterval = setInterval(function() {
         text-shadow: 2px 2px #222;
     }
     
-  table {
+   table {
         border-collapse: collapse;
         width: 100%;
-        background-color: #333;
+        background-color: #222;
         color: #fff;
         font-size: 16px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
       }
       
       th, td {
-        border: 2px solid #fff;
-        padding: 10px;
+        border: none;
+        padding: 20px;
         text-align: center;
+        font-weight: 600;
       }
       
       thead {
         background-color: #ff9933;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
       }
       
       tbody tr:nth-child(even) {
-        background-color: #444;
+        background-color: #333;
       }
       
       tbody td:first-child {
         font-weight: bold;
-        color: #ff9933;
+        color: #ffffff;
         font-size: 24px;
       }
       
@@ -614,15 +620,14 @@ var countdownInterval = setInterval(function() {
         color: #fff;
         font-size: 24px;
       }
-    
-    /* Footer Styles */
-    footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-        text-shadow: 2px 2px #ff9933;
-    }
+      
+      tbody tr:hover {
+        background-color: #ff9933;
+        color: #222;
+        transform: translateY(-5px);
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+        cursor: pointer;
+      }
     
     footer p {
         font-size: 18px;
