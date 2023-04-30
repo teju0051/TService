@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="icon" type="x/image" href="https://i.ibb.co/XZQ1v5G/ffloho.jpg">
-    <!---
+	<title>Loading Spinner with Message and Container</title>
 	<style>
 		/* Style for the container */
 		.container {
@@ -60,16 +59,16 @@
 	</style>
 </head>
 <body>
-	<!- The container for the loading spinner and message 
+	<!-- The container for the loading spinner and message -->
 	<div class="overlay">
 		<div class="container">
 			<div class="spinner"></div>
-			<div class="message">The score will be updated soon.<br>Please check back later</div>
+			<div class="message">The score is being calculated.<br>Please check back later</div>
 		</div>
 	</div>
-
-	 Your website content goes here -->
-
+	
+	<!-- Your website content goes here -->
+	
 
 	<title>TGC Freefire Tournament</title>
 	<link rel="stylesheet" href="style.css">
@@ -105,66 +104,66 @@
 				<tr>
 					<td>1</td>
 					<td>The Uchihas</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
 				<tr>
 					<td>1</td>
 					<td>Executer Samurais</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
 				<tr>
 					<td>1</td>
 					<td>TEAM HURRICANE</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
 				<tr>
 					<td>1</td>
 					<td>Inferno squad</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
                 <tr>
 					<td>1</td>
 					<td>Ꮢᴏʏᴀʟ亗Ꮸʀᴏᴡɴ</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
                 <tr>
 					<td>1</td>
 					<td>Ꮢᴏʏᴀʟ亗ꫝʀᴍʏ</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
                 <tr>
 					<td>1</td>
 					<td>ICE HANDED TGC</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
                 <tr>
 					<td>1</td>
 					<td>FIRE HANDED TGC</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
                 <tr>
 					<td>1</td>
 					<td>SG_COMRADES</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
                 <tr>
 					<td>1</td>
 					<td>X-ARMY </td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
                  <tr>
 					<td>1</td>
 					<td>REVENGERS </td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
 	                <td>1</td>
 					<td>TITAZ EZ</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
                 <tr>
 					<td>1</td>
 					<td>VR Homies</td>
-					<td>0</td>
+					<td class="counter">0</td>
 				</tr>
 			</tbody>
 		</table>
@@ -579,7 +578,7 @@
                     </tr>
                     </thead>
                     <tr>
-                    <td>Parab</td>
+                    <td>Mayuresh</td>
                     <td><a href="https://www.instagram.com/tgc_parab/">
                         <button>CHAT NOW</button>
                       </a></td>
@@ -792,7 +791,20 @@
       }
       
     </style>
-    
+    <script> 
+
+        var counters = document.querySelectorAll(".counter");
+        var count = 0;
+        setInterval(function() {
+          count++;
+          if (count > 100) {
+            count = 1;
+          }
+          for (var i = 0; i < counters.length; i++) {
+            counters[i].innerHTML = count;
+          }
+        }, 10);
+    </script>
 </body>
 </html>
 
