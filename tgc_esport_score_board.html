@@ -2,7 +2,60 @@
 <html>
 <head>
 
-	
+	<div id="popup">
+        <div class="popup-content">
+          <h2>Important Notice</h2><hr><br><br><br><br>
+        <h3> Dear TGC E-sports teams,<br><br><br>
+          We have detected suspicious activity from two players in the tournament,<br>
+             and we are investigating the matter. Any player found guilty of using hacks will be banned.<br><br><br>
+             For security reasons, we cannot disclose the identities of the suspected players.<br>
+              Please report any suspicious activity you find in the match, and thank you for your cooperation.<br><br><br>
+          Sincerely,<br>TGC E-sports Management Team<br><br></h3><hr><br>
+          <button onclick="closePopup()">OK</button><br><br><hr>
+        </div>
+      </div>
+      <style>#popup {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+      
+      .popup-content {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        padding: 20px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90%;
+        max-height: 90%;
+        overflow-y: auto;
+      }
+      </style>
+      <script>window.onload = function() {
+        openPopup();
+      };
+      
+      function openPopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "block";
+      }
+      
+      function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+      }
+      </script>
+      
 
 	<title>TGC Freefire Tournament</title>
 	<link rel="stylesheet" href="style.css">
