@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="icon" type="image/png" href="https://i.ibb.co/jw8npKS/artt-2-0.jpg">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Z64rvPP/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59.png">
     <meta charset="UTF-8">
-<script type="text/javascript">
-  document.addEventListener("contextmenu", function(e){
-    e.preventDefault();
-  }, false);
-</script>
+    <script type="text/javascript">
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        }, false);
+    </script>
     <title>Paint app</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body  onload="alert('Before sharing us your Art please take screenshot and then click/tap on Share your art')">
+<body onload="alert('Before sharing your art, please download your art')">
     <header>
-		<img src="https://i.ibb.co/jw8npKS/artt-2-0.jpg" class="logo">
+        <img src="https://i.ibb.co/Z64rvPP/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59.png" class="logo">
         <h1>Digital Art</h1>
     </header>
     <nav>
@@ -21,278 +21,284 @@
             <li><a href="https://teju0051.github.io/TService/home.html">Home</a></li>
             <li><a href="https://teju0051.github.io/TService/T-Games.html">T-Games</a></li>
             <li><a href="https://teju0051.github.io/TService/T-Tech.html">T-Tech</a></li>
-	
-			
         </ul>
     </nav>
     <main>
-		<canvas id="canvas"></canvas>
-		<input type="color" id="colorPicker" alt="Under_Development"> 
+        <canvas id="canvas"></canvas>
+        <input type="color" id="colorPicker" alt="Under_Development">
 
-		
-		<script>
-			const canvas = document.querySelector('canvas');
-			const context = canvas.getContext('2d');
-			const rect = canvas.getBoundingClientRect();
-	
-	
-			canvas.width = window.innerWidth * 0.8;
-			canvas.height = window.innerHeight * 0.8;
-	
-			let isDrawing = false;
-			let color = 'black';
+        <script>
+            const canvas = document.querySelector('canvas');
+            const context = canvas.getContext('2d');
+            const rect = canvas.getBoundingClientRect();
 
-			context.fillStyle = 'white'; 
-            context.fillRect(0, 0, canvas.width, canvas.height); 
-	
-			function startDrawing(event) {
-				isDrawing = true;
-				draw(event);
-			}
-	
-			function stopDrawing() {
-				isDrawing = false;
-				context.beginPath();
-			}
-		
-			
-	
-			function draw(event) {
-				if (!isDrawing) return;
-				const rect = canvas.getBoundingClientRect();
-				context.lineWidth = 10;
-				context.lineCap = 'round';
-				context.strokeStyle = color;
-				const x = event.clientX - rect.left;
-				const y = event.clientY - rect.top;
-				context.lineTo(x, y);
-				context.stroke();
-				context.beginPath();
-				context.moveTo(x, y);
-			  }
-			  function setColor(newColor) {
-				color = newColor;
-				draw(event); // redraw the current drawing with the new color
-			}
-	canvas.addEventListener("mousedown", startDrawing);
-	canvas.addEventListener('mousedown', (event) => {
-		event.preventDefault();
-		isDrawing = true;
-		lastX = event.clientX;
-		lastY = event.clientY;
-	  });
-	canvas.addEventListener("touchstart", function(event) {
-	  startDrawing(event.touches[0]);
-	});
-	canvas.addEventListener('touchstart', (event) => {
-	  event.preventDefault();
-	  isDrawing = true;
-	  lastX = event.touches[0].clientX;
-	  lastY = event.touches[0].clientY;
-	});
-	
-	
-	canvas.addEventListener("mousemove", draw);
-	canvas.addEventListener("touchmove", function(event) {
-	  draw(event.touches[0]);
-	});
-	
-	canvas.addEventListener("touchend", stopDrawing);
-	canvas.addEventListener("mouseup", stopDrawing);
-	
-	
-		
-			const colorPicker = document.querySelector('#colorPicker');
-	colorPicker.addEventListener('change', function(event) {
-	  setColor(this.value, event); // pass the 'event' variable as an argument
-	});
-	const img = new Image();
-	img.src = 'https://i.ibb.co/jw8npKS/artt-2-0.jpg';
-	
-	img.onload = function() {
-	  context.globalAlpha = 0.3; // set opacity level
-	  context.drawImage(img, 0, 0, canvas.width, canvas.height); // draw image
-	  context.globalAlpha = 1; // reset opacity level
-	}
-	
-	
-	
-	canvas.addEventListener('touchstart', function(e) {
-		// do something when a touch event is detected, such as updating the canvas
-	}, false);
-	
+            canvas.width = window.innerWidth * 0.8;
+            canvas.height = window.innerHeight * 0.8;
 
+            let isDrawing = false;
+            let color = 'black';
 
+            context.fillStyle = 'white';
+            context.fillRect(0, 0, canvas.width, canvas.height);
 
-  
-		</script>
-    <canvas id="game-canvas"></canvas>
-		<hr color="black">
-		<h4 class="but">CONTROLS</h4>
-		<button onclick="location.reload()">Clear All</button>
-		<button onclick="window.location.href='https://teju0051.github.io/TService/home.html';"> Back</button>
-		<button onclick="alert('Tool will be available soon')">Change Stroke Style</button>
+            function startDrawing(event) {
+                isDrawing = true;
+                draw(event);
+            }
 
-		<button onclick="window.location.href='https://forms.gle/L9qnGDTD5s6C8SjP8';">Save Your Art</button>
-		<button onclick="window.location.href='https://forms.gle/fnfGjyd4nwComz9F8';">Feedback</button>
+            function stopDrawing() {
+                isDrawing = false;
+                context.beginPath();
+            }
 
-		
-		
+            function draw(event) {
+                if (!isDrawing) return;
+                const rect = canvas.getBoundingClientRect();
+                context.lineWidth = 10;
+                context.lineCap = 'round';
+                context.strokeStyle = color;
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                context.lineTo(x, y);
+                context.stroke();
+                context.beginPath();
+                context.moveTo(x, y);
+            }
 
+            function setColor(newColor) {
+                color = newColor;
+                draw(event); // redraw the current drawing with the new color
+            }
 
-		<hr color="black">
-		<h3> USERS ART</h3>
-		  <hr color="black">
-		  <div style="text-align:center;">
-		  <img src="https://i.ibb.co/rbJCZr2/TService-at-main-teju0051-TService-Git-Hub-Google-Chrome-24-03-2023-20-47-48.png" width="300" height="200" border="1" class="img">
-		  <img src="https://i.ibb.co/5RdJJWC/Paint-App-Google-Chrome-25-03-2023-10-32-15.png" width="300" height="200" border="1" class="img">
-		  <img src="https://i.ibb.co/BK6t33L/Paint-App-Google-Chrome-25-03-2023-12-43-11.png" width="300" height="200" border="1" class="img">
-		  <img src="https://i.ibb.co/zFnp50g/Paint-App-Google-Chrome-25-03-2023-17-03-27.png" width="300" height="200" border="1" class="img">
-		  <img src="https://i.ibb.co/mXLCL55/Paint-App-Google-Chrome-25-03-2023-21-18-59.png" width="300" height="200" border="1" class="img">
-		  <img src="https://i.ibb.co/5hJ4Q7x/Bing-Google-Chrome-26-03-2023-21-13-36.png" width="300" height="200" border="1" class="img">
-		  <hr color="black">
-     
-		  <h2>ABOUT T-ARTS</h2>
-		  <hr color="black">
-		  <p>T-Art is a creative platform that allows users to express their artistic
-			 side through a range of digital tools and resources. Whether you're a professional 
-			 artist or simply looking to explore your creative side, T-Art has everything you need
-			  to bring your ideas to life. Our platform is intuitive and user-friendly, making it easy for 
-			  anyone to get started.</p>
-    </main>
+            canvas.addEventListener("mousedown", startDrawing);
+            canvas.addEventListener('mousedown', (event) => {
+                event.preventDefault();
+                isDrawing = true;
+                lastX = event.clientX;
+                lastY = event.clientY;
+            });
+            canvas.addEventListener("touchstart", function (event) {
+                startDrawing(event.touches[0]);
+            });
+            canvas.addEventListener('touchstart', (event) => {
+                event.preventDefault();
+                isDrawing = true;
+                lastX = event.touches[0].clientX;
+                lastY = event.touches[0].clientY;
+            });
+
+            canvas.addEventListener("mousemove", draw);
+            canvas.addEventListener("touchmove", function (event) {
+                draw(event.touches[0]);
+            });
+
+            canvas.addEventListener("touchend", stopDrawing);
+            canvas.addEventListener("mouseup", stopDrawing);
+
+            const colorPicker = document.querySelector('#colorPicker');
+            colorPicker.addEventListener('change', function (event) {
+                setColor(this.value, event); // pass the 'event' variable as an argument
+            });
+
+            const img = new Image();
+            img.crossOrigin = "Anonymous"; // Set the crossOrigin attribute to request the image with CORS headers
+            img.src = 'https://i.ibb.co/Z64rvPP/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59.png';
+
+            img.onload = function () {
+                context.globalAlpha = 0.3; // set opacity level
+                context.drawImage(img, 0, 0, canvas.width, canvas.height); // draw image
+                context.globalAlpha = 1; // reset opacity level
+            }
+
+            function downloadImage() {
+                // Convert canvas to data URL
+                const dataURL = canvas.toDataURL('image/png');
+
+                // Create a temporary link
+                const link = document.createElement('a');
+                link.href = dataURL;
+                link.download = 'my_drawing.png'; // Change the filename as needed
+
+                // Trigger the download
+                link.click();
+            }
+
+        </script>
+        <canvas id="game-canvas"></canvas>
+        <hr color="black">
+        <h4 class="but">CONTROLS</h4>
+        <button onclick="location.reload()">Clear All</button>
+        <button onclick="window.location.href='https://teju0051.github.io/TService/home.html';"> Back</button>
+        <button onclick="alert('Tool will be available soon')">Change Stroke Style</button>
+        <button onclick="downloadImage()">Download Art</button>
+        <button onclick="window.location.href='https://forms.gle/L9qnGDTD5s6C8SjP8';">Share Your Art</button>
+        <button onclick="window.location.href='https://forms.gle/fnfGjyd4nwComz9F8';">Feedback</button>
+
+        <hr color="black">
+        <h3> USERS ART</h3>
+        <hr color="black">
+        <div style="text-align:center;">
+            <img src="https://i.ibb.co/rbJCZr2/TService-at-main-teju0051-TService-Git-Hub-Google-Chrome-24-03-2023-20-47-48.png" width="300" height="200" border="1" class="img">
+            <img src="https://i.ibb.co/5RdJJWC/Paint-App-Google-Chrome-25-03-2023-10-32-15.png" width="300" height="200" border="1" class="img">
+            <img src="https://i.ibb.co/BK6t33L/Paint-App-Google-Chrome-25-03-2023-12-43-11.png" width="300" height="200" border="1" class="img">
+            <img src="https://i.ibb.co/zFnp50g/Paint-App-Google-Chrome-25-03-2023-17-03-27.png" width="300" height="200" border="1" class="img">
+            <img src="https://i.ibb.co/mXLCL55/Paint-App-Google-Chrome-25-03-2023-21-18-59.png" width="300" height="200" border="1" class="img">
+            <img src="https://i.ibb.co/5hJ4Q7x/Bing-Google-Chrome-26-03-2023-21-13-36.png" width="300" height="200" border="1" class="img">
+            <img src="https://i.ibb.co/x8tx7Bx/my-drawing.png" width="300" height="200" border="1" class="img">
+            <hr color="black">
+
+            <h2>ABOUT T-ARTS</h2>
+            <hr color="black">
+            <p>T-Art is a creative platform that allows users to express their artistic
+                side through a range of digital tools and resources. Whether you're a professional
+                artist or simply looking to explore your creative side, T-Art has everything you need
+                to bring your ideas to life. Our platform is intuitive and user-friendly, making it easy for
+                anyone to get started.</p>
+        </div>
+    </main> <br>
     <footer>
-        <p>&copy; 2023 T-Service</p>
+        <p>&copy; 2023 T-Service. All rights reserved.</p>
     </footer>
 
-	
+    <style>
+        @media (min-width: 768px) {
+            .logo {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100px; /* adjust the size as needed */
+                height: auto;
+                margin: 10px;
+            }
+        }
 
-<style>
-	@media (min-width: 768px) {
-		.logo {
-		  position: absolute;
-		  top: 0;
-		  left: 0;
-		  width: 100px; /* adjust the size as needed */
-		  height: auto;
-		  margin: 10px;
-		}}
-	.but{
-		background-color: #333;
-		padding: 20px;
+        .but {
+            background-color: #333;
+            padding: 20px;
+        }
 
-	}
-	.img {
-		height: 300px;
-		width: 300px;
-		margin-bottom: 20px;
-		
-	}
-	h3{
-		background-color: #333;
-		padding: 20px;
-		text-align: center;
-	}
+        .img {
+            height: 300px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
 
-	@media only screen and (max-width: 600px) {
-		canvas {
-			 position: fixed;
-			 top: 0;
-			 left: 0;
-			 display: block;
-			 margin: auto;
-			 background-color: royalblue;
-			
-		   }
+        h3 {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+        }
 
-		}
-	/* Body */
-body {
-    background-color: #111;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
-    line-height: 1.5;
-}
+        @media only screen and (max-width: 600px) {
+            canvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: block;
+                margin: auto;
+                background-color: royalblue;
 
-/* Header */
-header {
-    padding: 20px;
-    text-align: center;
-    background-color: #222;
-    border-bottom: 2px solid #c00;
-}
+            }
 
-/* Navigation */
-nav {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #333;
-    border: 2px solid #c00;
-    box-shadow: 0 0 10px #c00;
-}
+        }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        /* Body */
+        body {
+            background-color: #111;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            line-height: 1.5;
+        }
 
-nav li {
-    display: inline-block;
-    margin-right: 20px;
-}
+        /* Header */
+        header {
+            padding: 20px;
+            text-align: center;
+            background-color: #222;
+            border-bottom: 2px solid #CBB26A;
+        }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-}
+        /* Navigation */
+        nav {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            border: 2px solid #CBB26A;
+            box-shadow: 0 0 10px #CBB26A;
+        }
 
-nav a:hover {
-    color: #c00;
-    text-decoration: underline;
-}
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Main Content */
-main {
-    padding: 20px;
-    background-color: #222;
-    border: 2px solid #c00;
-    box-shadow: 0 0 10px #c00;
-}
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
 
-/* Buttons */
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #c00;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-}
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-button:hover {
-    background-color: #900;
-}
+        nav a:hover {
+            color: #ffd900;
+            text-decoration: underline;
+        }
 
-/* Images */
-img {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
-    box-shadow: 0 0 10px #c00;
-}
+        /* Main Content */
+        main {
+            padding: 20px;
+            background-color: #222;
+            border: 2px solid #CBB26A;
+            box-shadow: 0 0 10px #CBB26A;
+        }
 
-/* Footer */
-footer {
-    padding: 20px;
-    text-align: center;
-    background-color: #222;
-    border-top: 2px solid #c00;
-}
+        /* Buttons */
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #CBB26A;
+            color: black;
+            font-size: 18px;
+            cursor: pointer;
+        }
 
-</style>
+        button:hover {
+            background-color: #ffd900;
+        }
 
+        /* Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            box-shadow: 0 0 10px #CBB26A;
+        }
 
+        /* Footer */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #222;
+            border-top: 2px solid #CBB26A;
+        }
+
+    </style>
+
+    <script>
+      function checkOrientation() {
+          if (window.innerHeight > window.innerWidth) {
+              alert("Please switch to landscape mode for the best experience.");
+          }
+      }
+  
+      window.addEventListener("orientationchange", checkOrientation);
+      checkOrientation(); // Check orientation on page load
+  </script>
 </body>
 </html>
