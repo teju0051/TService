@@ -2,6 +2,8 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image" href="https://i.ibb.co/NVqD5fw/t-service-blcack.jpg">
+    <title>Geography Team 06</title>
     <style>
      /* Common styles */
 body {
@@ -97,17 +99,8 @@ button:hover {
 }
 
 
-/* Media queries for different screen sizes */
-@media (max-width: 768px) {
-  /* Styles for screens up to 768px width */
-  body {
-      background-color: #f7f7f7;
-  }
-  
-  .login-container {
-      background-color: #f9f9f9;
-  }
-}
+
+
 
 
     </style>
@@ -142,6 +135,9 @@ button:hover {
             document.getElementById("error-message").textContent = "Invalid username or password.";
         }
     });
+    window.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+  }, false);
     
     </script>
 </body>
