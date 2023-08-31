@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+     /* Common styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2019/07/geography-apps.jpg');
+  background-repeat: no-repeat; /* Add this line */
+  background-size: cover; 
+}
+
+.login-container {
+  background: linear-gradient(to bottom, rgba(141, 190, 99, 0.7), rgba(139, 69, 19, 0.7), rgba(135, 206, 235, 0.7));
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 0%, rgba(255, 165, 0, 0.5) 25%, transparent 50%);
+  transform: rotate(45deg);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: rotate(45deg) translateX(-150%);
+  }
+  100% {
+    transform: rotate(45deg) translateX(150%);
+  }
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: orange;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #FF4500; /* Orange-Red */
+  color: black;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #FF6347; /* Slightly lighter shade */
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+
+.rectangle-photo {
+  width: 180px;
+  height: 100px; /* You can adjust the height */
+  overflow: hidden;
+  margin: 0 auto 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rectangle-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Media queries for different screen sizes */
+@media (max-width: 768px) {
+  /* Styles for screens up to 768px width */
+  body {
+      background-color: #f7f7f7;
+  }
+  
+  .login-container {
+      background-color: #f9f9f9;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="rectangle-photo">
+        <img src="https://i.ibb.co/NVqD5fw/t-service-blcack.jpg" alt="User Photo">
+    </div>
+    <h1>Login</h1>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button><br><br>
+        <b>&copy;2023 T-Service. All rights reserved.</b>
+    </form>
+    <p id="error-message" class="error"></p>
+</div>
+
+    <script>
+      document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+    
+        if (username === "Tejas@123" && password === "tejas2620") {
+            // Replace "yourUsername" and "yourPassword" with actual credentials
+            document.getElementById("error-message").textContent = "";
+            // Redirect to another page after successful login
+            window.location.href = "https://www.canva.com/design/DAFsLWTqdww/onJwEbPv0-iKCtE-LY4bdg/edit"; // Replace with your desired URL
+        } else {
+            document.getElementById("error-message").textContent = "Invalid username or password.";
+        }
+    });
+    
+    </script>
+</body>
+</html>
