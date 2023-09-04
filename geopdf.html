@@ -120,7 +120,23 @@ button:hover {
 				setTimeout(function() {
 					window.location.href = "https://www.canva.com/design/DAFsLWTqdww/onJwEbPv0-iKCtE-LY4bdg/edit"; // Replace with your desired URL
 				}, 3000); // 3000 milliseconds = 3 seconds
-			} else {
+			}
+            
+            if (username === "Class-7C" && password === "Lrtps.kamothe") {
+				// Replace "yourUsername" and "yourPassword" with actual credentials
+				document.getElementById("error-message").textContent = "";
+		
+				// Play the audio
+				const audio = document.getElementById("login-audio");
+				audio.play();
+		
+				// Redirect to another page after a delay
+				setTimeout(function() {
+					window.location.href = "https://teju0051.github.io/Lrtps.kamothe/class-7-test.html"; // Replace with your desired URL
+				}, 3000); // 3000 milliseconds = 3 seconds
+			}
+            
+            else {
 				document.getElementById("error-message").textContent = "Invalid username or password.";
 			}
 		});
