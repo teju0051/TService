@@ -9,9 +9,9 @@
 	<link rel="icon" href="https://i.ibb.co/NVqD5fw/t-service-blcack.jpg" type="image">
 	
 </head>
-<body>
-	<header>
-		<img src="https://i.ibb.co/NVqD5fw/t-service-blcack.jpg" class="img" type="image" id="welcome-text">
+<body><br><br>
+	<header id="sticky-header">
+		<img src="https://i.ibb.co/D7yvFLg/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-40-09.png" class="img" type="image" id="welcome-text">
 		<nav>
 			<ul>
 				<li id="welcome-text"><a href="https://teju0051.github.io/TService/home.html" class="token">Home</a></li>
@@ -20,40 +20,40 @@
 				<li id="welcome-text"><a href="https://teju0051.github.io/TService/T-Art.html" class="token">Art</a></li>
 				<li id="welcome-text"><a href="https://teju0051.github.io/TService/ourteam.html" class="token">Our Team</a></li>
 				<li id="welcome-text"><a href="https://forms.gle/fbzUBsc5TK2oNCa17"class="token">Contact Us</a></li>
+        <li id="welcome-text"><a href=""class="token"></a></li>
 			</ul>
 		</nav>
 	</header>
 	
 	<main>
-		<section id="banner">
-			<h1 id="welcome-text">Welcome to T-Service</h1>
-			<p id="welcome-text"> We are committed to providing our customers with the best possible experience on all of our platforms. Whether you're a gamer, an artist, or a tech enthusiast, we have something for you. Join us today and discover the power of T Service.</p>
-		</section>
+    <section id="banner">
+    
+  </section>
 		
 		<section id="featured-games">
 			<h2 id="welcome-text">OUR PLATFORMS</h2>
 			<ul>
 				<li>
 					<a href="https://teju0051.github.io/TGames/Home.html">
-						<img src="https://i.ibb.co/0hFwFtS/Check-out-my-new-logo-made-on-Looka-Google-Chrome-19-07-2023-16-48-54.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
+						<img src="https://i.ibb.co/3TvyZ3y/Check-out-my-new-logo-made-on-Looka-Google-Chrome-05-09-2023-14-12-08.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
 					</a>
 					<h3 id="welcome-text">GAMING</h3>
 				</li>
 				<li>
 					<a href="https://teju0051.github.io/TService/T-Tech.html"> 
-						<img src="https://i.ibb.co/JyhKLB5/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59-png-509-5.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
+						<img src="https://i.ibb.co/xhKH7pV/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-43-00-Copy.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
 					</a>
 					<h3 id="welcome-text">Technology</h3>
 				</li>
 				<li>
 					<a href="https://teju0051.github.io/TService/T-Art.html">
-						<img src="https://i.ibb.co/Z64rvPP/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
+						<img src="https://i.ibb.co/VDGXWQn/Whats-App-Image-2023-08-26-at-8-50-55-AM.jpg" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
 					</a>
 					<h3 id="welcome-text">PAINTING</h3>
 				</li>
 				<br>
-				<li>
-					<a href="https://teju0051.github.io/TService/tgc_esport_score_board.html">
+				<li><!---
+					<a href="https://teju0051.github.io/TService/tgc_esport_score_board.html"> -->
 						<img src="https://i.ibb.co/R6wtSww/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59-png-509-5.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
 					</a>
 					<h3 id="welcome-text">Coming Soon..</h3>
@@ -77,7 +77,51 @@
 	<footer>
 		<p id="welcome-text">&copy; 2023 T-Services. All rights reserved.</p>
 	</footer>
+	
+	<script>
+		// JavaScript code for detecting mobile devices and showing a warning message
+		function isMobileDevice() {
+		  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+		}
+	
+		// Show a warning message if the user is on a mobile device
+		window.onload = function () {
+		  if (isMobileDevice()) {
+			var confirmation = confirm("This website does not fully support mobile devices. Do you want to continue?");
+			if (!confirmation) {
+			  window.close(); // Close the browser if the user chooses not to continue
+			}
+		  }
+		}
+	  </script>
 	<style>
+		
+    #sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333; /* Add your desired background color */
+      color: white; /* Text color for the header */
+      padding: 10px; /* Adjust padding as needed */
+      z-index: 100; /* Ensure the header appears above other content */
+  }
+    #banner {
+      position: relative;
+  }
+
+  #banner::after {
+      content: "";
+      background-image: url('https://i.ibb.co/7RDqk71/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-40-09-Copy-removebg-preview.png');
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: -39%;
+      width: 180%;
+      height: 120%;
+      opacity: 100; /* Adjust the opacity as needed */
+	  
+  }
 		.red{
 			color:red;
 		}
@@ -86,10 +130,10 @@
 			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		}
 		h2{
-			color:#CBB26A;
+			color:#000000b2;
 			text-align: center;
 			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-			background-color:rgb(116, 83, 0);
+      background: linear-gradient(to bottom, black, white);
 		}
 		.img{
 			position:relative;
@@ -97,23 +141,27 @@
 			height: 50%;
 			border-style: double;
 			border-radius: 10px;
+      opacity: 80%; 
 		}
 		.token{
 			color: black;
 			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		}
 		body {
-			zoom: 125%;
+			zoom: -100%;
+      margin-top: 80px;
 			webkit-transform: scale(1.25); 
 			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 			margin: 0;
 			padding: 0;
-			background-color: #000000;
-			color:rgb(112, 36, 36);
+			background-color: black;
+			color:rgb(0, 0, 0);
  overflow:scroll;
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center center;
+      overflow-x: hidden;
+  
 		}
 		b{
 			color:red;
@@ -122,7 +170,7 @@
 			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 		}
 		header {
-			background-color: #CBB26A;
+      background: linear-gradient(to bottom, black, white);
 			color: #000000;
 			display: flex;
 			justify-content: space-between;
@@ -134,10 +182,11 @@
 			display: flex;
 			list-style: none;
 			margin: 0;
-			padding: 0;
+			padding: 3px;
 		}
 		nav li {
 			margin: 0 10px;
+      
 		}
 		nav a {
 			color: #fff;
@@ -156,7 +205,7 @@
 			background-image: url(banner.jpg);
 			background-size: cover;
 			background-position: center;
-			color: #CBB26A;
+			color: #000000;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -169,6 +218,7 @@
 		}
 		#welcome-text {
 			animation: slide-in 1s ease-out forwards;
+      
 		}
 		@keyframes slide-in {
 			from {
@@ -192,15 +242,18 @@
 			margin: 0;
 			padding: 0;
 		}
-		#featured-games li {
-			background-color: #d8c690;
-			border: 1px solid #ccc;
-			box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-			flex-basis: calc(33.33% - 20px);
-			margin-bottom: 20px;
-			padding: 20px;
-			text-align: center;
-		}
+    #featured-games li {
+      background: linear-gradient(to bottom, black, white);
+      border: 3px solid #ccc;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      flex-basis: calc(33.33% - 20px);
+      margin-bottom: 20px;
+      padding: 0px;
+      text-align: center;
+      /* Add margin to the top to shift the image downwards */
+      margin-top: 10px; /* Adjust this value as needed */
+  }
+  
 		#featured-games li:hover {
 			box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 			transform: translateY(-5px);
@@ -226,18 +279,8 @@
 			padding: 10px;
 			width: 100%;
 		}
-		form input[type="submit"] {
-			background-color: #1a1a1a;
-			color: #fff;
-			cursor: pointer;
-			font-size: 16px;
-			padding: 10px 20px;
-		}
-		form input[type="submit"]:hover {
-			background-color: #be9e44;
-		}
 		footer {
-			background-color: #e5d9b6;
+      background: linear-gradient(to bottom, black, white);
 			padding: 20px;
 			text-align: center;
 		}
@@ -247,61 +290,23 @@
 		}
 		@media (max-width: 768px) {
 			header {
-				flex-direction: column;
+			flex-direction: column;
 			}
 			nav ul {
 				flex-direction: column;
 			}
+			
 			nav li {
 				margin: 10px 0;
 			}
+			
 			#featured-games li {
 				flex-basis: 100%;
 				margin: 10px 0;
 			}
-		}
+		}				
+	
 	</style>
-	<script>
-        class Game {
-            constructor(name, description, imageUrl) {
-                this.name = name;
-                this.description = description;
-                this.imageUrl = imageUrl;
-            }
-            // getters and setters
-            getName() {
-                return this.name;
-            }
-            setName(name) {
-                this.name = name;
-            }
-            getDescription() {
-                return this.description;
-            }
-            setDescription(description) {
-                this.description = description;
-            }
-            getImageUrl() {
-                return this.imageUrl;
-            }
-            setImageUrl(imageUrl) {
-                this.imageUrl = imageUrl;
-            }
-        }
-        
-        class TGamesPlatform {
-            constructor() {
-                this.games = [];
-            }
-            addGame(game) {
-                this.games.push(game);
-            }
-            // getters
-            getGames() {
-                return this.games;
-            }
-        }
-        
-    </script>
+	
 </body>
 </html>
