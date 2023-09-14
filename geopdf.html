@@ -2,6 +2,8 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" type="image" href="https://i.ibb.co/NVqD5fw/t-service-blcack.jpg">
     <title>Geography Team Login</title>
     <style>
@@ -85,6 +87,42 @@ button:hover {
   height: 100%;
   object-fit: cover;
 }
+/* Add a media query for smaller screens */
+@media (max-width: 768px) {
+	/* Common styles */
+body {
+	/* Existing styles here */
+  
+	/* Add the following for responsiveness */
+	background-size: cover;
+	background-attachment: fixed;
+  }
+  
+  .login-container {
+	/* Existing styles here */
+  
+	/* Add the following for responsiveness */
+	max-width: 400px; /* Adjust the max-width as needed */
+	width: 90%;
+  }
+  
+  /* Add a media query for smaller screens */
+  @media (max-width: 768px) {
+	body {
+	  background-attachment: scroll; /* Change to scroll on smaller screens */
+	}
+	
+	.login-container {
+	  padding: 10px; /* Adjust padding as needed */
+	}
+  }
+}  
+.rectangle-photo img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+  }
+  
     </style>
 </head>
 <body>
