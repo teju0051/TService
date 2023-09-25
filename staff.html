@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moderator Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent blue background */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle border at the bottom */
+        }
+        
+        nav {
+            background-color: rgba(0, 86, 179, 0.8); /* Semi-transparent blue background */
+            color: white;
+            padding: 10px;
+            backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle border at the bottom */
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center; /* Center align navigation links on smaller screens */
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+            color: #ff9900;
+        }
+        .button{
+            color: aqua;
+        }
+
+        /* Responsive CSS for smaller screens */
+        @media screen and (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+
+        .alert, .warning {
+            background-color: transparent;
+            color: black;
+            padding: 10px; /* Increase padding for better mobile readability */
+            border-radius: 10px;
+            text-align: center;
+            border-color: aliceblue;
+            border-style: solid;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            animation: pulsate 1s infinite alternate;
+            margin: 10px; /* Add some margin for spacing on smaller screens */
+        }
+
+        @keyframes pulsate {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(0, 0, 255, 0.9);
+            }
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px; /* Increase padding for better mobile readability */
+        }
+
+        footer {
+            background-color: #007BFF; /* Match the header's background color */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .steps {
+            text-align: center;
+            background-color: #ccc; /* Gray background color */
+            padding: 10px; /* Add some padding for spacing */
+        }
+        .highlight {
+            background-color: yellow; /* Set the background color for highlighting */
+            padding: 1%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Moderator Dashboard</h1>
+    </header>
+    <nav >
+        <ul>
+            <li><a href="https://teju0051.github.io/TService/home.html" class="button">Logout</a></li>
+            <li><a href="#" class="button">Reports </a></li>
+            <li><a href="https://github.com/teju0051/Bharatiya-warrior-users-account" class="button">Users</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Welcome, Moderator!</h1>
+        <p>This is the moderator dashboard where you can manage reported content and user accounts.</p>
+        Here all the step by step we will tell you how to ban an guilty user.
+        <h4 class="alert">Please take a note that once the account is suspended, it will be final and no appeal should be entertained by the users!</h4>
+        <p class="warning">Any account found to have evidence of cheating will face permanent suspension, and this decision is irreversible.</p>
+    </div>
+    <hr>
+    <h3>Procedure to suspend account</h3>
+    <hr>
+
+  <div class="steps">
+<b>Step 1.</b>
+<h5>Check the report button on the header of this website ("Report") [Beside/Below the home page] This button in here all Reports will be stored. </h5><hr>
+<b>Step 2.</b>
+<h5>Check the uid which the report had came</h5><hr>
+<b>Step 3.</b>
+<h5> <a Href="https://github.com/teju0051/account-access">Here </a> check the uid of the reported user.</h5><hr>
+<b>Step 4.</b>
+<h5>Click on the uid=00001 (For eg we are taking uid 00001)</h5><hr>
+<b>Step 5.</b>
+<h5>Go the line 269 of that file it will be like this  <p class="highlight">(  window.location.href = "https://teju0051.github.io/Bharatiya-warrior-users-account/uid=00001.html";)</p> If not there report to the developer immediately<br><br><hr>
+From here change the link to this link<p class="highlight">( window.location.href = "https://teju0051.github.io/TGames/user-banned.html")</p> 
+</h5>
+</div><hr>
+After all this submit on the github site pull request then that account will be banned within 3days after that request.
+Then all the moderator who had banned the following UIDs add that  uid on banned account lsit on our database.
+<br><hr>
+    <footer>
+        &copy; 2023 T-Games India. All rights reserved.
+    </footer>
+</body>
+</html>
