@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!--<script src="Staff Login.js" type="text/javascript" charset="utf-8"></script>-->
 	<title>Staff Login Page</title>
 	<style type="text/css" media="all">
 		html {
@@ -14,20 +15,19 @@
 			background: linear-gradient(#141e30, #243b55);
 		}
 		.Logo-box {
-    position: absolute;
-    top: 37%;
-    left: 50%;
-    height: 100px;
-    width: 100px;
-    transform: translate(-50%, -50%);
-    background-size: 100% 100%; /* Adjust the background size as needed */
-    border: none;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-
-}
-
+			position: absolute;
+			top: 37%;
+			left: 50%;
+			height: 100px;
+			width: 100px;
+			transform: translate(-50%, -50%);
+			background-size: 100% 100%;
+			/* Adjust the background size as needed */
+			border: none;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+		}
 		.login-box {
 			position: absolute;
 			top: 50%;
@@ -39,7 +39,8 @@
 			box-sizing: border-box;
 			box-shadow: 0 15px 25px rgba(0,0,0,.6);
 			border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* White shadow effect */
+			box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+			/* White shadow effect */
 		}
 		.login-box h2 {
 			margin: 0 0 30px;
@@ -171,25 +172,24 @@
 				bottom: 100%;
 			}
 		}
-
 	</style>
 </head>
 <body>
 	<div class="Logo-box"></div>
-
 	<div class="login-box">
-    <img src="https://i.ibb.co/HNynbMm/Whats-App-Google-Chrome-22-09-2023-09-59-35.png"  alt="Logo" style="display: block; margin: 0 auto; padding-top: 1px; max-width: 50%; height: auto;">
+		<img src="https://i.ibb.co/HNynbMm/Whats-App-Google-Chrome-22-09-2023-09-59-35.png" alt="Logo" style="display: block; margin: 0 auto; padding-top: 1px; max-width: 50%; height: auto;">
 		<br><br><h2>Login</h2>
-		<form>
+	
+		<form method="post" action="Staff Login.js" id="form">
 			<div class="user-box">
-				<input type="text" name="" required="">
+				<input type="text" name="username" required="" id="username">
 				<label>Username</label>
 			</div>
 			<div class="user-box">
-				<input type="password" name="" required="">
+				<input type="password" name="password" required="" id="password">
 				<label>Password</label>
 			</div>
-			<a href="#">
+			<a onclick="onSubmit()" id="submit">
 				<span></span>
 				<span></span>
 				<span></span>
@@ -197,8 +197,36 @@
 				Submit
 			</a>
 		</form>
+		<p id="error" style="color: Red; display: none; text-align:center; ">
+			Username or password is incorrect
+		</p>
+		<script type="text/javascript" charset="utf-8">
+			var form = document.getElementById('form');
+			var username = document.getElementById('username');
+			var password = document.getElementById('password');
+			var submit_button = document.getElementById('submit');
+		
+			function onSubmit() {
+				const username_value = username.value; // Get current username value
+				const password_value = password.value; // Get current password value
+		
+				if (username_value == "Vidhesh@tgamesindia.org" && password_value == "vidhesh@Mod1") {
+					window.location.href = "https://teju0051.github.io/TService/staff.html";
+		
+				} else if (username_value == "Rupesh@tgamesindia.org" && password_value == "rupesh@Mod2") {
+					window.location.href = "https://teju0051.github.io/TService/staff.html";
+		
+				} else if (username_value == "Tejas@tservice.org" && password_value == "teju@123") {
+					window.location.href = "https://teju0051.github.io/TService/staff.html";
+		
+				} else if (username_value == "Pravartak@tgamesindia.org" && password_value == "Eclairss") {
+					window.location.href = "https://teju0051.github.io/TService/staff.html";
+				} else {
+					document.getElementById("error").style.display = 'block';
+				}
+			}
+		</script>
+		
 	</div>
-	<!-- partial -->
-
 </body>
 </html>
