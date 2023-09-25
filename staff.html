@@ -2,100 +2,139 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="https://i.ibb.co/HNynbMm/Whats-App-Google-Chrome-22-09-2023-09-59-35.png">
     <title>Moderator Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
+    <style> /* Common styles */
+				body {
+					font-family: Arial, sans-serif;
+					margin: 0;
+					padding: 0;
+					background-color: #ff6868;
+					color: #000;
+				}
+			
+				header {
+					background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent blue background */
+					color: white;
+					padding: 10px;
+					text-align: center;
+					backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+					border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle border at the bottom */
+				}
+			
+				nav {
+					background-color: rgba(0, 86, 179, 0.8); /* Semi-transparent blue background */
+					color: white;
+					padding: 10px;
+					backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+					border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle border at the bottom */
+				}
+			
+				nav ul {
+					list-style-type: none;
+					padding: 0;
+					text-align: center; /* Center align navigation links on smaller screens */
+				}
+			
+				nav ul li {
+					display: inline;
+					margin-right: 20px;
+					color: #ff9900;
+				}
+			
+				.button {
+					color: aqua;
+				}
+			
+				/* Responsive CSS for smaller screens */
+				@media screen and (max-width: 768px) {
+					nav ul li {
+						display: block;
+						margin-bottom: 10px;
+					}
+				}
+			
+				.alert {
+					background-color: #FFDC00; /* Yellow alert background color */
+					padding: 10px;
+				}
+			
+				.warning {
+					background-color:#FF4136; /* Red warning background color */
+					padding: 10px;
+					color:#fff;
+				}
+			
+				@keyframes pulsate {
+					0% {
+						box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+					}
+					100% {
+						box-shadow: 0 0 20px rgba(0, 0, 255, 0.9);
+					}
+				}
+			
+				h3 {
+					text-align: center;
+				}
+			
+				.container {
+					padding: 20px; /* Increase padding for better mobile readability */
+					margin: 20px;
+				}
+			
+				footer {
+					background-color: #f2f2f2; /* Background color */
+    padding: 20px; /* Padding around the div */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 5px; /* Rounded corners */
+    margin: 20px; /* Margin around the div */
+	text-align: center;
+				}
+			
+		/* Style for the div container */
+div {
+    background-color: #f2f2f2; /* Background color */
+    padding: 20px; /* Padding around the div */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 5px; /* Rounded corners */
+    margin: 20px; /* Margin around the div */
+}
 
-        header {
-            background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent blue background */
-            color: white;
-            padding: 10px;
-            text-align: center;
-            backdrop-filter: blur(10px); /* Apply a blur effect to the background */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle border at the bottom */
-        }
-        
-        nav {
-            background-color: rgba(0, 86, 179, 0.8); /* Semi-transparent blue background */
-            color: white;
-            padding: 10px;
-            backdrop-filter: blur(10px); /* Apply a blur effect to the background */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle border at the bottom */
-        }
-        
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: center; /* Center align navigation links on smaller screens */
-        }
-        
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-            color: #ff9900;
-        }
-        .button{
-            color: aqua;
-        }
+/* Style for bold (<b>) elements */
+b {
+    color: #333; /* Text color for bold elements */
+}
+h3{
+	padding: 20px; /* Increase padding for better mobile readability */
+					margin: 20px;
+					background-color: #f2f2f2;
+}
+/* Style for the h5 elements */
+h5 {
+    font-size: 18px; /* Font size for h5 */
+    margin-top: 10px; /* Spacing above h5 */
+    margin-bottom: 10px; /* Spacing below h5 */
+}
 
-        /* Responsive CSS for smaller screens */
-        @media screen and (max-width: 768px) {
-            nav ul li {
-                display: block;
-                margin-bottom: 10px;
-            }
-        }
+/* Style for the link (<a>) element */
+a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
 
-        .alert, .warning {
-            background-color: transparent;
-            color: black;
-            padding: 10px; /* Increase padding for better mobile readability */
-            border-radius: 10px;
-            text-align: center;
-            border-color: aliceblue;
-            border-style: solid;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-            animation: pulsate 1s infinite alternate;
-            margin: 10px; /* Add some margin for spacing on smaller screens */
-        }
+/* Style for the hr elements */
+hr {
+    border: 1px solid #ccc; /* Horizontal line */
+    margin: 10px 0; /* Spacing above and below hr */
+}
 
-        @keyframes pulsate {
-            0% {
-                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-            }
-            100% {
-                box-shadow: 0 0 20px rgba(0, 0, 255, 0.9);
-            }
-        }
+/* Style for the p element with class "highlight" */
+p.highlight {
+    background-color: yellow; /* Highlight background color */
+    padding: 5px; /* Padding around highlighted text */
+}
 
-        h3 {
-            text-align: center;
-        }
-
-        .container {
-            padding: 20px; /* Increase padding for better mobile readability */
-        }
-
-        footer {
-            background-color: #007BFF; /* Match the header's background color */
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        .steps {
-            text-align: center;
-            background-color: #ccc; /* Gray background color */
-            padding: 10px; /* Add some padding for spacing */
-        }
-        .highlight {
-            background-color: yellow; /* Set the background color for highlighting */
-            padding: 1%;
-        }
     </style>
 </head>
 <body>
@@ -117,11 +156,11 @@
         <h4 class="alert">Please take a note that once the account is suspended, it will be final and no appeal should be entertained by the users!</h4>
         <p class="warning">Any account found to have evidence of cheating will face permanent suspension, and this decision is irreversible.</p>
     </div>
-    <hr>
-    <h3>Procedure to suspend account</h3>
-    <hr>
 
-  <div class="steps">
+    <h3>Procedure to suspend account</h3>
+ 
+
+  <div>
 <b>Step 1.</b>
 <h5>Check the report button on the header of this website ("Report") [Beside/Below the home page] This button in here all Reports will be stored. </h5><hr>
 <b>Step 2.</b>
@@ -134,10 +173,13 @@
 <h5>Go the line 269 of that file it will be like this  <p class="highlight">(  window.location.href = "https://teju0051.github.io/Bharatiya-warrior-users-account/uid=00001.html";)</p> If not there report to the developer immediately<br><br><hr>
 From here change the link to this link<p class="highlight">( window.location.href = "https://teju0051.github.io/TGames/user-banned.html")</p> 
 </h5>
-</div><hr>
-After all this submit on the github site pull request then that account will be banned within 3days after that request.
-Then all the moderator who had banned the following UIDs add that  uid on banned account lsit on our database.
-<br><hr>
+<h5>
+	After all this submit on the github site pull request then that account will be banned within 3days after that request.
+	Then all the moderator who had banned the following UIDs add that  uid on banned account lsit on our database.
+	<br></h5>
+</div>
+
+
     <footer>
         &copy; 2023 T-Games India. All rights reserved.
     </footer>
