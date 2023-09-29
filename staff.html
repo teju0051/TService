@@ -5,6 +5,7 @@
 	<link rel="icon" type="image/png" href="https://i.ibb.co/HNynbMm/Whats-App-Google-Chrome-22-09-2023-09-59-35.png">
     <title>Moderator Page</title>
     <style> /* Common styles */
+		
 				body {
 					font-family: Arial, sans-serif;
 					margin: 0;
@@ -169,6 +170,25 @@
                    padding: 5px; /* Padding around highlighted text */ 
 				   }
 				   
+				
+				   .result {
+					background-color: red; /* Change the background color to red */
+					color: white; /* Change the text color to white */
+					font-weight: bold;
+					display: none;
+					padding: 10px;
+					margin-top: 10px;
+				}
+				
+				#checkButton, .checkButton {
+					background-color: orange;
+					border: none;
+					color: white;
+					padding: 10px 20px;
+					border-radius: 25px; /* Add border-radius for a curved shape */
+					cursor: pointer;
+					
+				}
     </style>
 </head>
 <body>
@@ -216,9 +236,34 @@ From here change the link to this link<p class="highlight">( window.location.hre
 </div>
 <div>
 <h3>User will see this error message after his/her account is banned.</h3>
-<img src="https://i.ibb.co/88rng13/T-Games-Google-Chrome-25-09-2023-21-57-54.png" alt="user_id_ban_photo" style="display: block; margin: 0 auto;">
+<img src="https://i.ibb.co/pbNVdN0/T-Games-Google-Chrome-29-09-2023-21-45-26.png" alt="user_id_ban_photo" style="display: block; margin: 0 auto;">
 
 	</div>
+	<div>
+		<h1>UID Checker</h1>
+		<input type="text" id="uidInput" placeholder="Check reported UID" class="checkButton">
+		<button onclick="checkUID()" id="checkButton">Check</button>
+		<p class="result" id="resultParagraph"></p>
+	
+		
+	</div>
+
+	<script>
+		function checkUID() {
+			const uidInput = document.getElementById("uidInput");
+			const resultParagraph = document.getElementById("resultParagraph");
+			const uid = uidInput.value.trim();
+		
+			if (uid === "00001" || uid === "00002" || uid === "00003" || uid === "00004" ) {
+				resultParagraph.innerText = "There is insufficient proof to conclude that this account is involved in hacking activities.";
+				resultParagraph.style.display = "block";
+			} else {
+				resultParagraph.innerText = "Account not found";
+				resultParagraph.style.display = "block";
+			}
+		}
+		
+	</script>
  <footer>
         &copy; 2023 T-Service. All rights reserved.
     </footer>
