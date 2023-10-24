@@ -1,0 +1,248 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>MGP </title>
+		<style>
+			@media (min-width: 768px) {
+				.logo {
+				  position: absolute;
+				  top: 0;
+				  left: 0;
+				  width: 100px; /* adjust the size as needed */
+				  height: auto;
+				  margin: 10px;
+				}
+			}	.but{
+		  background-color: #333;
+		  padding: 20px;
+		}
+	
+		.img {
+		  height: 300px;
+		  width: 300px;
+		  margin-bottom: 20px;}
+	  body {
+			background-color: #111;
+			color: #7b7df3;
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 18px;
+			line-height: 1.5;
+		}
+	
+		/* Header */
+		header {
+			padding: 20px;
+			text-align: center;
+			background-color: #222;
+			border: 2px solid;
+			border-image: linear-gradient(to bottom, #bbbbf6, #7b7df3, #faf8fb) 1;
+			border-image-slice: 1;
+			box-shadow: 0 0 10px #bbbbf6,
+            0 0 10px #7b7df3,
+            0 0 10px #faf8fb;
+			
+		}
+	
+		/* Navigation */
+		nav {
+			margin-top: 20px;
+			padding: 10px;
+			background-color: #333;
+			box-shadow: 0 0 10px #bbbbf6,
+            0 0 10px #7b7df3,
+            0 0 10px #faf8fb;
+			border: 2px solid;
+			border-image: linear-gradient(to bottom, #bbbbf6, #7b7df3, #faf8fb) 1;
+			border-image-slice: 1;
+		  
+		}
+	
+		nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}   nav li {
+			display: inline-block;
+			margin-right: 20px;
+		}nav a {
+			color: #fff;
+			text-decoration: none;
+		}  nav a:hover {
+			color: #bbbbf6, #7b7df3, #faf8fb;
+			text-decoration: underline;
+		}  main {
+			padding: 20px;
+			background-color: #222;
+			border: 2px solid;
+			border-image: linear-gradient(to bottom, #bbbbf6, #7b7df3, #faf8fb) 1;
+			border-image-slice: 1;
+		} button {
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			color: #fff;
+			font-size: 18px;
+			cursor: pointer;
+		}    button:hover {
+			background: linear-gradient(to bottom, #bbbbf6, #7b7df3, #faf8fb);
+		}   img {
+			max-width: 100%;
+			height: auto;
+			margin: 20px 0;
+			box-shadow: 0 0 10px #bbbbf6,
+            0 0 10px #7b7df3,
+            0 0 10px #faf8fb;
+			max-height: 130px;
+			align-content:flex-start;
+		} footer {
+			padding: 20px;
+			text-align: center;
+			background-color: #222;
+			border: 2px solid;
+			border-image: linear-gradient(to bottom, #bbbbf6, #7b7df3, #faf8fb) 1;
+			border-image-slice: 1;
+			box-shadow: 0 0 10px #bbbbf6,
+            0 0 10px #7b7df3,
+            0 0 10px #faf8fb;
+			text-align: center;
+		}
+		
+		#button-container {
+		  position: fixed;
+		  top: 10;
+		  left: 120;
+		  transform: translateY(90%);
+		  transform: translateX(30%);
+	
+		}table {
+				border-collapse: collapse;
+				margin: auto;
+			}
+			td {
+				width: 100px;
+				height: 100px;
+				text-align: center;
+				vertical-align: middle;
+				border: 1px solid black;
+				font-size: 48px;
+				cursor: pointer;
+			}
+			td:hover {
+				background-color: #eee;
+			}
+		hr{
+		  color:red;
+		}
+		h3{
+			color:blue;
+
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		}
+		img {
+			max-height: 290px;
+			margin: 10px; 
+			align-content:flex-start;
+		  }
+		  nav ul {
+			display: flex;
+			list-style: none;
+			margin: 0;
+			padding: 1px;
+		}
+		nav li {
+			margin: 0 10px;
+      
+		}
+		nav a {
+			color: #fff;
+			text-decoration: none;
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		}
+		nav a:hover {
+			color: #ccc;
+		}
+		#welcome-text {
+			animation: slide-in 1s ease-out forwards;
+      
+		}
+		@keyframes slide-in {
+			from {
+				transform: translateX(-100%);
+				opacity: 0;
+			}
+			to {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+		#welcome-text
+		#featured-games {
+			margin-top: 50px;
+		}
+		#featured-games ul {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			list-style: none;
+			padding: 0;
+		}
+        #featured-games li {
+			background: linear-gradient(to bottom, black, white);
+			border: 1px solid #ccc;
+			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+			flex-basis: calc(33.33% - 20px);
+			margin-bottom: 20px;
+			padding: 0px;
+			text-align: center;
+			/* Add margin to the top to shift the image downwards */
+			margin-top: 10px; /* Adjust this value as needed */
+		}
+  
+		#featured-games li:hover {
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+			transform: translateY(-5px);
+		}
+		#featured-games li img {
+			max-width: 89%;
+			max-height: 110%;
+		}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img class="logo" src="https://i.ibb.co/ssdJk6F/Brandmark-make-your-logo-in-minutes-Google-Chrome-20-10-2023-21-49-01.png" alt="Logo">
+			<h1>Mastrovert Games</h1>
+		</header><nav>
+		<ul>
+		  <li><a href="https://teju0051.github.io/TService/T-Games.html">HOME</a></li>
+		  <li><a href="https://teju0051.github.io/TService/T-Art.html">T-ART</a></li>
+		  <li><a href="https://teju0051.github.io/TService/home.html">T-SERVICE</a></li>
+		  <li><a href="https://teju0051.github.io/TService/T-Tech.html">T-TECH</a></li>
+		  </ul>
+		  </nav><br>
+		 
+		  <section id="featured-games">
+			<h2 id="welcome-text">OUR GAMES</h2>
+			<ul>
+				<li>
+					<a href="https://teju0051.github.io/TGames/india_ka_battle_royale_load(1).html">
+						<img src="https://i.ibb.co/ZmRRWph/Creative-Chatting-App-Logo.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
+					</a>
+					<h3 id="welcome-text">BHARATIYA WARRIOR</h3>
+				</li>
+</ul></section>
+		  <script>
+			// JavaScript to load the initial web page in the canvas
+			var canvas = document.getElementById("myCanvas");
+			var iframe = document.createElement("iframe");
+			iframe.src = "https://teju0051.github.io/TGames/india_ka_battle_royale_load(1).html";
+			iframe.style.width = "100%";
+			iframe.style.height = "100%";
+			canvas.appendChild(iframe);
+		  </script>
+		  
+		
+		  
+		  <footer><p id="welcome-text">&copy; 2023 T-Service. All rights reserved.</p></footer>
+	</body>
+</html>
