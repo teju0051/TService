@@ -380,6 +380,33 @@
       font-size: 46px;
       font-size: 34px;
       }
+	  /* emergency number */
+	  .popup {
+		display: none;
+		color: black;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+		padding: 20px;
+		border: 1px solid #ccc;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		z-index: 9999;
+		max-height: 80%; /* Maximum height for the scrollable popup */
+		overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
+	}
+
+	table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	th, td {
+		border: 1px solid #ccc;
+		padding: 8px;
+		text-align: left;
+	}
 	</style>
 </head>
 <body><br><br>
@@ -428,7 +455,6 @@
 					</a>
 					<h3 id="welcome-text">PAINTING</h3>
 				</li>
-	
 				<li><!---
 					<a href="https://teju0051.github.io/TService/tgc_esport_score_board.html"> -->
 						<img src="https://i.ibb.co/R6wtSww/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59-png-509-5.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
@@ -437,6 +463,23 @@
 				</li>
 			</ul>
 		</section>
+		<section id="featured-games">
+			<h2 id="welcome-text">Emergency Support</h2>
+			<ul>
+				<li>
+			<a href="https://www.friends2support.org/index.aspx">
+				<img src="https://i.ibb.co/bbfYt2W/Find-Blood-Donor.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
+			</a>
+			<h3 id="welcome-text">Find Blood Donor</h3>
+		</li>
+		<li>
+			<a href="#" onclick="showEmergencyNumbers()" >
+				<img src="https://i.ibb.co/Jxg6Snn/Emergency-contact-list.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
+			</a>
+			<h3 id="welcome-text">Emergency-contact-list</h3>
+		</li>
+		</ul>
+			</section>
 		
 		<section id="about">
 			<h2 id="welcome-text">ABOUT T-SERVICE</h2>
@@ -451,6 +494,133 @@
 		</section>
 	
 	
+		
+    <div id="emergencyPopup" class="popup">
+		<table>
+			<tr>
+				<th>Incident</th>
+				<th>Phone Number</th>
+			</tr>
+			<tr>
+				<td>NATIONAL EMERGENCY NUMBER</td>
+				<td>112</td>
+			</tr>
+			<tr>
+				<td>POLICE</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>FIRE</td>
+				<td>101</td>
+			</tr>
+			<tr>
+				<td>AMBULANCE</td>
+				<td>102</td>
+			</tr>
+			<tr>
+				<td>Disaster Management Services</td>
+				<td>108</td>
+			</tr>
+			<tr>
+				<td>Women Helpline</td>
+				<td>1091</td>
+			</tr>
+			<tr>
+				<td>Women Helpline - Domestic Abuse</td>
+				<td>181</td>
+			</tr>
+			<tr>
+				<td>Air Ambulance</td>
+				<td>9540161344</td>
+			</tr>
+			<tr>
+				<td>Aids Helpline</td>
+				<td>1097</td>
+			</tr>
+			<tr>
+				<td>Anti Poison New Delhi</td>
+				<td>1066 or 011-1066</td>
+			</tr>
+			<tr>
+				<td>Disaster Management N.D.M.A</td>
+				<td>011-26701728-1078</td>
+			</tr>
+			<tr>
+				<td>EARTHQUAKE / FLOOD / DISASTER N.D.R.F</td>
+				<td>011-24363260</td>
+			</tr>
+			<tr>
+				<td>Deputy Commissioner Of Police - Missing Child And Women</td>
+				<td>1094</td>
+			</tr>
+			<tr>
+				<td>Railway Enquiry</td>
+				<td>139</td>
+			</tr>
+			<tr>
+				<td>Senior Citizen Helpline</td>
+				<td>1091/1291</td>
+			</tr>
+			<tr>
+				<td>Medical Helpline in Andhra Pradesh, Gujarat, Uttarakhand, Goa, Tamil Nadu, Rajasthan, Karnataka, Assam, Meghalaya, MP, and UP</td>
+				<td>108</td>
+			</tr>
+			<tr>
+				<td>Railway Accident Emergency Service</td>
+				<td>1072</td>
+			</tr>
+			<tr>
+				<td>Road Accident Emergency Service</td>
+				<td>1073</td>
+			</tr>
+			<tr>
+				<td>Road Accident Emergency Service On National Highway For Private Operators</td>
+				<td>1033</td>
+			</tr>
+			<tr>
+				<td>ORBO Centre, AIIMS (For Donation Of Organ) Delhi</td>
+				<td>1060</td>
+			</tr>
+			<tr>
+				<td>Call Centre</td>
+				<td>1551</td>
+			</tr>
+			<tr>
+				<td>Relief Commissioner For Natural Calamities</td>
+				<td>1070</td>
+			</tr>
+			<tr>
+				<td>Children In Difficult Situation</td>
+				<td>1098</td>
+			</tr>
+			<tr>
+				<td>Central Vigilance Commission</td>
+				<td>1964</td>
+			</tr>
+			<tr>
+				<td>Tourist Helpline</td>
+				<td>1363 or 1800111363</td>
+			</tr>
+			<tr>
+				<td>LPG Leak Helpline</td>
+				<td>1906</td>
+			</tr>
+		</table>
+
+   
+        <p>Source: <a href="http://indianhelpline.com/">indianhelpline.com</a></p>
+        <button onclick="hideEmergencyNumbers()">Close</button>
+    </div>
+
+    <script>
+        function showEmergencyNumbers() {
+            document.getElementById("emergencyPopup").style.display = "block";
+        }
+
+        function hideEmergencyNumbers() {
+            document.getElementById("emergencyPopup").style.display = "none";
+        }
+    </script>
 	<footer>
 		<p id="welcome-text">&copy; 2023 T-Services. All rights reserved.</p>
 	</footer>
