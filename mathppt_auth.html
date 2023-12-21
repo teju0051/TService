@@ -140,10 +140,43 @@ body {
         <input type="text" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
         <button type="submit">Login</button><br><br>
+        <button onclick="downloadPDF()">Download PDF</button><br><br>
         <b>&copy;2023 T-Service. All rights reserved.</b>
     </form>
     <p id="error-message" class="error"></p>
 </div>
+<script>
+  function downloadPDF() {
+      // Replace 'your-pdf-file.pdf' with the actual filename of your PDF file
+      var pdfUrl = 'https://teju0051.github.io/TService/mathppt.pptx';
+  
+      // Replace '#8GJGPJYQ2' with the actual access code
+      var accessCode = '#8GJGPJYQ2';
+  
+      // Prompt user for access code
+      var enteredCode = prompt('Please enter the access code:');
+  
+      // Check if the entered access code is correct
+      if (enteredCode === accessCode) {
+          // Create a temporary link element
+          var link = document.createElement('a');
+          link.href = pdfUrl;
+          link.target = '_blank';
+          link.download = 'mathppt_download'; // You can change the downloaded file name
+  
+          // Append the link to the document
+          document.body.appendChild(link);
+  
+          // Trigger a click on the link to start the download
+          link.click();
+  
+          // Remove the link from the document
+          document.body.removeChild(link);
+      } else {
+          alert('Access code is incorrect. Please try again.');
+      }
+  }
+  </script>
     <script>
 		document.getElementById("login-form").addEventListener("submit", function(event) {
 			event.preventDefault();
