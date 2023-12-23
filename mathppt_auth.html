@@ -126,7 +126,58 @@ body {
     background-color: #00000070;
   
   }
-  
+  .popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    max-width: 400px;
+    width: 80%;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup-content button {
+    background-color: #FF4500;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+b {
+    color: #ff0000;
+}
     </style>
 </head>
 <body>
@@ -140,71 +191,35 @@ body {
         <input type="text" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
         <button type="submit">Login</button><br><br>
-        <button onclick="downloadPDF()">Download PDF</button><br><br>
+        <button type="submit">Download PDF</button><br><br>
         <b>&copy;2023 T-Service. All rights reserved.</b>
     </form>
     <p id="error-message" class="error"></p>
 </div>
+
+
+<!-- Popup modal for entering unlock code -->
+<div id="unlock-popup" class="popup-container">
+  <div class="popup-content">
+    <p>System has detected abnormal activities.<br><b>PDF has been locked.</b></p>
+      <label for="unlock-code">Enter unlock code:</label>
+      <input type="password" id="unlock-code" name="unlock-code" required>
+      <br>
+      <button id="unlock-submit">Submit</button>
+  </div>
+</div>
+
+<!-- Your login error message -->
+<p id="error-message"></p>
+
+<!-- Your audio element -->
+<audio id="login-audio" src="path/to/your/audio/file.mp3"></audio>
 <script>
-  function downloadPDF() {
-      // Replace 'your-pdf-file.pdf' with the actual filename of your PDF file
-      var pdfUrl = 'https://teju0051.github.io/TService/mathppt.pptx';
-  
-      // Replace '#8GJGPJYQ2' with the actual access code
-      var accessCode = '#8GJGPJYQ2';
-  
-      // Prompt user for access code
-      var enteredCode = prompt('Please enter the access code:');
-  
-      // Check if the entered access code is correct
-      if (enteredCode === accessCode) {
-          // Create a temporary link element
-          var link = document.createElement('a');
-          link.href = pdfUrl;
-          link.target = '_blank';
-          link.download = 'mathppt_download'; // You can change the downloaded file name
-  
-          // Append the link to the document
-          document.body.appendChild(link);
-  
-          // Trigger a click on the link to start the download
-          link.click();
-  
-          // Remove the link from the document
-          document.body.removeChild(link);
-      } else {
-          alert('Access code is incorrect. Please try again.');
-      }
-  }
+  function _0x2352(){var _0x57425e=['download','10cOrYvo','13977882emgSxW','2338lCKWha','Access\x20code\x20is\x20incorrect.\x20Please\x20try\x20again.','5638264lJZijf','https://teju0051.github.io/TService/mathppt.pptx','mathppt_download','_blank','99AbelWl','#8GJGPJYQ2','target','2843724lOWXNH','3451245VhCMbs','href','6982aggjFP','removeChild','appendChild','6jiXeeH','80exVMqS','2023564nJpKEd','27186cPzLUf'];_0x2352=function(){return _0x57425e;};return _0x2352();}(function(_0x333a49,_0x391c02){var _0x2b3062=_0x4db8,_0x350c29=_0x333a49();while(!![]){try{var _0x3636b5=parseInt(_0x2b3062(0x9f))/0x1*(-parseInt(_0x2b3062(0x9b))/0x2)+-parseInt(_0x2b3062(0x9e))/0x3*(parseInt(_0x2b3062(0xa0))/0x4)+parseInt(_0x2b3062(0x99))/0x5+-parseInt(_0x2b3062(0x8b))/0x6*(-parseInt(_0x2b3062(0x8f))/0x7)+-parseInt(_0x2b3062(0x91))/0x8+-parseInt(_0x2b3062(0x8e))/0x9*(parseInt(_0x2b3062(0x8d))/0xa)+parseInt(_0x2b3062(0x95))/0xb*(parseInt(_0x2b3062(0x98))/0xc);if(_0x3636b5===_0x391c02)break;else _0x350c29['push'](_0x350c29['shift']());}catch(_0x3e05dc){_0x350c29['push'](_0x350c29['shift']());}}}(_0x2352,0xc03fd));function _0x4db8(_0x40f1c2,_0x22b495){var _0x235257=_0x2352();return _0x4db8=function(_0x4db8d8,_0x59b168){_0x4db8d8=_0x4db8d8-0x8b;var _0x213163=_0x235257[_0x4db8d8];return _0x213163;},_0x4db8(_0x40f1c2,_0x22b495);}function downloadPDF(){var _0x1a8614=_0x4db8,_0x41ebaa=_0x1a8614(0x92),_0x3ae661=_0x1a8614(0x96),_0x514757=prompt('Please\x20enter\x20the\x20access\x20code:');if(_0x514757===_0x3ae661){var _0x47405d=document['createElement']('a');_0x47405d[_0x1a8614(0x9a)]=_0x41ebaa,_0x47405d[_0x1a8614(0x97)]=_0x1a8614(0x94),_0x47405d[_0x1a8614(0x8c)]=_0x1a8614(0x93),document['body'][_0x1a8614(0x9d)](_0x47405d),_0x47405d['click'](),document['body'][_0x1a8614(0x9c)](_0x47405d);}else alert(_0x1a8614(0x90));}
   </script>
-    <script>
-		document.getElementById("login-form").addEventListener("submit", function(event) {
-			event.preventDefault();
-			const username = document.getElementById("username").value;
-			const password = document.getElementById("password").value;
-		
-			if (username === "Tejas@123" && password === "tejas2620") {
-				// Replace "yourUsername" and "yourPassword" with actual credentials
-				document.getElementById("error-message").textContent = "";
-		
-				// Play the audio
-				const audio = document.getElementById("login-audio");
-				audio.play();
-		
-				// Redirect to another page after a delay
-				setTimeout(function() {
-					window.location.href = "https://gamma.app/docs/VEDIC-MATHEMATICS-Exploring-Ancient-Techniques-mbk9shmk6zvzwpv"; // Replace with your desired URL
-				}, 3000); // 3000 milliseconds = 3 seconds
-			}
-            
-        
-            else {
-				document.getElementById("error-message").textContent = "Invalid username or password.";
-			}
-		});
-		window.addEventListener('contextmenu', function (e) {
-			e.preventDefault();
-		}, false);	
-    </script>
+  <script>
+  const _0x3efede=_0x5316;(function(_0x9304fe,_0x31141a){const _0x3adc4d=_0x5316,_0x5181b8=_0x9304fe();while(!![]){try{const _0x3c66ec=-parseInt(_0x3adc4d(0x85))/0x1+-parseInt(_0x3adc4d(0x79))/0x2+parseInt(_0x3adc4d(0x76))/0x3*(parseInt(_0x3adc4d(0x83))/0x4)+parseInt(_0x3adc4d(0x7a))/0x5*(parseInt(_0x3adc4d(0x7d))/0x6)+parseInt(_0x3adc4d(0x84))/0x7*(-parseInt(_0x3adc4d(0x8c))/0x8)+parseInt(_0x3adc4d(0x7b))/0x9*(-parseInt(_0x3adc4d(0x87))/0xa)+parseInt(_0x3adc4d(0x80))/0xb;if(_0x3c66ec===_0x31141a)break;else _0x5181b8['push'](_0x5181b8['shift']());}catch(_0x508a2d){_0x5181b8['push'](_0x5181b8['shift']());}}}(_0x5659,0xac122),document[_0x3efede(0x82)](_0x3efede(0x8e))[_0x3efede(0x90)]('submit',function(_0x95ad25){const _0xf9eb82=_0x3efede;_0x95ad25[_0xf9eb82(0x7e)]();const _0x506226=document[_0xf9eb82(0x82)]('username')['value'],_0x2198e1=document[_0xf9eb82(0x82)](_0xf9eb82(0x7f))['value'];_0x506226==='Tejas@123'&&_0x2198e1===_0xf9eb82(0x8b)?document[_0xf9eb82(0x82)](_0xf9eb82(0x81))[_0xf9eb82(0x8d)][_0xf9eb82(0x77)]='flex':document[_0xf9eb82(0x82)](_0xf9eb82(0x88))[_0xf9eb82(0x93)]=_0xf9eb82(0x86);}),document[_0x3efede(0x82)](_0x3efede(0x7c))[_0x3efede(0x90)](_0x3efede(0x91),function(){const _0x36cca0=_0x3efede,_0x51ee56=document['getElementById']('unlock-code')[_0x36cca0(0x92)];_0x51ee56===_0x36cca0(0x78)?window[_0x36cca0(0x75)][_0x36cca0(0x89)]=_0x36cca0(0x8a):document[_0x36cca0(0x82)](_0x36cca0(0x88))[_0x36cca0(0x93)]=_0x36cca0(0x8f);}));function _0x5316(_0x65c8af,_0x1a0253){const _0x565908=_0x5659();return _0x5316=function(_0x53163e,_0x190e3f){_0x53163e=_0x53163e-0x75;let _0xad4e0d=_0x565908[_0x53163e];return _0xad4e0d;},_0x5316(_0x65c8af,_0x1a0253);}function _0x5659(){const _0x386a4f=['preventDefault','password','9626551jPZouf','unlock-popup','getElementById','84cRyAjz','7nakYzw','1005988Snpgad','Incorrect\x20username\x20or\x20password.','3780930dVvnnn','error-message','href','https://gamma.app/docs/VEDIC-MATHEMATICS-Exploring-Ancient-Techniques-mbk9shmk6zvzwpv','tejas2620','3665784ULiptf','style','login-form','Incorrect\x20unlock\x20code.\x20Access\x20denied.','addEventListener','click','value','textContent','location','108582BDXOyz','display','#8gjgpjyq22910133997','878304sYjljA','5ggCNtl','9rCetIn','unlock-submit','8106258YsTcvE'];_0x5659=function(){return _0x386a4f;};return _0x5659();}
+</script>
+
 </body>
 </html>
