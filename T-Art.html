@@ -1,19 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="https://i.ibb.co/Z64rvPP/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59.png">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/RQX9QVf/Create-a-Logo-Online-Free-Logo-Maker-Generator-TURBOLOGO-Google-Chrome-12-23-2023-11-42-53-AM-transf.png">
     <meta charset="UTF-8">
     <script type="text/javascript">
         document.addEventListener("contextmenu", function (e) {
             e.preventDefault();
         }, false);
     </script>
+    <style>
+     /* Logo Styles */
+@media (min-width: 768px) {
+  .logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px; /* Adjust the size as needed */
+      height: auto;
+      margin: 10px;
+      /* Adding a playful animation for logo hover */
+      transform-origin: center;
+      border-color: #252525;
+      transition: transform 0.3s ease-in-out;
+  }
+
+  .logo:hover {
+      transform: rotate(360deg); /* Spin the logo on hover */
+  }
+}
+
+/* Button Styles */
+.but {
+  background: linear-gradient(45deg, #3498db, #9b59b6); 
+  padding: 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Adding a subtle animation for button hover */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.but:hover {
+  background: linear-gradient(45deg, #3498db, #9b59b6); 
+}
+
+/* Heading Styles */
+/* Unique Heading Styles */
+h3, h2 {
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(45deg, #3498db, #9b59b6); /* Gradient background color */
+  color: white;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  /* Adding a creative animation for heading hover */
+  transition: background 0.3s ease-in-out;
+}
+
+h3:hover, h2:hover {
+  background: linear-gradient(45deg, #2980b9, #8e44ad); /* Darken the gradient on hover */
+}
+
+
+/* Responsive Canvas Styles */
+@media only screen and (max-width: 600px) {
+  canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: block;
+      margin: auto;
+      background: linear-gradient(45deg, #3498db, #9b59b6); 
+  }
+}
+
+/* Body Styles */
+body {
+  background-color: #34495e; /* Dark slate gray background color */
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Header Styles */
+header {
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(45deg, #3498db, #9b59b6); 
+  border-bottom: 2px solid #c0392b;
+  border-radius: 10px;
+}
+
+/* Navigation Styles */
+nav {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #2c3e50; /* Midnight blue background color */
+  border: 2px solid #c0392b;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #c0392b;
+  background: linear-gradient(45deg, #9b59b6, #3498db); 
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+  
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #f39c12; /* Orange color on hover */
+  text-decoration: underline;
+}
+
+/* Main Content Styles */
+/* Updated Style for Main */
+main {
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(45deg, #2c3e50, #3498db); /* Gradient background color */
+  color: white;
+  border: 2px solid #c0392b;
+  box-shadow: 0 0 10px #c0392b;
+  border-radius: 10px; /* Rounded corners */
+  /* Adding a subtle animation for hover */
+  transition: background 0.3s ease-in-out;
+}
+
+main:hover {
+  background: linear-gradient(45deg, #273746, #2980b9); /* Darken the gradient on hover */
+}
+
+
+/* Button Styles */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #9b59b6, #3498db); 
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  /* Adding a subtle animation for button hover */
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #e67e22; /* Darken the background on hover */
+}
+
+/* Footer Styles */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(45deg, #3498db, #9b59b6); 
+  border-top: 2px solid #c0392b;
+  border-radius: 10px;
+}
+
+
+  </style>
     <title>Paint app</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body onload="alert('Before sharing your art, please download your art')">
     <header>
-        <img src="https://i.ibb.co/VDGXWQn/Whats-App-Image-2023-08-26-at-8-50-55-AM.jpg" class="logo">
+        <img src="https://i.ibb.co/RQX9QVf/Create-a-Logo-Online-Free-Logo-Maker-Generator-TURBOLOGO-Google-Chrome-12-23-2023-11-42-53-AM-transf.png" class="logo">
         <h1>Digital Art</h1>
     </header>
     <nav>
@@ -103,7 +269,7 @@
 
             const img = new Image();
             img.crossOrigin = "Anonymous"; // Set the crossOrigin attribute to request the image with CORS headers
-            img.src = 'https://i.ibb.co/yyzCv7z/Whats-App-Image-2023-08-26-at-8-50-55-AM.jpg';
+            img.src = 'https://i.ibb.co/RQX9QVf/Create-a-Logo-Online-Free-Logo-Maker-Generator-TURBOLOGO-Google-Chrome-12-23-2023-11-42-53-AM-transf.png';
 
             img.onload = function () {
                 context.globalAlpha = 0.3; // set opacity level
@@ -126,31 +292,30 @@
 
         </script>
         <canvas id="game-canvas"></canvas>
-        <hr color="black">
+      
         <h4 class="but">CONTROLS</h4>
         <button onclick="location.reload()">Clear All</button>
         <button onclick="window.location.href='https://teju0051.github.io/TService/home.html';"> Back</button>
-        <button onclick="alert('Tool will be available soon')">Change Stroke Style</button>
+        <button onclick="changeStrokeStyle()">Change Stroke Style</button>
         <button onclick="downloadImage()">Download Art</button>
         <button onclick="window.location.href='https://forms.gle/L9qnGDTD5s6C8SjP8';">Share Your Art</button>
         <button onclick="window.location.href='https://forms.gle/fnfGjyd4nwComz9F8';">Feedback</button>
 
-        <hr color="black">
+       
         <h3> USERS ART</h3>
-        <hr color="black">
+   
         <div style="text-align:center;">
-            <img src="https://i.ibb.co/rbJCZr2/TService-at-main-teju0051-TService-Git-Hub-Google-Chrome-24-03-2023-20-47-48.png" width="300" height="200" border="1" class="img">
-            <img src="https://i.ibb.co/5RdJJWC/Paint-App-Google-Chrome-25-03-2023-10-32-15.png" width="300" height="200" border="1" class="img">
-            <img src="https://i.ibb.co/BK6t33L/Paint-App-Google-Chrome-25-03-2023-12-43-11.png" width="300" height="200" border="1" class="img">
-            <img src="https://i.ibb.co/zFnp50g/Paint-App-Google-Chrome-25-03-2023-17-03-27.png" width="300" height="200" border="1" class="img">
-            <img src="https://i.ibb.co/mXLCL55/Paint-App-Google-Chrome-25-03-2023-21-18-59.png" width="300" height="200" border="1" class="img">
-            <img src="https://i.ibb.co/5hJ4Q7x/Bing-Google-Chrome-26-03-2023-21-13-36.png" width="300" height="200" border="1" class="img">
-            <img src="https://i.ibb.co/x8tx7Bx/my-drawing.png" width="300" height="200" border="1" class="img">
-            <img src="https://i.ibb.co/9n0KtGw/himali-tast.jpg" width="300" height="200" border="1" class="img">
-            <hr color="black">
+          <img src="https://i.ibb.co/rbJCZr2/TService-at-main-teju0051-TService-Git-Hub-Google-Chrome-24-03-2023-20-47-48.png" width="300" height="200" border="1" class="img" style="border-radius: 10px;">
+            <img src="https://i.ibb.co/5RdJJWC/Paint-App-Google-Chrome-25-03-2023-10-32-15.png" width="300" height="200" border="1" class="img"  style="border-radius: 10px;">
+            <img src="https://i.ibb.co/BK6t33L/Paint-App-Google-Chrome-25-03-2023-12-43-11.png" width="300" height="200" border="1" class="img"  style="border-radius: 10px;">
+            <img src="https://i.ibb.co/zFnp50g/Paint-App-Google-Chrome-25-03-2023-17-03-27.png" width="300" height="200" border="1" class="img"  style="border-radius: 10px;">
+            <img src="https://i.ibb.co/mXLCL55/Paint-App-Google-Chrome-25-03-2023-21-18-59.png" width="300" height="200" border="1" class="img"  style="border-radius: 10px;">
+            <img src="https://i.ibb.co/5hJ4Q7x/Bing-Google-Chrome-26-03-2023-21-13-36.png" width="300" height="200" border="1" class="img"  style="border-radius: 10px;">
+            <img src="https://i.ibb.co/9n0KtGw/himali-tast.jpg" width="300" height="200" border="1" class="img"  style="border-radius: 10px;">
+          
 
             <h2>ABOUT T-ART</h2>
-            <hr color="black">
+          
             <p>T-Art is a creative platform that allows users to express their artistic
                 side through a range of digital tools and resources. Whether you're a professional
                 artist or simply looking to explore your creative side, T-Art has everything you need
@@ -162,151 +327,7 @@
         <p>&copy; 2023 T-Service. All rights reserved.</p>
     </footer>
 
-    <style>
-        @media (min-width: 768px) {
-            .logo {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100px; /* adjust the size as needed */
-                height: auto;
-                margin: 10px;
-            }
-        }
-
-        .but {
-            background-color: #333;
-            padding: 20px;
-            background-image: linear-gradient(to bottom, #FF0000, #000000); /* Black to Red Gradient */
-        }
-
-        .img {
-            height: 300px;
-            width: 300px;
-            margin-bottom: 20px;
-        }
-
-        h3 {
-            background-color: #333;
-            padding: 20px;
-            text-align: center;
-            background-image: linear-gradient(to bottom, #FF0000, #000000); /* Black to Red Gradient */
-        }
-        h2{
-            background-image: linear-gradient(to bottom, #FF0000, #000000); /* Black to Red Gradient */
-        }
-
-        @media only screen and (max-width: 600px) {
-            canvas {
-                position: fixed;
-                top: 0;
-                left: 0;
-                display: block;
-                margin: auto;
-                background-color: royalblue;
-
-            }
-
-        }
-
-        /* Body */
-        body {
-            background-color: #111;
-            color: white;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size: 18px;
-            line-height: 1.5;
-        }
-
-        /* Header */
-        header {
-            padding: 20px;
-            text-align: center;
-            background-image: linear-gradient(to bottom, #FF0000, #000000); /* Black to Red Gradient */
-            border-bottom: 2px solid #CBB26A;
-        }
-        
-        
-        /* Navigation */
-        nav {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #333;
-            border: 2px solid #CBB26A;
-            box-shadow: 0 0 10px #CBB26A;
-            background-image: linear-gradient(to bottom, #FF0000, #000000); /* Black to Red Gradient */
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            
-        }
-
-        nav li {
-            display: inline-block;
-            margin-right: 20px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            
-        }
-
-        nav a:hover {
-            color: #ffd900;
-            text-decoration: underline;
-        }
-
-        /* Main Content */
-        main {
-            padding: 20px;
-            background-color: #222;
-            border: 2px solid #CBB26A;
-            box-shadow: 0 0 10px #CBB26A;
-            
-        }
-
-        /* Buttons */
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #CBB26A;
-            color: black;
-            font-size: 18px;
-            cursor: pointer;
-            background-image: linear-gradient(to bottom, #FFA500, #FF5733);
-
-            
-            
-        }
-
-        button:hover {
-            background-color: #ffd900;
-        }
-
-        /* Images */
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 20px 0;
-            box-shadow: 0 0 10px #CBB26A;
-            background-image: linear-gradient(to bottom, #FF0000, #000000); /* Black to Red Gradient */
-        }
-
-        /* Footer */
-        footer {
-            padding: 20px;
-            text-align: center;
-            background-color: #222;
-            border-top: 2px solid #CBB26A;
-            background-image: linear-gradient(to bottom, #FF0000, #000000); /* Black to Red Gradient */
-        }
-
-    </style>
+   
 
     <script>
       function checkOrientation() {
