@@ -407,6 +407,76 @@
 		padding: 8px;
 		text-align: left;
 	}
+
+
+	#popupContainer {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		justify-content: center;
+		align-items: center;
+		z-index: 1000;
+	}
+	
+	.popupContent {
+		background: #1a1a1a; /* Dark background color */
+		padding: 20px;
+		text-align: center;
+		max-width: 600px;
+		max-height: 110%;
+		color: #fff; /* Text color */
+		border-radius: 10px; /* Rounded corners */
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* White shadow for a futuristic glow effect */
+	}
+	h1{
+		background-color: orange;
+		text-align: center;
+		color:yellow;
+		border-radius: 5px; 
+		
+	}
+	.closeButton {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: 20px;
+		color: #ff0000; /* Red close button color */
+		cursor: pointer;
+	}
+	
+	.buttonContainer {
+		margin-top: 20px;
+	}
+	
+	button {
+		padding: 10px 20px;
+		margin: 0 10px;
+		cursor: pointer;
+		background: #000; /* Black button background color */
+		color: #fff; /* White button text color */
+		border: none;
+		border-radius: 5px;
+		transition: background 0.3s ease; /* Smooth transition on hover */
+	}
+	
+	button:hover {
+		background: #ff0000; /* Red color on hover */
+	}
+	
+	#countdown {
+		border: 2px solid #ff0000; /* Red border color */
+		border-radius: 5px; /* Rounded corners */
+		padding: 10px;
+		margin-top: 20px;
+		box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow effect */
+		color: #ff0000; /* Text color */
+		font-weight: bold;
+	}
+
 	</style>
 </head>
 <body><br><br>
@@ -474,12 +544,6 @@
 			</a>
 			<h3 id="welcome-text">Find Blood Donor</h3>
 		</li>
-		<li>
-			<a href="#" onclick="showEmergencyNumbers()" >
-				<img src="https://i.ibb.co/Jxg6Snn/Emergency-contact-list.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-			</a>
-			<h3 id="welcome-text">Emergency-contact-list</h3>
-		</li>
 		</ul>
 			</section>
 			<section id="featured-games">
@@ -513,134 +577,24 @@
 				T-Tech is a platform that provides you ultimate destination for comprehensive reviews of the latest phones and accessories. We take pride in offering in-depth insights and expert analysis, empowering you to make informed decisions and stay ahead in the ever-evolving world of technology. <br> <br> </p>
 		</section>
 	
-	
-		
-    <div id="emergencyPopup" class="popup">
-		<table>
-			<tr>
-				<th>Incident</th>
-				<th>Phone Number</th>
-			</tr>
-			<tr>
-				<td>NATIONAL EMERGENCY NUMBER</td>
-				<td>112</td>
-			</tr>
-			<tr>
-				<td>POLICE</td>
-				<td>100</td>
-			</tr>
-			<tr>
-				<td>FIRE</td>
-				<td>101</td>
-			</tr>
-			<tr>
-				<td>AMBULANCE</td>
-				<td>102</td>
-			</tr>
-			<tr>
-				<td>Disaster Management Services</td>
-				<td>108</td>
-			</tr>
-			<tr>
-				<td>Women Helpline</td>
-				<td>1091</td>
-			</tr>
-			<tr>
-				<td>Women Helpline - Domestic Abuse</td>
-				<td>181</td>
-			</tr>
-			<tr>
-				<td>Air Ambulance</td>
-				<td>9540161344</td>
-			</tr>
-			<tr>
-				<td>Aids Helpline</td>
-				<td>1097</td>
-			</tr>
-			<tr>
-				<td>Anti Poison New Delhi</td>
-				<td>1066 or 011-1066</td>
-			</tr>
-			<tr>
-				<td>Disaster Management N.D.M.A</td>
-				<td>011-26701728-1078</td>
-			</tr>
-			<tr>
-				<td>EARTHQUAKE / FLOOD / DISASTER N.D.R.F</td>
-				<td>011-24363260</td>
-			</tr>
-			<tr>
-				<td>Deputy Commissioner Of Police - Missing Child And Women</td>
-				<td>1094</td>
-			</tr>
-			<tr>
-				<td>Railway Enquiry</td>
-				<td>139</td>
-			</tr>
-			<tr>
-				<td>Senior Citizen Helpline</td>
-				<td>1091/1291</td>
-			</tr>
-			<tr>
-				<td>Medical Helpline in Andhra Pradesh, Gujarat, Uttarakhand, Goa, Tamil Nadu, Rajasthan, Karnataka, Assam, Meghalaya, MP, and UP</td>
-				<td>108</td>
-			</tr>
-			<tr>
-				<td>Railway Accident Emergency Service</td>
-				<td>1072</td>
-			</tr>
-			<tr>
-				<td>Road Accident Emergency Service</td>
-				<td>1073</td>
-			</tr>
-			<tr>
-				<td>Road Accident Emergency Service On National Highway For Private Operators</td>
-				<td>1033</td>
-			</tr>
-			<tr>
-				<td>ORBO Centre, AIIMS (For Donation Of Organ) Delhi</td>
-				<td>1060</td>
-			</tr>
-			<tr>
-				<td>Call Centre</td>
-				<td>1551</td>
-			</tr>
-			<tr>
-				<td>Relief Commissioner For Natural Calamities</td>
-				<td>1070</td>
-			</tr>
-			<tr>
-				<td>Children In Difficult Situation</td>
-				<td>1098</td>
-			</tr>
-			<tr>
-				<td>Central Vigilance Commission</td>
-				<td>1964</td>
-			</tr>
-			<tr>
-				<td>Tourist Helpline</td>
-				<td>1363 or 1800111363</td>
-			</tr>
-			<tr>
-				<td>LPG Leak Helpline</td>
-				<td>1906</td>
-			</tr>
-		</table>
-
-   
-        <p>Source: <a href="http://indianhelpline.com/">indianhelpline.com</a></p>
-        <button onclick="hideEmergencyNumbers()">Close</button>
+		<!-- Popup Container -->
+<div id="popupContainer">
+    <div class="popupContent" id="eventPopup">
+        <h1>Event has started!</h1>
+        <img src="https://i.ibb.co/RQX9QVf/Create-a-Logo-Online-Free-Logo-Maker-Generator-TURBOLOGO-Google-Chrome-12-23-2023-11-42-53-AM-transf.png" alt="Event Image" width="100" height="101">
+       <h2>About the event</h2>
+		<p>T-ARTS invites artists to showcase their talent! 🎨 Submit your art on our Instagram; the most liked post earns a spotlight, a chance to exhibit globally. 🚀 More likes mean more fame! 🌟 Join the art realm, where each stroke or click brings recognition. 🌐 Embrace the challenge, exhibit your skills, and let the art community celebrate your artistry! #TARTS</p>
+        <div id="countdown"></div>
+        <div class="buttonContainer">
+            <button onclick="closePopup()">Close</button>
+            <a href="https://teju0051.github.io/TService/T-Art.html" target="_blank">
+                <button>Yes, I'm Interested</button>
+            </a>
+        </div>
     </div>
+</div>
+		
 
-    <script>
-        function showEmergencyNumbers() {
-            document.getElementById("emergencyPopup").style.display = "block";
-        }
-
-        function hideEmergencyNumbers() {
-            document.getElementById("emergencyPopup").style.display = "none";
-        }
-    </script>
 	<footer>
 		<p id="welcome-text">&copy; 2023 T-Services. All rights reserved.</p>
 	</footer>
@@ -679,7 +633,41 @@
 				}
 			}
 		}
-		  
+
+
+
+		document.addEventListener('DOMContentLoaded', function () {
+			setTimeout(function () {
+				document.getElementById('popupContainer').style.display = 'flex';
+			}, 2000);
+		});
+		
+		function closePopup() {
+			document.getElementById('popupContainer').style.display = 'none';
+		}
+		
+	  // Set the end date for the countdown
+	  var endDate = new Date('11/11/2024').getTime();
+
+	  // Update the countdown every 1 second
+	  var countdownInterval = setInterval(function () {
+		  var currentDate = new Date().getTime();
+		  var timeDifference = endDate - currentDate;
+  
+		  var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+		  var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+		  var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  
+		  // Display the countdown
+		  document.getElementById('countdown').innerHTML = 'Event ends in: ' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+  
+		  // Check if the countdown has reached zero and close the popup
+		  if (timeDifference <= 0) {
+			  clearInterval(countdownInterval);
+			  closePopup();
+		  }
+	  }, 1000);
 	  </script>
 
 	<chat-bot platform_id="600b2165-a2ba-4b74-b50f-39f8b91e99ef" user_id="50011ea4-9c75-4ae4-8ea1-57bcf0a958a8" chatbot_id="4990e587-b5ae-43c0-917c-6d8d07049f39"><a href="https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral">[chatbot]</a></chat-bot><script src="https://chatsimple-widget.s3.us-east-2.amazonaws.com/chat-bot-loader.js" defer></script>
