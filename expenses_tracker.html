@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #3498db, #2ecc71);
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+        overflow-x: hidden;
+    }
+
+    .container {
+        margin: 20px;
+        background-color: transparent;
+        padding: 15px;
+        border-radius: 8px;
+        
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+    }
+
+    button {
+        background-color: #15ff00;
+        color: #252525;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+
+    button:hover {
+        background-color: #ae00ff;
+    }
+
+    #expenseList {
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    .expense-item {
+        border-radius: 16px;
+        background-color: #252525;
+        color: #fff;
+        margin-bottom: 8px;
+        padding: 8px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    p {
+        font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #98f8c0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+  }
+    /* Media Queries */
+    @media screen and (max-width: 600px) {
+        .container {
+            padding: 10px;
+        }
+
+        th, td {
+            font-size: 14px;
+        }
+    }
+    .report{
+      background-color: red;
+      color: white;
+    }
+    .report:hover {
+      background-color: #ff6060;
+  } 
+  img{
+    width: 100%;
+    max-height: 90%;
+  }
+    </style>
+    <title>Monthly Expenses System</title>
+</head>
+<body  onload="showAlert()">
+  <img src="https://i.ibb.co/D7yvFLg/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-40-09.png" alt="Image 1">
+
+    <div class="container">
+        <h1 style="text-align:center;">Monthly Expenses Tracker</h1>
+        <form id="expenseForm">
+            <label for="expenseDate">Expense Date:</label>
+            <input type="date" id="expenseDate" required>
+
+            <label for="expenseName">Expense Name:</label>
+            <input type="text" id="expenseName" required maxlength="12">
+
+            <label for="expenseAmount">Expense Amount:</label>
+            <input type="number" id="expenseAmount" required>
+            <br>
+            <button type="button" onclick="addExpense()"><b>Add Expenses</b></button>
+            <button type="button" onclick="resetAll()"><b>Reset All</b></button>
+            <button type="button" onclick="window.location.href='#';" class="report"><b>Report Issue</b></button>
+        </form>
+
+        <div id="expenseList">
+            <!-- Expense items will be displayed here -->
+        </div>
+
+        <p style="text-align:right;">Total Expenses: <span id="totalExpenses">0</span></p>
+    </div>
+    <script>
+      const _0x45988a=_0x2e04;(function(_0x404f15,_0x51ec10){const _0x13673b=_0x2e04,_0x1e0f31=_0x404f15();while(!![]){try{const _0x4684ed=-parseInt(_0x13673b(0xb3))/0x1*(-parseInt(_0x13673b(0xa4))/0x2)+-parseInt(_0x13673b(0xb4))/0x3*(-parseInt(_0x13673b(0x96))/0x4)+parseInt(_0x13673b(0xbb))/0x5+parseInt(_0x13673b(0xad))/0x6*(parseInt(_0x13673b(0xc5))/0x7)+parseInt(_0x13673b(0x99))/0x8*(-parseInt(_0x13673b(0x98))/0x9)+-parseInt(_0x13673b(0xa8))/0xa*(-parseInt(_0x13673b(0xa9))/0xb)+-parseInt(_0x13673b(0xbd))/0xc*(parseInt(_0x13673b(0xbc))/0xd);if(_0x4684ed===_0x51ec10)break;else _0x1e0f31['push'](_0x1e0f31['shift']());}catch(_0x36aa85){_0x1e0f31['push'](_0x1e0f31['shift']());}}}(_0x3081,0xdaac3));function _0x2e04(_0x3713fc,_0x4deb35){const _0x308185=_0x3081();return _0x2e04=function(_0x2e0462,_0xcf10a6){_0x2e0462=_0x2e0462-0x96;let _0x195e89=_0x308185[_0x2e0462];return _0x195e89;},_0x2e04(_0x3713fc,_0x4deb35);}let totalExpenses=0x0,expensesList=[];const storedExpenses=JSON[_0x45988a(0x9b)](localStorage[_0x45988a(0xa2)]('expenses'));storedExpenses&&(expensesList=storedExpenses,updateUI());function _0x3081(){const _0x15cc7e=['stringify','toFixed','amount','createElement','1877350dutEdN','42338413KWaLUe','12XqyccF','getElementById','</span>\x20<span>','expenseDate','toLocaleDateString','expenses','totalExpenses','3)\x20Enter\x20an\x20amount\x20greater\x20than\x20zero\x20for\x20each\x20expense.\x0a\x0a','14ozreuf','valueAsDate','value','528YreMjA','<span>','4410vWVVIt','80nHeXbX','numeric','parse','en-IN','Please\x20enter\x20valid\x20expense\x20details.','className','expenseName','name','date','getItem','expenseAmount','1910FaecWD','4)\x20To\x20clear\x20Total\x20expenses\x20restart\x20the\x20application.\x0a\x0a','removeItem','expenseList','7930KzEWoF','21989CpkCgB','push','appendChild','5)\x20After\x20tapping\x20on\x20\x27Reset\x20All,\x27\x20all\x20the\x20data\x20that\x20is\x20stored\x20and\x20visible\x20to\x20you\x20will\x20be\x20deleted\x20and\x20cannot\x20be\x20recovered!','568686yocbnG','div','</span>','expense-item','innerText','long','667JjecWb','31140IaiVBj','forEach','innerHTML'];_0x3081=function(){return _0x15cc7e;};return _0x3081();}function addExpense(){const _0x4d04c0=_0x45988a,_0x29bde2=document[_0x4d04c0(0xbe)]('expenseDate')[_0x4d04c0(0xc6)],_0x2b5e82=document['getElementById'](_0x4d04c0(0x9f))[_0x4d04c0(0xc7)],_0x32862d=parseFloat(document[_0x4d04c0(0xbe)](_0x4d04c0(0xa3))[_0x4d04c0(0xc7)]);if(_0x2b5e82&&!isNaN(_0x32862d)){const _0x10c9f5=_0x29bde2[_0x4d04c0(0xc1)](_0x4d04c0(0x9c),{'day':'numeric','month':_0x4d04c0(0xb2),'year':_0x4d04c0(0x9a)}),_0x1c3084={'date':_0x10c9f5,'name':_0x2b5e82,'amount':_0x32862d};expensesList[_0x4d04c0(0xaa)](_0x1c3084),totalExpenses+=_0x32862d,document[_0x4d04c0(0xbe)](_0x4d04c0(0xc3))[_0x4d04c0(0xb1)]='₹'+totalExpenses[_0x4d04c0(0xb8)](0x2),localStorage['setItem'](_0x4d04c0(0xc2),JSON[_0x4d04c0(0xb7)](expensesList)),document[_0x4d04c0(0xbe)](_0x4d04c0(0xc0))[_0x4d04c0(0xc7)]='',document[_0x4d04c0(0xbe)](_0x4d04c0(0x9f))[_0x4d04c0(0xc7)]='',document[_0x4d04c0(0xbe)](_0x4d04c0(0xa3))[_0x4d04c0(0xc7)]='',updateUI();}else alert(_0x4d04c0(0x9d));}function resetAll(){const _0x10070b=_0x45988a;expensesList=[],totalExpenses=0x0,localStorage[_0x10070b(0xa6)]('expenses'),updateUI();}function updateUI(){const _0x1c6cca=_0x45988a;document[_0x1c6cca(0xbe)](_0x1c6cca(0xa7))[_0x1c6cca(0xb6)]='',expensesList[_0x1c6cca(0xb5)](_0x1b03b9=>{const _0x102a6b=_0x1c6cca,_0x5be057=document[_0x102a6b(0xba)](_0x102a6b(0xae));_0x5be057[_0x102a6b(0x9e)]=_0x102a6b(0xb0),_0x5be057['innerHTML']=_0x102a6b(0x97)+_0x1b03b9[_0x102a6b(0xa1)]+_0x102a6b(0xbf)+_0x1b03b9[_0x102a6b(0xa0)]+'</span>\x20<span>₹'+_0x1b03b9[_0x102a6b(0xb9)][_0x102a6b(0xb8)](0x2)+_0x102a6b(0xaf),document[_0x102a6b(0xbe)](_0x102a6b(0xa7))[_0x102a6b(0xab)](_0x5be057);}),document[_0x1c6cca(0xbe)](_0x1c6cca(0xc3))[_0x1c6cca(0xb1)]='₹'+totalExpenses[_0x1c6cca(0xb8)](0x2);}function showAlert(){const _0x59babe=_0x45988a;alert('Guide\x20on\x20how\x20to\x20use\x20it:\x0a\x0a'+'1)\x20When\x20selecting\x20a\x20date,\x20please\x20click\x20on\x20the\x20calendar/date\x20symbol\x20at\x20the\x20right\x20side.\x0a\x0a'+'2)\x20Expense\x20names\x20should\x20have\x20characters\x20less\x20than\x20or\x20equal\x20to\x2012.\x0a\x0a'+_0x59babe(0xc4)+_0x59babe(0xa5)+_0x59babe(0xac));}
+    </script>
+    <footer> &copy; T-Service. All rights reserved.</footer>
+</body>
+</html>
