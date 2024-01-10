@@ -320,12 +320,12 @@
   #featured-games li {
 	background: linear-gradient(to bottom, black,  rgb(117, 102, 204));
 			border: 3px solid  rgb(117, 102, 204);
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-	flex-basis: calc(33.33% - 20px);
-	margin-bottom: 20px;
+	flex-basis: calc(40.43% - 30px);
+	margin-bottom: 10px;
 	padding: 0;
 	text-align: center;
 	margin-top: 10px;
+	width: 300px;
   }
   
   #featured-games li:hover {
@@ -407,100 +407,72 @@
 		padding: 8px;
 		text-align: left;
 	}
-
-
-	#popupContainer {
-		display: none;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.5);
-		justify-content: center;
+	.search-container {
+		display: flex;
 		align-items: center;
-		z-index: 1000;
-	}
-	
-	.popupContent {
-		background: #1a1a1a; /* Dark background color */
-		padding: 20px;
-		text-align: center;
-		max-width: 600px;
-		max-height: 110%;
-		color: #fff; /* Text color */
-		border-radius: 10px; /* Rounded corners */
-		box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* White shadow for a futuristic glow effect */
-	}
-	h1{
-		background-color: orange;
-		text-align: center;
-		color:yellow;
-		border-radius: 5px; 
+		justify-content: center;
 		
-	}
-	.closeButton {
-		position: absolute;
-		top: 10px;
-		right: 10px;
-		font-size: 20px;
-		color: #ff0000; /* Red close button color */
-		cursor: pointer;
-	}
-	
-	.buttonContainer {
-		margin-top: 20px;
-	}
-	
-	button {
-		padding: 10px 20px;
-		margin: 0 10px;
-		cursor: pointer;
-		background: #000; /* Black button background color */
-		color: #fff; /* White button text color */
+		
+		padding: 10px;
+	  }
+	  
+	  .search-input {
+		padding: 10px;
 		border: none;
 		border-radius: 5px;
-		transition: background 0.3s ease; /* Smooth transition on hover */
-	}
-	
-	button:hover {
-		background: #ff0000; /* Red color on hover */
-	}
-	
-	#countdown {
-		border: 2px solid #ff0000; /* Red border color */
-		border-radius: 5px; /* Rounded corners */
+		outline: none;
+		background-color: #40415c;
+		color: white;
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White border shadow */
+	  }
+	  
+	  .search-button {
+		margin-left: 5px;
 		padding: 10px;
-		margin-top: 20px;
-		box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow effect */
-		color: #ff0000; /* Text color */
-		font-weight: bold;
-	}
-
+		background-color: #40415c;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White border shadow */
+	  }
+	  
+	  /* Optional: Style the button on hover */
+	  .search-button:hover {
+		background-color:#675dff;
+	  }
+	  .search-input::placeholder {
+		color: #ffffff; /* Set the desired color for the placeholder text */
+	  }
+	  
 	</style>
 </head>
 <body><br><br>
 	<header id="sticky-header">
 		<img src="https://i.ibb.co/D7yvFLg/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-40-09.png" class="img" type="image" id="welcome-text">
-		<nav>
+			<nav>	
 			<ul>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TService/home.html" class="token">Home</a></li>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TGames/Home.html"class="token">Games</a></li>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TService/T-Tech.html" class="token">Technology</a></li>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TService/T-Art.html" class="token">Art</a></li>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TService/staff-login.html"class="token" alt="only for staff">Login</a></li>
-        <li id="welcome-text"><a href=""class="token"></a></li>
+				<div class="search-container">
+					<input type="text" class="search-input" placeholder="Search" id="searchInput">
+					<button class="search-button" onclick="performSearch()">🔍</button>
+				  </div>
+				</li>
+				<li id="welcome-text"><a href="https://teju0051.github.io/TService/home.html" class="token"></a></li>
 			</ul>
 		</nav>
 	</header>
 	
+	
 	<main>
     <section id="banner">
     </section>
-		
+	
+			<section id="featured-games">
+				<h2 id="welcome-text">OUR PLATFORMS</h2>
 		<section id="featured-games">
-			<h2 id="welcome-text">OUR PLATFORMS</h2>
+			
 			<ul>
+				
 				<li>
 					<a href="https://teju0051.github.io/TGames/Home.html">
 						<img src="https://i.ibb.co/T27DDxG/Check-out-my-new-logo-made-on-Looka-Google-Chrome-10-28-2023-12-05-15-PM-Copy.png" style="width: 100%;"id="welcome-text">
@@ -514,10 +486,10 @@
 					<h3 id="welcome-text">Mastrovert Games</h3>
 				</li>
 				<li>
-					<a href="https://teju0051.github.io/TService/T-Tech.html">
+					<!-- <a href="https://teju0051.github.io/TService/T-Tech.html">-->
 					  <img src="https://teju0051.github.io/TService/Zentech.gif" alt="Your Game GIF" style="width: 100%;" id="welcome-text">
 					</a>
-					<h3 id="welcome-text">ZenTech</h3>
+					<h3 id="welcome-text">Under Maintainance!</h3>
 				  </li>
 				  
 				<li>
@@ -531,11 +503,12 @@
 					<a href="https://teju0051.github.io/TService/tgc_esport_score_board.html"> -->
 						<img src="https://i.ibb.co/R6wtSww/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59-png-509-5.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
 					</a>
-					<h3 id="welcome-text">Coming Soon..</h3>
+					<h3 id="welcome-text"> 🚫Coming Soon..</h3>
 				</li>
 			</ul>
 		</section>
 		<section id="featured-games">
+			
 			<h2 id="welcome-text">Emergency Support</h2>
 			<ul>
 				<li>
@@ -546,24 +519,7 @@
 		</li>
 		</ul>
 			</section>
-			<section id="featured-games">
-				<h2 id="welcome-text">Powered by T-TECH</h2>
-				<ul>
-					<li>
-				<a href="#">
-					<img src="https://i.ibb.co/MPcrY8T/Build-website.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-				</a>
-				<h3 id="welcome-text">Build your own website</h3>
-			</li>
-			<li>
-				<a href="#">
-					<img src="https://i.ibb.co/HBkYM0V/Build-website.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-				</a>
-				<h3 id="welcome-text">Build your own Mobile app</h3>
-			</li>
-			</ul>	
-			<b>Dear user if you have choose any one of it kindly message us through our chatbot on bottom right of our website</b>
-			</section>
+		
 		
 		<section id="about">
 			<h2 id="welcome-text">ABOUT T-SERVICE</h2>
@@ -577,99 +533,35 @@
 				T-Tech is a platform that provides you ultimate destination for comprehensive reviews of the latest phones and accessories. We take pride in offering in-depth insights and expert analysis, empowering you to make informed decisions and stay ahead in the ever-evolving world of technology. <br> <br> </p>
 		</section>
 	
-		<!-- Popup Container -->
-<div id="popupContainer">
-    <div class="popupContent" id="eventPopup">
-        <h1>Event has started!</h1>
-        <img src="https://i.ibb.co/RQX9QVf/Create-a-Logo-Online-Free-Logo-Maker-Generator-TURBOLOGO-Google-Chrome-12-23-2023-11-42-53-AM-transf.png" alt="Event Image" width="100" height="101">
-       <h2>About the event</h2>
-		<p>T-ARTS invites artists to showcase their talent! 🎨 Submit your art on our Instagram; the most liked post earns a spotlight, a chance to exhibit globally. 🚀 More likes mean more fame! 🌟 Join the art realm, where each stroke or click brings recognition. 🌐 Embrace the challenge, exhibit your skills, and let the art community celebrate your artistry! #TARTS</p>
-        <div id="countdown"></div>
-        <div class="buttonContainer">
-            <button onclick="closePopup()">Close</button>
-            <a href="https://teju0051.github.io/TService/T-Art.html" target="_blank">
-                <button>Yes, I'm Interested</button>
-            </a>
-        </div>
-    </div>
-</div>
+		<script>
+			function performSearch() {
+			  var searchInput = document.getElementById('searchInput').value.toLowerCase();
 		
+			  // Check if the search input is 'math_ppt'
+			  if (searchInput === 'math_ppt') {
+				// Redirect to the new page
+				window.location.href = 'https://teju0051.github.io/TService/mathppt_auth.html';
+			  }
+			 
+			   if (searchInput === 'geo_ppt') {
+				// Redirect to the new page
+				window.location.href = 'https://teju0051.github.io/TService/geopdf.html';
+			  }
+			  else {
+				// Handle other searches or add additional conditions
+				alert('No result.');
+			  }
+			}
+		  </script>
 
 	<footer>
-		<p id="welcome-text">&copy; 2023 T-Services. All rights reserved.</p>
+		<p id="copyright">© 2023-2024 T-Services. All rights reserved.</p>
+
+
 	</footer>
 	
-	<script>
-		function isMobileDevice() {
-			return (
-				typeof window.orientation !== "undefined" ||
-				navigator.userAgent.indexOf('IEMobile') !== -1
-			);
-		}
-		
-		// Function to lock the screen to landscape orientation
-		function lockLandscape() {
-			if (screen.orientation && screen.orientation.lock) {
-				screen.orientation
-					.lock('landscape')
-					.then(function () {
-						console.log('Screen locked to landscape');
-					})
-					.catch(function (error) {
-						console.error('Failed to lock screen to landscape:', error);
-					});
-			}
-		}
-		
-		// Show a warning message if the user is on a mobile device
-		window.onload = function () {
-			if (isMobileDevice()) {
-				var confirmation = confirm(
-					"This website does not fully support mobile devices. Do you want to continue?"
-				);
-		
-				if (confirmation) {
-					lockLandscape();
-				}
-			}
-		}
-
-
-
-		document.addEventListener('DOMContentLoaded', function () {
-			setTimeout(function () {
-				document.getElementById('popupContainer').style.display = 'flex';
-			}, 2000);
-		});
-		
-		function closePopup() {
-			document.getElementById('popupContainer').style.display = 'none';
-		}
-		
-	  // Set the end date for the countdown
-	  var endDate = new Date('11/11/2024').getTime();
-
-	  // Update the countdown every 1 second
-	  var countdownInterval = setInterval(function () {
-		  var currentDate = new Date().getTime();
-		  var timeDifference = endDate - currentDate;
+	
   
-		  var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-		  var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		  var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-		  var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-  
-		  // Display the countdown
-		  document.getElementById('countdown').innerHTML = 'Event ends in: ' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
-  
-		  // Check if the countdown has reached zero and close the popup
-		  if (timeDifference <= 0) {
-			  clearInterval(countdownInterval);
-			  closePopup();
-		  }
-	  }, 1000);
-	  </script>
-
 	<chat-bot platform_id="600b2165-a2ba-4b74-b50f-39f8b91e99ef" user_id="50011ea4-9c75-4ae4-8ea1-57bcf0a958a8" chatbot_id="4990e587-b5ae-43c0-917c-6d8d07049f39"><a href="https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral">[chatbot]</a></chat-bot><script src="https://chatsimple-widget.s3.us-east-2.amazonaws.com/chat-bot-loader.js" defer></script>
 </body>
 </html>
