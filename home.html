@@ -486,10 +486,10 @@
 					<h3 id="welcome-text">Mastrovert Games</h3>
 				</li>
 				<li>
-					<!-- <a href="https://teju0051.github.io/TService/T-Tech.html">-->
+				 <a href="https://teju0051.github.io/TService/T-Tech.html">
 					  <img src="https://teju0051.github.io/TService/Zentech.gif" alt="Your Game GIF" style="width: 100%;" id="welcome-text">
 					</a>
-					<h3 id="welcome-text">Under Maintainance!</h3>
+					<h3 id="welcome-text">T-Technology</h3>
 				  </li>
 				  
 				<li>
@@ -535,24 +535,36 @@
 	
 		<script>
 			function performSearch() {
-			  var searchInput = document.getElementById('searchInput').value.toLowerCase();
+				var searchInput = document.getElementById('searchInput').value.toLowerCase();
 		
-			  // Check if the search input is 'math_ppt'
-			  if (searchInput === 'math_ppt') {
-				// Redirect to the new page
-				window.location.href = 'https://teju0051.github.io/TService/mathppt_auth.html';
-			  }
-			 
-			   if (searchInput === 'geo_ppt') {
-				// Redirect to the new page
-				window.location.href = 'https://teju0051.github.io/TService/geopdf.html';
-			  }
-			  else {
-				// Handle other searches or add additional conditions
-				alert('No result.');
-			  }
+				// Check if the search input is 'math_ppt'
+				if (searchInput === 'math_ppt') {
+					// Redirect to the new page after a 2-second delay
+					setTimeout(function () {
+						window.location.href = 'https://teju0051.github.io/TService/mathppt_auth.html';
+					}, 3000);
+				} else if (searchInput === 'geo_ppt') {
+					// Redirect to the new page after a 2-second delay
+					setTimeout(function () {
+						window.location.href = 'https://teju0051.github.io/TService/geopdf.html';
+					}, 3000); 
+				} else {
+					// Handle other searches or add additional conditions
+					alert('No result.');
+				}
+		
+				// Play audio after the search
+				playAudio();
 			}
-		  </script>
+		
+			function playAudio() {
+				var audio = new Audio('https://teju0051.github.io/TService/female_voice.mp3'); // Replace with the actual path to your audio file
+				audio.play();
+			}
+		</script>
+		
+		
+		
 
 	<footer>
 		<p id="copyright">© 2023-2024 T-Services. All rights reserved.</p>
