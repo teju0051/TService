@@ -428,18 +428,79 @@
 	  p{
 		text-align: center;
 	  }
+
+	  @keyframes gradientAnimation {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+	
+
+	@keyframes gradientAnimation {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+	
+	.search-input {
+		padding: 10px;
+		border: none;
+		border-radius: 5px;
+		outline: none;
+		background-color: #40415c;
+		color: rgb(0, 0, 0);
+		background: linear-gradient(45deg, #faf8fb, #bbbbf6, #7b7df3); /* Updated colors */
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White border shadow */
+		animation: gradientAnimation 4s infinite; /* Apply animation to the background */
+	}
+	
+	.search-container {
+		display: flex; /* Make container a flex container */
+		align-items: center; /* Center items vertically */
+	}
+	
+	.search-button {
+		padding: 10px;
+		background: linear-gradient(45deg, #faf8fb, #bbbbf6, #7b7df3); /* Updated colors */
+		color: #000000;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White border shadow */
+		animation: gradientAnimation 4s infinite; /* Apply animation to the background */
+	}
+	
+	/* Optional: Style the button on hover */
+	.search-button:hover {
+		background: linear-gradient(45deg, #faf8fb, #bbbbf6, #7b7df3); /* Updated colors */
+	}
+	.search-input::placeholder {
+		color: #000000; /* Set the desired color for the placeholder text */
+	  }
 	</style>
 </head>
 <body><br><br>
 	<header id="sticky-header">
 		<img src="https://i.ibb.co/ssdJk6F/Brandmark-make-your-logo-in-minutes-Google-Chrome-20-10-2023-21-49-01.png" class="img" type="image" id="welcome-text">
 		<nav>
-			<ul>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TService/home.html" class="token">Home</a></li>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TGames/Home.html"class="token">Games</a></li>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TService/T-Tech.html" class="token">Technology</a></li>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TService/T-Art.html" class="token">Art</a></li>
-
+			<ul><div class="search-container">
+				<button class="search-button" onclick="window.location.href='https://teju0051.github.io/TService/home.html';">Home</button>
+				<button disabled>ㅤ</button>
+				<input type="text" class="search-input" placeholder="Search" id="searchInput">
+				<button class="search-button" onclick="performSearch()">🔍</button>
+			</div>
         <li id="welcome-text"><a href=""class="token"></a></li>
 			</ul>
 		</nav>
@@ -491,8 +552,30 @@
 		<p id="welcome-text">&copy; 2023 T-Services. All rights reserved.</p>
 	</footer>
 	
-	
-
+	<script>
+			function performSearch() {
+				var searchInput = document.getElementById('searchInput').value.toLowerCase();
+			
+				// Log the search input for debugging
+				console.log('Search Input:', searchInput);
+			
+				// Check if the search input is 'game', 'games', 'tgames', or 't-games'
+				if (searchInput === 'game' || searchInput === 'games' || searchInput === 'tgames' || searchInput === 't-games' || searchInput === 'T-Games'  || searchInput === 'T-games') {
+					// Redirect to the new page
+					window.location.href = 'https://teju0051.github.io/TGames/Home.html';
+				} else if (searchInput === 'mgp') {
+					// Redirect to the new page
+					window.location.href = 'https://teju0051.github.io/TService/mgp.html';
+				} else if (searchInput === 'paint' || searchInput === 't-art' || searchInput === 'art' || searchInput === 'digital art') {
+					// Redirect to the new page
+					window.location.href = 'https://teju0051.github.io/TService/T-Art.html';
+				} else {
+					// Handle other searches or add additional conditions
+					alert('No result.');
+				}
+			}
+			
+		  </script>
 
 </body>
 </html>
