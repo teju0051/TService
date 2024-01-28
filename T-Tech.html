@@ -1,577 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>T-Service</title>
-	<link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-  <link rel="icon" href="https://i.ibb.co/xhKH7pV/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-43-00-Copy.png" type="image">
-	<style>
-		#sticky-header {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			background: linear-gradient(180deg, #FF0000, #000000); /* Red to Black gradient */
-			color: white;
-			padding: 10px;
-			z-index: 100;
-			border: 2px solid #FFFF00; /* Yellow border */
-			box-shadow: 0px 0px 10px #FFFF00; /* Shiny effect */
-		}
-		
-		h2 {
-			color: white;
-			text-align: center;
-			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-			background: linear-gradient(180deg, #ff9191, #ec3434); /* Black to Red gradient for background */
-		}
-		
-		.img {
-			position: relative;
-			width: 5%;
-			height: 50%;
-			border-style: double;
-			border-radius: 10px;
-			border-color: #FFFF00; /* Yellow border for the image */
-			box-shadow: 0px 0px 10px #FFFF00; /* Shiny effect for the image */
-			opacity: 80%;
-		}
-		
-		
-		  .red {
-			color: red;
-		  }
-		  
-		  .paro {
-			color:  rgb(255, 255, 255);
-			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-		  }
-		  .token {
-			color: white;
-			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-		  }
-		  
-		
-		  body {
-			margin-top: 80px;
-			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-			margin: 0;
-			padding: 0;
-			background: linear-gradient(180deg, #FF0000, #000000); /* Red to Black gradient */
-			color: #FFFFFF;
-			overflow: scroll;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center center;
-			overflow-x: hidden;
-		}
-		
-		b {
-			color: #FF0000; /* Red color for bold text */
-		}
-		
-		p {
-			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-		}
-		
-		header {
-			background: linear-gradient(to bottom, #FF0000, #000000); /* Red to Black gradient for header background */
-			color: #FFFFFF;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 20px;
-			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-			border-bottom: 2px solid #FFFF00; /* Yellow border at the bottom of the header */
-			box-shadow: 0px 0px 10px #FFFF00; /* Shiny effect for the header */
-		}
-		
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		nav a {
-			color: #FF0000; /* Red color for navigation links */
-		}
-		
-		nav a:hover {
-			color: #675dff; /* Color on hover for navigation links */
-		}
-		
-		#featured-games li {
-			background: linear-gradient(to bottom, #FF0000, #000000); /* Red to Black gradient for featured games */
-			border: 3px solid #FFFF00; /* Yellow border for featured games */
-			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shiny effect for featured games */
-		}
-		
-		#featured-games li:hover {
-			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover for featured games */
-			transform: translateY(-5px); /* Lift the element on hover for featured games */
-		}
-		footer {
-			background: linear-gradient(to bottom, #FF0000, #000000); /* Red to Black gradient for footer */
-			padding: 20px;
-			text-align: center;
-			color: #FFFFFF; /* White text color for footer */
-			border-top: 2px solid #FFFF00; /* Yellow border at the top of the footer */
-			box-shadow: 0px 0px 10px #FFFF00; /* Shiny effect for the footer */
-		}
-		
-		nav ul {
-			display: flex;
-			list-style: none;
-			margin: 0;
-			padding: 3px;
-		}
-		
-		nav li {
-			margin: 0 10px;
-		}
-		
-		main {
-			max-width: 960px;
-			margin: 0 auto;
-			padding: 20px;
-			color: #FFFFFF; /* White text color for main content */
-		}
-		
-		.welcome-text {
-			animation: slide-in 1s ease-out forwards;
-		}
-		
-		
-		@keyframes slide-in {
-			from {
-				transform: translateX(-100%);
-				opacity: 0;
-			}
-			to {
-				transform: translateX(0);
-				opacity: 1;
-			}
-		}
-		
-		#featured-games {
-			margin-top: 50px;
-		}
-		
-		#featured-games ul {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
-		
-		#featured-games li {
-			background: linear-gradient(to bottom, #FF0000, #000000); /* Red to Black gradient for featured games */
-			border: 3px solid #FFFF00; /* Yellow border for featured games */
-			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shiny effect for featured games */
-			flex-basis: calc(33.33% - 20px);
-			margin-bottom: 20px;
-			padding: 0;
-			text-align: center;
-			margin-top: 10px;
-		}
-		
-		#featured-games li:hover {
-			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover for featured games */
-			transform: translateY(-5px); /* Lift the element on hover for featured games */
-		}
-		
-		#featured-games li img {
-			max-width: 100%;
-		}
-		
-		  
-		#about {
-			margin-top: 50px;
-		}
-		
-		#contact {
-			margin-top: 50px;
-		}
-		
-		form label {
-			display: block;
-			margin-bottom: 5px;
-			color: #FFFFFF; /* White text color for form labels */
-		}
-		
-		footer {
-			background: linear-gradient(to bottom, #FF0000, #000000); /* Red to Black gradient for footer */
-			padding: 20px;
-			text-align: center;
-			color: #FFFFFF; /* White text color for footer content */
-			border-top: 2px solid #FFFF00; /* Yellow border at the top of the footer */
-			box-shadow: 0px 0px 10px #FFFF00; /* Shiny effect for the footer */
-		}
-		
-		footer p {
-			margin: 0;
-			padding: 0;
-		}
-		
-		@media (max-width: 1000px) {
-			#sticky-header {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				background: linear-gradient(180deg, #FF0000, #000000); /* Red to Black gradient for header */
-				color: #FFFFFF; /* White text color for header */
-				padding: 10px;
-				z-index: 100;
-				border-bottom: 2px solid #FFFF00; /* Yellow border at the bottom of the header */
-				box-shadow: 0px 0px 10px #FFFF00; /* Shiny effect for the header */
-			}
-			
-
-  .red {
-	color: red;
-  }
-  
-  .paro {
-	color: #ffffff;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  h2 {
-    color: #FFFFFF; /* White text color for h2 */
-    text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(180deg, #FF0000, #000000); /* Red to Black gradient for h2 background */
-}
-
-.img {
-    position: relative;
-    width: 5%;
-    height: 50%;
-    border-style: double;
-    border-radius: 10px;
-    opacity: 80%;
-}
-
-.token {
-    color: #FFFFFF; /* White text color for .token */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
+    <link rel="icon" type="image" href="https://i.ibb.co/NVqD5fw/t-service-blcack.jpg">
+    <title>T-Service | Home</title>
+    <style>
+     /* Common styles */
 body {
-    margin-top: 80px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(180deg, #FF0000, #000000); /* Red to Black gradient for body background */
-    color: #FFFFFF; /* White text color for body */
-    overflow: scroll;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('https://nofilmschool.com/media-library/glitch.jpg?id=34075203&width=1245&height=700&quality=90&coordinates=44%2C0%2C44%2C0');
+  background-repeat: no-repeat; /* Add this line */
+  background-size: cover; 
 }
-
-b {
-    color: red;
+.login-container {
+    background: linear-gradient(to bottom, rgba(0, 4, 255, 0.7), rgb(0, 60, 255), rgba(38, 0, 255, 0.7));
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-
-p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.5) 25%, transparent 50%);
+  transform: rotate(45deg);
+  animation: shimmer 2s infinite;
 }
-
-header {
-    background: linear-gradient(to bottom, #0f0f1a, #40415c); /* Gradient for header background */
-    color: #FFFFFF; /* White text color for header */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+@keyframes shimmer {
+  0% {
+    transform: rotate(45deg) translateX(-150%);
+  }
+  100% {
+    transform: rotate(45deg) translateX(150%);
+  }
 }
-
-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 3px;
+h1 {
+  margin-bottom: 20px;
+  color: rgb(255, 0, 0);
 }
-
-nav li {
-    margin: 0 10px;
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
-
-nav a {
-    color: #FFFFFF; /* White text color for navigation links */
-    text-decoration: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #FF4500; /* Orange-Red */
+  color: black;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
-
-nav a:hover {
-    color: #FFFFFF; /* White color on hover for navigation links */
+button:hover {
+  background-color: #FF6347; /* Slightly lighter shade */
 }
-
-main {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+.error {
+  color: red;
+  margin-top: 10px;
 }
-
-.welcome-text {
-    animation: slide-in 1s ease-out forwards;
+.rectangle-photo {
+  width: 200px;
+  height: 100px; /* You can adjust the height */
+  overflow: hidden;
+  margin: 0 auto 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
-
-@keyframes slide-in {
-	from {
-	  transform: translateX(-100%);
-	  opacity: 0;
-	}
-	to {
-	  transform: translateX(0);
-	  opacity: 1;
-	}
+.rectangle-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Add a media query for smaller screens */
+@media (max-width: 768px) {
+	/* Common styles */
+body {
+	/* Existing styles here */
+  
+	/* Add the following for responsiveness */
+	background-size: cover;
+	background-attachment: fixed;
   }
   
-  #featured-games {
-	margin-top: 50px;
+  .login-container {
+	/* Existing styles here */
+  
+	/* Add the following for responsiveness */
+	max-width: 400px; /* Adjust the max-width as needed */
+	width: 90%;
   }
   
-  #featured-games ul {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-  }
-  
-  #featured-games li {
-	background: linear-gradient(to bottom, black,  rgb(117, 102, 204));
-			border: 3px solid  rgb(117, 102, 204);
-	flex-basis: calc(40.43% - 30px);
-	margin-bottom: 10px;
-	padding: 0;
-	text-align: center;
-	margin-top: 10px;
-	width: 300px;
-  }
-  
-  #featured-games li:hover {
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-	transform: translateY(-5px);
-  }
-  
-  #featured-games li img {
-	max-width: 100%;
-  }
-  
-  #about {
-	margin-top: 50px;
-  }
-  
-  #contact {
-	margin-top: 50px;
-  }
-  
-  form label {
-	display: block;
-	margin-bottom: 5px;
-  }
-  
-  
-  
-  footer {
-	background: linear-gradient(to bottom, rgb(54, 50, 77), rgb(0, 0, 0));
-	padding: 20px;
-	text-align: center;
-  }
-  
-  footer p {
-	margin: 0;
-	padding: 0;
-  }
-  		  
-		}
-   
-    #banner {
-      background-image: url("https://i.ibb.co/fGgGkC6/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-43-00-removebg-preview.png%22");
-      background-size: cover;
-      background-position: center;
-      color: #000000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 250px;  
-      text-align: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: 46px;
-      font-size: 34px;
-      }
-	 
-	.search-container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		
-		
-		padding: 10px;
-	  }
-	  
-	  @keyframes gradientAnimation {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
+  /* Add a media query for smaller screens */
+  @media (max-width: 768px) {
+	body {
+	  background-attachment: scroll; /* Change to scroll on smaller screens */
 	}
 	
-	.search-input {
-		padding: 10px;
-		border: none;
-		border-radius: 5px;
-		outline: none;
-		background-color: #40415c;
-		color: rgb(0, 0, 0);
-		background: linear-gradient(45deg, #ff0000, #ffff00, #000000);
-		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White border shadow */
-		animation: gradientAnimation 4s infinite; /* Apply animation to the background */
+	.login-container {
+	  padding: 10px; /* Adjust padding as needed */
 	}
-	
-	.search-button {
-		margin-left: 5px;
-		padding: 10px;
-		background: linear-gradient(45deg, #ff0000, #ffff00, #000000);
-		color: #000000;
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White border shadow */
-		animation: gradientAnimation 4s infinite; /* Apply animation to the background */
-	}
-	
-	/* Optional: Style the button on hover */
-	.search-button:hover {
-		background: linear-gradient(45deg, #ff0000, #ffff00, #000000);
-	}
-	.search-input::placeholder {
-		color: #000000; /* Set the desired color for the placeholder text */
-	  }
-	</style>
+  }
+}  
+.rectangle-photo img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+    opacity: 0.7;
+  }
+  
+    </style>
 </head>
-<body><br><br><br><br><br><br>
-	<header id="sticky-header">
-		<img src="https://i.ibb.co/xhKH7pV/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-43-00-Copy.png" class="img" type="image" id="welcome-text">
-			<nav>	
-			<ul>
-				<div class="search-container">
-					<button  class="search-button" onclick="window.location.href='https://teju0051.github.io/TService/home.html';">Home</button>
-					<button disabled>ㅤ</button>
-					<input type="text" class="search-input" placeholder="Search" id="searchInput">
-					<button class="search-button" onclick="performSearch()">🔍</button>
-					
-				  </div>
-				  
-				</li>
-
-				</ul>
-		</nav>
-	</header>
-	
-	
-	<main>
-    <section id="banner">
-    </section>
-
-	<section id="featured-games">
-		<h2 id="welcome-text">OUR APPLICATION</h2>
-		<ul>
-			<li>
-				
-				<a href="https://teju0051.github.io/TService/geopdf.html"> 
-				  <img src="https://th.bing.com/th/id/OIP.bt4YdCIyRATjQaZjfFToMgHaFa?pid=ImgDet&rs=1" alt="Your Game Logo" style="width: 100%;" disabled id="welcome-text">
-				  </a>
-				<h3 id="welcome-text" color="red">Geography_Project</h3>
-				
-			  </li>
-			<li>
-				<a href="https://teju0051.github.io/Ttech/case_convertor_low_to_high.html"> 
-					<img src="https://i.ibb.co/qmkyGXP/caseelow-top.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-				</a>
-				<h3 id="welcome-text">Lower case to upper case converter</h3>
-			</li>
-			<li>
-				<a href="https://teju0051.github.io/Ttech/photo_to_pdf.html">
-					<img src="https://i.ibb.co/1bxrgV6/ff.jpg" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-				</a>
-				<h3 id="welcome-text">Photo to Pdf</h3>
-			</li>
-			
-			<li>
-				<a href="https://teju0051.github.io/Ttech/rar_to_zip.html">
-					<img src="https://i.ibb.co/cKqfPSZ/ff.jpg" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-				</a>
-				<h3 id="welcome-text">rar to zip</h3>
-			</li>
-			<li>
-				<a href="https://teju0051.github.io/Ttech/Upper_to_lower_case.html">
-					<img src="https://i.ibb.co/68Gvt0b/caseelow-top.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-				</a>
-				<h3 id="welcome-text">Upper case to lower case converter </h3>
-			</li>
-		</ul>
-	</section>
-	
-	<section id="about">
-		<h2 id="welcome-text">About T-Tech</h2>
-		<p class="paro" id="welcome-text">We developed T-Tech to help you in your daily life</p>
-	</section>
-
-	
-	<script>
-		function performSearch() {
-			var searchInput = document.getElementById('searchInput').value.toLowerCase();
-	
-
-			if (searchInput === 'games' || searchInput === 'tgames' ||  searchInput === 't-games' ||  searchInput === 'Games' ||  searchInput === 'T-Games') {
-			
-				setTimeout(function () {
-					window.location.href = 'https://teju0051.github.io/TGames/Home.html';
-				}, 3000);
-			} else if (searchInput === 'mgp') {
-			
-				setTimeout(function () {
-					window.location.href = 'https://teju0051.github.io/TService/mgp.html';
-				}, 3000); 
-			}
-			else if (searchInput === 'art' || searchInput === 'tart' || searchInput === 't-art') {
-				
-				setTimeout(function () {
-					window.location.href = 'https://teju0051.github.io/TService/mgp.html';
-				}, 3000); 
-			}
-			else {
-				// Handle other searches or add additional conditions
-				alert('No result.');
-			}
-	
-			// Play audio after the search
-			playAudio();
-		}
-	
-		function playAudio() {
-			var audio = new Audio('https://teju0051.github.io/TService/female_voice.mp3'); // Replace with the actual path to your audio file
-			audio.play();
-		}
-	</script>
-	
-
-	<footer>
-		<p id="copyright">© 2023-2024 T-Services. All rights reserved.</p>
-
-
-	</footer>
+<body>
+ <div class="login-container">
+    <div class="rectangle-photo">
+        <img src="https://i.ibb.co/74B0zgW/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-40-09.png" alt="User Photo">
+    </div>
+    <h1>Maintainance Break!</h1>
+    <form id="login-form">
+        We apologize for any inconvenience caused.
+        <br> The website is currently undergoing maintenance and is temporarily inaccessible.
+        <br>Kindly bear with us as we work diligently to complete the maintenance process.
+        <br> Thank you for your patience. <br> <br>
+        <b>T-Service Operation Team.</b><br> <br>
+        <b>&copy;2024 T-Service. All rights reserved.</b>
+    </form>
+   
+</div>
+   
 </body>
 </html>
