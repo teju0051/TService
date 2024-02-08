@@ -402,7 +402,7 @@ b{
 
 
   <div class="loading-screen">
-    <img class="logol" src="file:///C:/Users/ADMIN/Downloads/mgp1-removebg-preview.png" alt="Logo" style="transform: scale(4); width: auto; height: auto;">
+    <img class="logol" src="https://i.ibb.co/TtRswy0/mgp1-removebg-preview.png" alt="Logo" style="transform: scale(4); width: auto; height: auto;">
 
 
 
@@ -504,5 +504,23 @@ setTimeout(showPopup, 7000);
   
   </style>
 
-</body>
-</html>
+  <script>
+    // Function to prevent default behavior for right-click
+    function preventRightClick(event) {
+        event.preventDefault();
+    }
+
+    // Function to prevent default behavior for Ctrl+Shift+I
+    function preventCtrlShiftI(event) {
+        if (event.ctrlKey && event.shiftKey && event.key === 'I') {
+            event.preventDefault();
+        }
+    }
+
+    // Attach event listeners
+    document.addEventListener('contextmenu', preventRightClick);
+    document.addEventListener('keydown', preventCtrlShiftI);
+</script>
+</head>
+<body>
+
