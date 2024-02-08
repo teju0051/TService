@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2-Player Pong</title>
+  <style>
+ 
+
+  /* Default styles for the canvas */
+canvas {
+  display: block;
+  margin: auto;
+  background-image: url("https://th.bing.com/th/id/R.0e6ac009562c2fec4f0360e0dc939337?rik=1FTe8WeFjxVqAg&riu=http%3a%2f%2fwww.photos-public-domain.com%2fwp-content%2fuploads%2f2011%2f03%2fblack-brick-wall-texture.jpg&ehk=Z2iMcIsq1kL07pwtJE%2ftenRLhQKKH%2fzpGbMYZNG%2f%2bkA%3d&risl=&pid=ImgRaw&r=0");
+  border-left-style: solid; /* Choose a style that suits your design */
+  border-left-color: red;
+  border-right-style: solid; /* Choose a style that suits your design */
+  border-right-color: red;
+}
+
+/* Styles for smaller screens (up to 767px) */
+@media (max-width: 767px) {
+  canvas {
+      width: 70%;
+  }
+}
+
+/* Styles for screens between 768px and 1000px */
+@media (min-width: 768px) and (max-width: 1000px) {
+  canvas {
+      width: 50%;
+  }
+}
+
+  
+    @media (min-width: 768px) {
+			
+		}	.but {
+      background-color: purple; /* Change to the desired purple color */
+      padding: 20px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 0 10px white;
+      border-color: white;
+      background: linear-gradient(45deg, #6c00f8, #800080); /* Change to the desired pink color */
+    }
+    
+    body {
+      background: linear-gradient(45deg, #ff69b4, #6c00f8); /* Change to the desired gradient colors */
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 18px;
+      line-height: 1.5;
+      zoom: 0.9; /* Zoom the body to 90% */
+    }
+    
+   
+    
+	h1 {
+		color: white;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		font-size: 32px; /* Adjust the font size as needed */
+		font-weight: bold;
+		margin-bottom: 20px; /* Adjust margin as needed */
+		text-align: center; /* Center the text if desired */
+		text-transform: uppercase; /* Convert text to uppercase */
+	}
+	
+    /* Navigation */
+    nav {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: purple; /* Change to the desired purple color */
+      border: 2px solid white;
+      box-shadow: 0 0 10px white;
+      background: linear-gradient(45deg, #ff69b4, #800080); /* Change to the desired pink color */
+    }
+    
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }   nav li {
+        display: inline-block;
+        margin-right: 20px;
+    }nav a {
+        color: #fff;
+        text-decoration: none;
+    }  nav a:hover {
+        color: #252525;
+        text-decoration: underline;
+    
+    } button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: #750000;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+    }    button:hover {
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        max-height: 130px;
+        align-content: flex-start;
+        filter: drop-shadow(0 0 10px white); /* Add a drop shadow to the image */
+      }
+      
+      footer {
+        padding: 20px;
+        text-align: center;
+        background-color: #222;
+        color: white;
+        box-shadow: 0 0 10px white;
+        border-color: white;
+        background: linear-gradient(45deg, #ff69b4, #f85b00);
+      }
+    }      
+    #button-container {
+      position: fixed;
+      top: 10;
+      left: 120;
+      transform: translateY(90%);
+      transform: translateX(30%);
+
+    }table {
+		border-collapse: collapse;
+		margin: auto;
+		width: 80%; /* Adjust the width of the table as needed */
+		margin-top: 20px; /* Add some space above the table */
+		box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8); /* White glowing shadow effect */
+	}
+	
+	td {
+		width: 100px;
+		height: 100px;
+		text-align: center;
+		vertical-align: middle;
+		border: 1px solid #2196F3; /* Use a blue color for the border */
+		font-size: 24px; /* Adjust the font size for better readability */
+		cursor: pointer;
+		transition: background-color 0.3s ease; /* Add a smooth transition effect */
+	}
+	
+	td:hover {
+		background-color: #E3F2FD; /* Use a lighter blue for hover effect */
+		transform: scale(1.1); /* Add a slight scale effect on hover */
+	}
+	
+	
+    hr{
+      color:red;
+    }
+	h3{
+		color:blue;
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	}
+	img {
+		max-height: 130px;
+		margin: 10px; 
+		align-content:flex-start;
+	  }
+
+p{
+  text-align: center;
+
+}
+b{
+  background-color: white;
+  color:red;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #252525;
+  border: 1px solid #fff; /* White border */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  color: #fff; /* White text */
+  text-align: center;
+}
+
+#popup button {
+  background-color: #fff;
+  color: #252525;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the overlay */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+
+  </style>
+</head>
+
+<body>
+  
+  
+
+
+
+  <canvas id="gameCanvas" width="800" height="600"></canvas><br>
+
+
+
+<div id="confettiContainer"></div>
+
+<h4 class="but">How to Play?</h4>
+<br>
+<p>For blue region controls (W, S)</p>
+<br>
+<p>For red region controls (Arrow keys)</p>
+<br>
+<div data-type="grid-layout" id="DivXBFp" data-clientid="DivXBFp" data-displayname="container" class="react-grid-item ltr  false  cd-padding   " style="display: flex; margin: 0px auto; height: auto; width: 100%; max-width: 1200px; position: relative;" bis_skin_checked="1"><div data-type="grid-layout" id="DivyMMi" data-clientid="DivyMMi" data-displayname="links" class="react-grid-item ltr  false  cd-padding   " style="display: flex; margin-top: 0px; margin-left: 0px; height: auto; width: 100%; margin-bottom: 0px; position: relative;" bis_skin_checked="1"><span id="SpanpX7v" data-clientid="SpanpX7v" data-displayname="Brand Name " class="react-grid-item ltr  false   " style="display: block; z-index: 1; width: fit-content; height: fit-content; margin: 0px; min-height: 10px; min-width: 16px; position: relative;"><p>Mastrovert Game Production</p><style id="style-section-DivyMMi-SpanpX7v">[data-clientId="SpanpX7v"]{font-family:Manrope;font-size:25px;font-weight:900;color:#111;letter-spacing:0px;line-height:35px;padding:0px 0px 0px 0px;opacity:100%;}</style></span><div data-type="grid-layout" id="Div7Lfa" data-clientid="Div7Lfa" data-displayname="Div" class="react-grid-item ltr  false  cd-padding   " style="display: flex; margin: 0px; height: auto; width: fit-content; position: relative;" bis_skin_checked="1"><span id="Paragraphnzma" data-clientid="Paragraphnzma" data-displayname="Footer Link 1" class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><a rel="noreferrer" href="https://teju0051.github.io/TService/home.html" target="_parent" class="anchor-tag-reset cd-padding" style="text-decoration: none;" bis_skin_checked="1"><p>Home </p><style id="style-section-Div7Lfa-Paragraphnzma">[data-clientId="Paragraphnzma"]{font-family:Manrope;font-size:16px;font-weight:400;color:#000000;line-height:26px;padding:0px 0px 0px 0px;}</style></a></span><span id="Paragraph4Qll" data-clientid="Paragraph4Qll" data-displayname="Footer Link 4" class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><a rel="noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSdHafX6gPxkzEHnC-jGrrxBHmWk3sL8C4U1GzyipuaE0MkxPw/viewform" target="_parent" class="anchor-tag-reset cd-padding" style="text-decoration: none;" bis_skin_checked="1"><p>Careers </p><style id="style-section-Div7Lfa-Paragraph4Qll">[data-clientId="Paragraph4Qll"]{font-family:Manrope;font-size:16px;font-weight:400;color:#000000;line-height:26px;padding:0px 0px 0px 0px;}</style></a></span><span id="ParagraphmwCo" data-clientid="ParagraphmwCo" data-displayname="Footer Link 6" class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><a rel="noreferrer" href="#DivwLEq" target="_parent" class="anchor-tag-reset cd-padding" style="text-decoration: none;" bis_skin_checked="1"><p><br></p><style id="style-section-Div7Lfa-ParagraphmwCo">[data-clientId="ParagraphmwCo"]{font-family:Manrope;font-size:16px;font-weight:400;color:#000000;line-height:26px;padding:0px 0px 0px 0px;}</style></a></span><span id="Paragraph74iQ" data-clientid="Paragraph74iQ" data-displayname="Footer  Link 2 " class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><p><br></p><style id="style-section-Div7Lfa-Paragraph74iQ">[data-clientId="Paragraph74iQ"]{font-family:Manrope;font-size:16px;font-weight:400;color:#000000;line-height:26px;padding:0px 0px 0px 0px;}</style></span><style id="style-section-DivyMMi-Div7Lfa">[data-clientId="Div7Lfa"]{padding:0px 0px 0px 0px;flex-direction:row;align-items:center;column-gap:40px;row-gap:10px;}</style></div><style id="style-section-DivXBFp-DivyMMi">[data-clientId="DivyMMi"]{padding:0px 0px 20px 0px;flex-direction:row;justify-content:space-between;column-gap:0px;row-gap:0px;border-width:0px 0px 1px 0px ;border-style:none none solid none ;border-color:transparent transparent #000000 transparent ;}</style></div><span id="Paragraphq3OM" data-clientid="Paragraphq3OM" data-displayname="Legal Footer &amp; Copyright" class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><p> 2024 © MGP All rights reserved. Our content, brands and logos are copyrighted. </p><style id="style-section-DivXBFp-Paragraphq3OM">[data-clientId="Paragraphq3OM"]{font-family:Manrope;font-size:14px;font-weight:400;color:#000000;line-height:24px;padding:16px 0px 6px 0px;}</style></span><style id="style-section-Div1B0D-DivXBFp">[data-clientId="DivXBFp"]{padding:40px 0px 0px 0px;flex-direction:column;align-items:center;column-gap:0px;row-gap:0px;}</style></div>
+ 
+<div id="overlay"></div>
+<div id="popup">
+    <h2>TIPS</h2>
+    <p>Mobile/tablet controls will be available soon.</p>
+    <p>If you're using a PC and don't have an external keyboard, enable the on-screen keyboard to play.</p>
+    <button onclick="closePopup()">Close</button>
+
+</div>
+
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const paddleWidth = 20;
+    const paddleHeight = 100;
+    const paddleSpeed = 5;
+
+    const player1 = {
+      x: 20,
+      y: canvas.height / 2 - paddleHeight / 2,
+      dy: 0,
+      color: 'blue'  // Set color to blue for player 1
+    };
+
+    const player2 = {
+      x: canvas.width - paddleWidth - 20,
+      y: canvas.height / 2 - paddleHeight / 2,
+      dy: 0,
+      color: 'red'   // Set color to red for player 2
+    };
+
+    const ball = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      dx: 5,
+      dy: 5,
+      size: 10,
+      color: 'yellow'
+    };
+
+    function drawPaddle(x, y, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, paddleWidth, paddleHeight);
+    }
+
+    function drawBall(x, y, size, color) {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(x, y, size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function update() {
+      // Update player positions
+      player1.y += player1.dy;
+      player2.y += player2.dy;
+
+      // Ensure paddles stay within the canvas boundaries
+      player1.y = Math.max(0, Math.min(player1.y, canvas.height - paddleHeight));
+      player2.y = Math.max(0, Math.min(player2.y, canvas.height - paddleHeight));
+
+      // Bounce the ball off the top and bottom walls
+      if (ball.y - ball.size < 0 || ball.y + ball.size > canvas.height) {
+        ball.dy *= -1;
+      }
+
+      // Bounce the ball off paddles
+      if (
+        (ball.x - ball.size < player1.x + paddleWidth && ball.y > player1.y && ball.y < player1.y + paddleHeight) ||
+        (ball.x + ball.size > player2.x && ball.y > player2.y && ball.y < player2.y + paddleHeight)
+      ) {
+        ball.dx *= -1;
+      }
+
+      // Move the ball
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      // Check for scoring
+      if (ball.x - ball.size < 0 || ball.x + ball.size > canvas.width) {
+        resetGame();
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+      // Draw paddles
+      drawPaddle(player1.x, player1.y, player1.color);
+      drawPaddle(player2.x, player2.y, player2.color);
+  
+      // Draw ball
+      drawBall(ball.x, ball.y, ball.size, ball.color);
+  
+      // Draw copyright text
+      ctx.fillStyle = 'white';
+      ctx.font = '20px Arial';
+      ctx.fillText(' 2024 \u00A9 MGP All Rights Reserved. ', canvas.width / 2 - 160, canvas.height - 20);
+  }
+
+    function gameLoop() {
+      update();
+      draw();
+      requestAnimationFrame(gameLoop);
+    }
+
+    function handleKeydown(event) {
+      switch (event.key) {
+        case 'ArrowUp':
+          player2.dy = -paddleSpeed;
+          break;
+        case 'ArrowDown':
+          player2.dy = paddleSpeed;
+          break;
+        case 'w':
+          player1.dy = -paddleSpeed;
+          break;
+        case 's':
+          player1.dy = paddleSpeed;
+          break;
+      }
+    }
+
+    function handleKeyup(event) {
+      switch (event.key) {
+        case 'ArrowUp':
+        case 'ArrowDown':
+          player2.dy = 0;
+          break;
+        case 'w':
+        case 's':
+          player1.dy = 0;
+          break;
+      }
+    }
+
+
+    
+    function resetGame() {
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      ball.dx = 5;
+      ball.dy = 5;
+    }
+
+    document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('keyup', handleKeyup);
+
+    gameLoop();
+
+
+    document.addEventListener('keydown', function (event) {
+      // Check if the pressed key is an arrow key (left, up, right, down)
+      if (event.key.startsWith('Arrow')) {
+          // Prevent the default arrow key behavior (scrolling)
+          event.preventDefault();
+      }
+  });
+
+   // Function to play the sound
+   function playSound() {
+    const audio = new Audio('https://teju0051.github.io/TGames/lobbymusic.mp3'); // Replace with the path to your sound file
+    audio.play();
+  }
+
+  </script>
+
+
+  <div class="loading-screen">
+    <img class="logol" src="file:///C:/Users/ADMIN/Downloads/mgp1-removebg-preview.png" alt="Logo" style="transform: scale(4); width: auto; height: auto;">
+
+
+
+  </div>
+  <script>
+    // Hide the loading screen after 5 seconds
+    window.onload = function() {
+        var loadingScreen = document.querySelector('.loading-screen');
+        setTimeout(function() {
+            loadingScreen.style.display = 'none';
+        }, 6000);
+    };
+
+
+   // JavaScript to trigger the fade-in and fade-out effect
+document.addEventListener('DOMContentLoaded', function () {
+  const logo = document.querySelector('.logol');
+
+  // Initial state: set opacity to 0
+  logo.style.opacity = '0';
+
+  // Wait for 2 seconds and then fade in the logo over 2 seconds
+  setTimeout(function () {
+    logo.style.transition = 'opacity 2s ease-in-out';
+    logo.style.opacity = '1';
+  }, 1000);
+
+  // Wait for another 2 seconds (total of 4 seconds) and then fade out the logo over 2 seconds
+  setTimeout(function () {
+    logo.style.transition = 'opacity 2s ease-in-out';
+    logo.style.opacity = '0';
+  }, 3000);
+});
+
+
+   // Function to show the popup after 7 seconds
+   function showPopup() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('popup').style.display = 'block';
+}
+
+// Set timeout to show the popup after 7 seconds
+setTimeout(showPopup, 7000);
+
+
+ // Function to close the popup
+ function closePopup() {
+  document.getElementById('overlay').style.display = 'none';
+  document.getElementById('popup').style.display = 'none';
+}
+
+  </script>
+  <style>
+  /* Your existing styles here */
+  .logol {
+    width: auto;
+    height: auto;
+    transform: scale(5);
+    opacity: 0; /* Start with opacity set to 0 */
+    transition: opacity 1s ease-in-out; /* Transition effect for opacity */
+  }
+  /* New styles for the loading screen */
+  .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
+  }
+  
+  .loading-screen h2 {
+      color: green;
+      font-size: 24px;
+  }
+  
+  .loading-screen p {
+      color: green;
+      font-size: 18px;
+  }
+  
+  .loading-screen .logo {
+      opacity: 0;
+      animation: fade-in-out 5s ease-in-out;
+  }
+  
+  @keyframes fade-in-out {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+  }
+
+  
+  </style>
+
+</body>
+</html>
