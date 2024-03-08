@@ -14,7 +14,7 @@
     background-image: url("https://th.bing.com/th/id/R.0e6ac009562c2fec4f0360e0dc939337?rik=1FTe8WeFjxVqAg&riu=http%3a%2f%2fwww.photos-public-domain.com%2fwp-content%2fuploads%2f2011%2f03%2fblack-brick-wall-texture.jpg&ehk=Z2iMcIsq1kL07pwtJE%2ftenRLhQKKH%2fzpGbMYZNG%2f%2bkA%3d&risl=&pid=ImgRaw&r=0");
     border: 1px solid red; /* Set border style and color for both sides */
   }
-  
+
 
 /* Styles for screens between 768px and 1000px */
 @media (min-width: 768px) and (max-width: 1000px) {
@@ -294,6 +294,13 @@ b{
 }
 
 
+#fullscreen-button {
+
+  padding: 10px;
+
+  font-size: 16px;
+
+}
   </style>
 </head>
 
@@ -321,7 +328,7 @@ b{
 <div id="popup">
     <h2>TIPS</h2>
     <p>Once you click/tap on the button the bar will not stop until it touches to top/bottom.</p>
-    <button onclick="closePopup()">Close</button>
+    <button onclick="closePopup()" id="fullscreen-button">Close</button>
 
 </div>
 <div class="rotate-message">
@@ -329,6 +336,7 @@ b{
 </div>
 
   <script>
+ 
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
 
@@ -492,6 +500,11 @@ b{
     audio.play();
   }
 
+  
+      // Function to enter fullscreen 
+
+      var isFullscreen=!1;function toggleFullscreen(){isFullscreen?document.exitFullscreen?.():document.documentElement.requestFullscreen?.(),isFullscreen=!isFullscreen}var button=document.getElementById("fullscreen-button");button.addEventListener("click",toggleFullscreen);
+
   </script>
 
 
@@ -623,5 +636,5 @@ document.addEventListener('keydown', function (event) {
     document.addEventListener('contextmenu', preventRightClick);
     document.addEventListener('keydown', preventCtrlShiftI);
 </script>
-</head>
-<body>
+
+</html>
