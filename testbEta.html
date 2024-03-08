@@ -8,34 +8,21 @@
  
 
   /* Default styles for the canvas */
-canvas {
-  display: block;
-  margin: auto;
-  background-image: url("https://th.bing.com/th/id/R.0e6ac009562c2fec4f0360e0dc939337?rik=1FTe8WeFjxVqAg&riu=http%3a%2f%2fwww.photos-public-domain.com%2fwp-content%2fuploads%2f2011%2f03%2fblack-brick-wall-texture.jpg&ehk=Z2iMcIsq1kL07pwtJE%2ftenRLhQKKH%2fzpGbMYZNG%2f%2bkA%3d&risl=&pid=ImgRaw&r=0");
-  border-left-style: solid; /* Choose a style that suits your design */
-  border-left-color: red;
-  border-right-style: solid; /* Choose a style that suits your design */
-  border-right-color: red;
-}
-
-/* Styles for smaller screens (up to 767px) */
-@media (max-width: 767px) {
   canvas {
-      width: 70%;
+    display: block;
+    margin: auto;
+    background-image: url("https://th.bing.com/th/id/R.0e6ac009562c2fec4f0360e0dc939337?rik=1FTe8WeFjxVqAg&riu=http%3a%2f%2fwww.photos-public-domain.com%2fwp-content%2fuploads%2f2011%2f03%2fblack-brick-wall-texture.jpg&ehk=Z2iMcIsq1kL07pwtJE%2ftenRLhQKKH%2fzpGbMYZNG%2f%2bkA%3d&risl=&pid=ImgRaw&r=0");
+    border: 1px solid red; /* Set border style and color for both sides */
   }
-}
+  
 
 /* Styles for screens between 768px and 1000px */
 @media (min-width: 768px) and (max-width: 1000px) {
   canvas {
-      width: 50%;
+      width: 99%;
+      height: 475px;
   }
-}
-
-  
-    @media (min-width: 768px) {
-			
-		}	.but {
+}.but {
       background-color: purple; /* Change to the desired purple color */
       padding: 20px;
       color: white;
@@ -44,16 +31,39 @@ canvas {
       border-color: white;
       background: linear-gradient(45deg, #6c00f8, #800080); /* Change to the desired pink color */
     }
-    
     body {
-      background: linear-gradient(45deg, #ff69b4, #6c00f8); /* Change to the desired gradient colors */
+      background: linear-gradient(45deg, #ff69b4, #6c00f8);
       font-family: 'Courier New', Courier, monospace;
       font-size: 18px;
       line-height: 1.5;
-      zoom: 0.9; /* Zoom the body to 90% */
+      overflow-x: hidden;
+      zoom: 0.9;
     }
     
-   
+    /* Apply styles only when the device is in portrait mode */
+    @media (orientation: portrait) {
+      body {
+        display: none; /* Hide the content in portrait mode */
+      }
+    
+      /* Optionally, you can show a message or provide instructions to rotate the device */
+     
+    }
+    .rotate-message {
+      display: block;
+      text-align: center;
+      font-size: 24px;
+      padding: 50px;
+      color: white;
+    }    
+    @media (orientation: landscape) { 
+      .rotate-message{
+        display: none;
+      }
+      body{
+        overflow-y: hidden;
+      }
+      }
     
 	h1 {
 		color: white;
@@ -206,6 +216,82 @@ b{
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
+#button-container {
+  position: fixed;
+  top:90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row; /* Updated to row for horizontal alignment */
+  align-items: center;
+  justify-content: center;
+}
+
+#button-container button {
+  margin: 10px; /* Adjust the margin as needed */
+  padding: 15px; /* Adjust the padding as needed */
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px; /* Set the border radius for curved corners */
+}
+
+#blue-up, #blue-down {
+  background-color: blue; /* Set the background color for blue buttons */
+  top: 10%;
+
+}
+
+#red-up, #red-down {
+  background-color: red; /* Set the background color for red buttons */
+}
+
+
+ /* Your existing styles here */
+ .logol {
+  width: auto;
+  height: auto;
+  transform: scale(5);
+  opacity: 0; /* Start with opacity set to 0 */
+  transition: opacity 1s ease-in-out; /* Transition effect for opacity */
+}
+/* New styles for the loading screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.loading-screen h2 {
+    color: green;
+    font-size: 24px;
+}
+
+.loading-screen p {
+    color: green;
+    font-size: 18px;
+}
+
+.loading-screen .logo {
+    opacity: 0;
+    animation: fade-in-out 5s ease-in-out;
+}
+
+@keyframes fade-in-out {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 
   </style>
@@ -217,29 +303,30 @@ b{
 
 
 
-  <canvas id="gameCanvas" width="800" height="600"></canvas><br>
+  <canvas id="gameCanvas" width="650" height="500"></canvas><br>
 
 
 
 <div id="confettiContainer"></div>
-
-<h4 class="but">How to Play?</h4>
-<br>
-<p>For blue region controls (W, S)</p>
-<br>
-<p>For red region controls (Arrow keys)</p>
-<br>
-<div data-type="grid-layout" id="DivXBFp" data-clientid="DivXBFp" data-displayname="container" class="react-grid-item ltr  false  cd-padding   " style="display: flex; margin: 0px auto; height: auto; width: 100%; max-width: 1200px; position: relative;" bis_skin_checked="1"><div data-type="grid-layout" id="DivyMMi" data-clientid="DivyMMi" data-displayname="links" class="react-grid-item ltr  false  cd-padding   " style="display: flex; margin-top: 0px; margin-left: 0px; height: auto; width: 100%; margin-bottom: 0px; position: relative;" bis_skin_checked="1"><span id="SpanpX7v" data-clientid="SpanpX7v" data-displayname="Brand Name " class="react-grid-item ltr  false   " style="display: block; z-index: 1; width: fit-content; height: fit-content; margin: 0px; min-height: 10px; min-width: 16px; position: relative;"><p>Mastrovert Game Production</p><style id="style-section-DivyMMi-SpanpX7v">[data-clientId="SpanpX7v"]{font-family:Manrope;font-size:25px;font-weight:900;color:#111;letter-spacing:0px;line-height:35px;padding:0px 0px 0px 0px;opacity:100%;}</style></span><div data-type="grid-layout" id="Div7Lfa" data-clientid="Div7Lfa" data-displayname="Div" class="react-grid-item ltr  false  cd-padding   " style="display: flex; margin: 0px; height: auto; width: fit-content; position: relative;" bis_skin_checked="1"><span id="Paragraphnzma" data-clientid="Paragraphnzma" data-displayname="Footer Link 1" class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><a rel="noreferrer" href="https://teju0051.github.io/TService/home.html" target="_parent" class="anchor-tag-reset cd-padding" style="text-decoration: none;" bis_skin_checked="1"><p>Home </p><style id="style-section-Div7Lfa-Paragraphnzma">[data-clientId="Paragraphnzma"]{font-family:Manrope;font-size:16px;font-weight:400;color:#000000;line-height:26px;padding:0px 0px 0px 0px;}</style></a></span><span id="Paragraph4Qll" data-clientid="Paragraph4Qll" data-displayname="Footer Link 4" class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><a rel="noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSdHafX6gPxkzEHnC-jGrrxBHmWk3sL8C4U1GzyipuaE0MkxPw/viewform" target="_parent" class="anchor-tag-reset cd-padding" style="text-decoration: none;" bis_skin_checked="1"><p>Careers </p><style id="style-section-Div7Lfa-Paragraph4Qll">[data-clientId="Paragraph4Qll"]{font-family:Manrope;font-size:16px;font-weight:400;color:#000000;line-height:26px;padding:0px 0px 0px 0px;}</style></a></span><span id="ParagraphmwCo" data-clientid="ParagraphmwCo" data-displayname="Footer Link 6" class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><a rel="noreferrer" href="#DivwLEq" target="_parent" class="anchor-tag-reset cd-padding" style="text-decoration: none;" bis_skin_checked="1"><p><br></p><style id="style-section-Div7Lfa-ParagraphmwCo">[data-clientId="ParagraphmwCo"]{font-family:Manrope;font-size:16px;font-weight:400;color:#000000;line-height:26px;padding:0px 0px 0px 0px;}</style></a></span><span id="Paragraph74iQ" data-clientid="Paragraph74iQ" data-displayname="Footer  Link 2 " class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><p><br></p><style id="style-section-Div7Lfa-Paragraph74iQ">[data-clientId="Paragraph74iQ"]{font-family:Manrope;font-size:16px;font-weight:400;color:#000000;line-height:26px;padding:0px 0px 0px 0px;}</style></span><style id="style-section-DivyMMi-Div7Lfa">[data-clientId="Div7Lfa"]{padding:0px 0px 0px 0px;flex-direction:row;align-items:center;column-gap:40px;row-gap:10px;}</style></div><style id="style-section-DivXBFp-DivyMMi">[data-clientId="DivyMMi"]{padding:0px 0px 20px 0px;flex-direction:row;justify-content:space-between;column-gap:0px;row-gap:0px;border-width:0px 0px 1px 0px ;border-style:none none solid none ;border-color:transparent transparent #000000 transparent ;}</style></div><span id="Paragraphq3OM" data-clientid="Paragraphq3OM" data-displayname="Legal Footer &amp; Copyright" class="react-grid-item ltr cd-paragraph-clean false   " style="display: block; width: fit-content; height: auto; margin: 0px; position: relative;"><p> 2024 © MGP All rights reserved. Our content, brands and logos are copyrighted. </p><style id="style-section-DivXBFp-Paragraphq3OM">[data-clientId="Paragraphq3OM"]{font-family:Manrope;font-size:14px;font-weight:400;color:#000000;line-height:24px;padding:16px 0px 6px 0px;}</style></span><style id="style-section-Div1B0D-DivXBFp">[data-clientId="DivXBFp"]{padding:40px 0px 0px 0px;flex-direction:column;align-items:center;column-gap:0px;row-gap:0px;}</style></div>
- 
+<div id="button-container">
+  <!-- Left buttons connected to the blue paddle -->||
+  <button id="blue-up" onclick="moveBluePaddle('up')">Up</button>
+  <button id="blue-down" onclick="moveBluePaddle('down')">Down</button>
+  ||
+  <!-- Right buttons connected to the red paddle -->
+  <button id="red-up" onclick="moveRedPaddle('up')">Up</button>
+  <button id="red-down" onclick="moveRedPaddle('down')">Down</button>||
+</div>
 <div id="overlay"></div>
 <div id="popup">
     <h2>TIPS</h2>
-    <p>Mobile/tablet controls will be available soon.</p>
-    <p>If you're using a PC and don't have an external keyboard, enable the on-screen keyboard to play.</p>
+    <p>Once you click/tap on the button the bar will not stop until it touches to top/bottom.</p>
     <button onclick="closePopup()">Close</button>
 
 </div>
-
+<div class="rotate-message">
+  <p>Please switch to landscape mode to play the game.</p>
+</div>
 
   <script>
     const canvas = document.getElementById('gameCanvas');
@@ -327,10 +414,17 @@ b{
       // Draw ball
       drawBall(ball.x, ball.y, ball.size, ball.color);
   
-      // Draw copyright text
       ctx.fillStyle = 'white';
       ctx.font = '20px Arial';
-      ctx.fillText(' 2024 \u00A9 MGP All Rights Reserved. ', canvas.width / 2 - 160, canvas.height - 20);
+      
+      // Calculate the x-coordinate to center the text horizontally
+      const xCoordinate = canvas.width / 2 - ctx.measureText(' 2-Player Pong ').width / 2;
+      
+      // Set the y-coordinate to position the text at the top
+      const yCoordinate = 30;
+      
+      ctx.fillText(' 2-Player Pong. ', xCoordinate, yCoordinate);
+      
   }
 
     function gameLoop() {
@@ -454,55 +548,63 @@ setTimeout(showPopup, 7000);
   document.getElementById('popup').style.display = 'none';
 }
 
-  </script>
-  <style>
-  /* Your existing styles here */
-  .logol {
-    width: auto;
-    height: auto;
-    transform: scale(5);
-    opacity: 0; /* Start with opacity set to 0 */
-    transition: opacity 1s ease-in-out; /* Transition effect for opacity */
-  }
-  /* New styles for the loading screen */
-  .loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #111;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 999;
-  }
-  
-  .loading-screen h2 {
-      color: green;
-      font-size: 24px;
-  }
-  
-  .loading-screen p {
-      color: green;
-      font-size: 18px;
-  }
-  
-  .loading-screen .logo {
-      opacity: 0;
-      animation: fade-in-out 5s ease-in-out;
-  }
-  
-  @keyframes fade-in-out {
-      0% { opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; }
-  }
 
-  
-  </style>
+// Function to move the blue paddle up or down
+function moveBluePaddle(direction) {
+  switch (direction) {
+    case 'up':
+      player1.dy = -paddleSpeed;
+      break;
+    case 'down':
+      player1.dy = paddleSpeed;
+      break;
+  }
+}
+
+// Function to move the red paddle up or down
+function moveRedPaddle(direction) {
+  switch (direction) {
+    case 'up':
+      player2.dy = -paddleSpeed;
+      break;
+    case 'down':
+      player2.dy = paddleSpeed;
+      break;
+  }
+}
+
+// Function to stop the blue paddle movement
+function stopBluePaddle() {
+  player1.dy = 0;
+}
+
+// Function to stop the red paddle movement
+function stopRedPaddle() {
+  player2.dy = 0;
+}
+
+// Attach event listeners for button release
+document.getElementById('blue-up').addEventListener('mouseup', stopBluePaddle);
+document.getElementById('blue-down').addEventListener('mouseup', stopBluePaddle);
+document.getElementById('red-up').addEventListener('mouseup', stopRedPaddle);
+document.getElementById('red-down').addEventListener('mouseup', stopRedPaddle);
+
+// Prevent the default behavior for arrow keys
+document.addEventListener('keydown', function (event) {
+  if (event.key.startsWith('Arrow')) {
+    event.preventDefault();
+  }
+});
+
+
+ // Display alert if the device is in portrait mode
+ window.addEventListener('orientationchange', function () {
+  if (window.orientation === 0) {
+    alert('Please switch to landscape mode to start the game.');
+  }
+});
+  </script>
+ 
 
   <script>
     // Function to prevent default behavior for right-click
@@ -523,4 +625,3 @@ setTimeout(showPopup, 7000);
 </script>
 </head>
 <body>
-
