@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple App Store</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font-family: 'Pacifico', cursive, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background-color: #1a1a1a;
+			/* Slightly lighter dark background color */
+			color: #eee;
+			/* Light text color for night view */
+			transition: background-color 0.3s;
+			/* Smooth background color transition */
+		}
+		header {
+			background-color: #333;
+			/* Darker header background color */
+			height: 80px;
+			/* Increased header height for better visibility */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-bottom: 2px solid #fff;
+			/* Shiny white border-bottom */
+		}
+		header h1 {
+			color: #fff;
+			font-size: 24px;
+			/* Larger font size for the header */
+		}
+		#apps-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 20px 0;
+			/* Increased margin for better spacing */
+			margin-bottom: 49px;
+		}
+		.app-card {
+			width: 100%;
+			max-width: 300px;
+			height: 400px;
+			background-color: #444;
+			/* Darker card background color */
+			border: 2px solid #666;
+			/* Darker border color */
+			margin: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 15px;
+			border-radius: 10px;
+			/* Rounded corners for the card */
+			transition: transform 0.3s;
+			/* Add smooth scaling effect on hover */
+		}
+		.app-card:hover {
+			transform: scale(1.05);
+			/* Scale up the card on hover */
+		}
+		.app-card img {
+			width: 100%;
+			height: 70%;
+			/* Adjusted image height for better proportion */
+			object-fit: cover;
+			margin-bottom: 10px;
+			border-radius: 5px;
+			/* Rounded corners for the image */
+		}
+		.app-card h2 {
+			margin-bottom: 10px;
+			font-size: 18px;
+			/* Adjusted font size for app names */
+		}
+		.app-card p {
+			text-align: center;
+			margin-top: auto;
+			font-size: 14px;
+			/* Adjusted font size for descriptions */
+		}
+		.app-card button {
+			margin-top: 10px;
+			padding: 8px 16px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#category-buttons {
+			display: flex;
+			justify-content: center;
+			margin: 20px 0;
+		}
+		#category-buttons button {
+			margin: 0 10px;
+			padding: 10px;
+			cursor: pointer;
+			background-color: rgba(0, 0, 0, 0.5);
+			/* Slightly transparent background color */
+			color: #fff;
+			border: none;
+			border-bottom: 2px solid rgba(255, 255, 255, 0);
+			/* Transparent border-bottom initially */
+			border-radius: 5px;
+			transition: border-bottom 0.3s, background-color 0.3s;
+		}
+		#category-buttons button:hover {
+			background-color: #555;
+			/* Darker hover background color */
+			border-bottom: 2px solid #fff;
+			/* White border-bottom on hover */
+		}
+		#category-buttons button.active {
+			background-color: #555;
+			/* Darker background color for the active button */
+			border-bottom: 2px solid #fff;
+			/* White border-bottom for the active button */
+		}
+		#footer {
+			text-align: center;
+			padding: 10px;
+			background-color: #333;
+			/* Darker footer background color */
+			color: #fff;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>M G P S t o r e</h1>
+	</header>
+	<div id="category-buttons">
+		<button onclick="filterApps('action')">Action Games</button>
+		<button onclick="filterApps('board')">Board Games</button>
+		<button onclick="filterApps('all')">All</button>
+	</div>
+	<main>
+		<section id="apps-container"></section>
+	</main>
+	<footer id="footer">
+		&copy; 2024 MGP. All rights reserved!
+	</footer>
+	<script>
+		const appsContainer = document.getElementById("apps-container");
+
+		const apps = [{
+			name: "Ephemeral Shadows",
+			image: "file:///C:/Users/ADMIN/OneDrive/Desktop/brand%20assest/Yellow%20Moon%20and%20Zombie%20Logo%20_%20DesignEvo%20Logo%20Maker%20-%20Google%20Chrome%2012_3_2023%203_35_36%20PM.png",
+			description: "An horror adevnture game.",
+			category: "action",
+			apkUrl: "#" // Replace with the actual APK URL
+		},
+			{
+				name: "Bharatiya warrior",
+				image: "file:///C:/Users/ADMIN/OneDrive/Desktop/brand%20assest/bw%20ka%20logo.png",
+				description: "A multiplayer Battle Royale game.",
+				category: "action",
+				apkUrl: "#" // Replace with the actual APK URL
+			},
+			{
+				name: "2-player pong",
+				image: "https://i.pinimg.com/564x/44/c4/66/44c466022d7ba991631c5c08ad285919.jpg",
+				description: "A duo-player pong game.",
+				category: "board",
+				apkUrl: "https://www.webintoapp.com/download/zip/290827/pong%201.0.zip?ljuRf4i3qJ8S" // Replace with the actual APK URL
+			},
+			// Add more apps as needed
+		];
+
+		apps.forEach((app) => {
+			const appCard = document.createElement("div");
+			appCard.classList.add("app-card");
+			appCard.dataset.category = app.category;
+
+			const appImage = document.createElement("img");
+			appImage.src = app.image;
+			appImage.alt = app.name;
+
+			const appName = document.createElement("h2");
+			appName.textContent = app.name;
+
+			const appDescription = document.createElement("p");
+			appDescription.textContent = app.description;
+
+			const downloadButton = document.createElement("button");
+			downloadButton.textContent = "Download";
+			downloadButton.addEventListener("click", () => openDownloadLink(app.apkUrl));
+
+			appCard.appendChild(appImage);
+			appCard.appendChild(appName);
+			appCard.appendChild(appDescription);
+			appCard.appendChild(downloadButton);
+
+			appsContainer.appendChild(appCard);
+		});
+
+		function filterApps(category) {
+			const appCards = document.querySelectorAll('.app-card');
+
+			appCards.forEach((appCard) => {
+				const appCategory = appCard.dataset.category;
+
+				if (category === 'all' || appCategory === category) {
+					appCard.style.display = 'flex';
+				} else {
+					appCard.style.display = 'none';
+				}
+			});
+		}
+
+		function openDownloadLink(apkUrl) {
+			window.open(apkUrl,
+				'_blank');
+		}
+
+		document.addEventListener("DOMContentLoaded", function () {
+			const buttons = document.querySelectorAll("#category-buttons button");
+
+			buttons.forEach(button => {
+				button.addEventListener("click", function () {
+					buttons.forEach(btn => btn.classList.remove("active"));
+					this.classList.add("active");
+				});
+			});
+		});
+	</script>
+</body>
+</html>
