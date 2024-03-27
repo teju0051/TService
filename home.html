@@ -582,7 +582,7 @@ main {
                 var searchInput = document.getElementById('searchInput').value.toLowerCase();
             
                 // Check if search input is not null and matches certain keywords
-                if (searchInput && (searchInput === 'math_ppt' || searchInput === 'geo_ppt')) {
+                if (searchInput && (searchInput === '#' || searchInput === '#')) {
                     // Show loading spinner and background overlay
                     document.getElementById('loading-overlay').style.display = 'block';
             
@@ -592,10 +592,10 @@ main {
             
                     // Redirect after 4 seconds
                     setTimeout(function () {
-                        if (searchInput === 'math_ppt') {
-                            window.location.href = 'https://teju0051.github.io/TService/mathppt_auth.html';
-                        } else if (searchInput === 'geo_ppt') {
-                            window.location.href = 'https://teju0051.github.io/TService/geopdf.html';
+                        if (searchInput === '#') {
+                            window.location.href = '#';
+                        } else if (searchInput === '#') {
+                            window.location.href = '#';
                         }
             
                         // Hide loading spinner and background overlay after redirect
