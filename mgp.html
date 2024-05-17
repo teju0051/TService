@@ -3,49 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Maintenance</title>
+    <title>MGP India </title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 3px solid purple;
+            background-color: tan;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
         }
-
-        h1 {
-            color: #333;
+        .container h1 {
+            font-size: 2.5em;
+            margin: 0;
             margin-bottom: 20px;
+            color: purple;
         }
-
-        p {
-            color: #666;
-            margin-bottom: 20px;
+        .back-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: purple;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s;
         }
-
-        .signature {
-            color: #999;
-            font-size: 14px;
+        .back-button:hover {
+            background-color: #5a005a;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Website Under Maintenance</h1>
-        <p>Please check back later.</p>
-        <p>Regards,</p>
-        <p class="signature">MGP Operation Team</p>
+        <h1>Website Will Be Ready Shortly</h1>
+        <button class="back-button" onclick="window.location.href='https://teju0051.github.io/TService/home.html';">Back</button>
     </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>
