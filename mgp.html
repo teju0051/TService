@@ -1,72 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MGP India </title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .container {
-            border: 3px solid purple;
-            background-color: tan;
-            color: white;
-            padding: 40px;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 2s ease-in-out;
-        }
-        .container h1 {
-            font-size: 2.5em;
-            margin: 0;
-            margin-bottom: 20px;
-            color: purple;
-        }
-        .back-button {
-            margin-top: 20px;
-            padding: 15px 30px;
-            background-color: purple;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .back-button:hover {
-            background-color: #5a005a;
-            transform: scale(1.05);
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MGP India</title>
+<style>
+  
+  .header {
+    background-color: #201920;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url('file:///C:/Users/ADMIN/Downloads/Untitled%20design%20(1).png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  /* General styles for a futuristic look */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #0a0a0a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.logo {
+  margin-right: 20px;
+}
+
+.logo img {
+  max-width: 200px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+.navigation {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.navigation a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.upcoming-games-container {
+  background-color: #121212;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1200px;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5); /* Adjust the shadow color and opacity */
+}
+
+
+.image-container {
+  display: flex;
+  transition: transform 0.5s ease;
+  border-radius: 15px;
+}
+
+.image {
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 25px;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+.button-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button {
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  width: 35px; /* Increased size */
+  height: 35px; /* Increased size */
+  border-radius: 50%;
+  background: linear-gradient(145deg, #232323, #3a3a3a); /* Enhanced gradient */
+  box-shadow: 4px 4px 10px #0c0c0c, -4px -4px 10px #2e2e2e;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  color: white; /* Ensure the arrow is visible */
+  font-size: 18px; /* Adjust arrow size */
+  text-align: center; /* Center text */
+  line-height: 35px; /* Center text vertically */
+}
+
+.button:hover {
+  background: linear-gradient(145deg, #3a3a3a, #232323); /* Reverse gradient on hover */
+  transform: scale(1.1); /* Slightly increase size on hover */
+  box-shadow: 6px 6px 12px #0a0a0a, -6px -6px 12px #3a3a3a; /* Enhance shadow on hover */
+}
+
+.button.left {
+  left: 10px;
+}
+
+.button.right {
+  right: 10px;
+}
+
+
+.button:hover {
+  background-color: #f39c12;
+  transform: scale(1.2);
+}
+
+.upcoming-title {
+  text-align: center;
+  margin: 40px 0 20px;
+  
+  
+}
+
+h2 {
+  font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+  background-color: #ff9900;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 4px 20px rgba(255, 166, 0, 0.5); /* Adjust the shadow color and opacity */
+}
+
+.full-image-container {
+  text-align: center;
+  margin: 20px auto;
+  width: 445px;
+  display: inline-block;
+  
+}
+p{
+  text-align:center;
+  width: 500px;
+  font-size: medium;
+}
+
+.full-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 187, 0, 0.5); /* Adjust the shadow color and opacity */
+
+}
+
+.full-image:hover {
+  transform: scale(1.05);
+}
+
+.game-name {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  margin-top: 10px;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.game-name:hover {
+  color: #f39c12;
+}
+
+.footer {
+  background-color: #ff9900;
+  color: #000000;
+  padding: 20px 0;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.footer-image {
+  width: 300px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.footer-divider {
+  width: 100%;
+  margin: 0;
+}
+
+
+.iframe-container {
+  text-align: center;
+}
+
+.image-container1 {  /*For_social_links*/
+  display: flex;
+  justify-content: center; /* Align items horizontally at the center */
+  gap: 20px; /* Add space between images */
+}
+
+@media only screen and (max-width: 1000px) {
+  .body{
+    text-align: center;
+  }
+  .header {
+    background-image:  url(#);
+    width: 420px;
+  }
+  .navigation {
+    margin: 0;
+    padding: 0; /* Added to ensure no extra spacing */
+  }
+  .navigation a {
+    margin-right: 0;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    border-bottom-color: #fff; 
+
+    
+    text-decoration: none; /* Remove default link underline */
+    color: #fff; /* Set link color */
+  }
+  .upcoming-games-container,
+  .iframe-container {
+    display: none;
+  }
+  .footer{
+    display: none;
+  }
+  .image:hover {
+    display: none;
+  }
+}
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Website Will Be Ready Shortly</h1>
-        <button class="back-button" onclick="window.location.href='https://teju0051.github.io/TService/home.html';">Back</button>
-    </div>
 
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+<div class="header">
+  <div class="logo">
+    <img src="file:///C:/Users/ADMIN/OneDrive/Desktop/brand%20assest/Add%20a%20little%20bit%20of%20body%20text%20-%20Copy.png" alt="Logo">
+  </div>
+  <div class="navigation">
+    <a href="https://teju0051.github.io/TService/home.html">Home</a>
+    
+   
+  </div>
+</div>
+<br>
+<div class="upcoming-games-container">
+  <div class="image-container">
+    <img class="image" src="file:///F:/EPHEMERAL%20SHADOWS%20(2).png" alt="Image 1">
+    <img class="image" src="file:///F:/EPHEMERAL%20SHADOWS%20(1).png" alt="Image 2">
+  </div>
+  <div class="button-container">
+    <div class="button left" onclick="prevImage()">&#10094;</div>
+    <div class="button right" onclick="nextImage()">&#10095;</div>
+  </div>
+  
+</div>
+
+<div class="upcoming-title">
+  <h2>Our Games</h2>
+</div>
+
+<div class="full-image-container">
+ <a onclick="window.location.href='https://teju0051.github.io/TGames/snakegame.html';"><img class="full-image" src="file:///C:/Users/ADMIN/OneDrive/Desktop/brand%20assest/snake%20game%20mgp.png" alt="Full Image">
+  <div class="game-name">TAP TO PLAY</div></a>
+</div>
+
+<div class="full-image-container">
+  <a onclick="window.location.href='https://teju0051.github.io/TGames/tictactoe.html';"><img class="full-image" src="file:///C:/Users/ADMIN/OneDrive/Desktop/brand%20assest/x-o%20mg.png" alt="Full Image">
+   <div class="game-name">TAP TO PLAY</div></a>
+ </div>
+
+ <div class="full-image-container">
+  <a onclick="window.location.href='https://teju0051.github.io/TGames/scrambled-word.html';"><img class="full-image" src="file:///C:/Users/ADMIN/OneDrive/Desktop/brand%20assest/scramble%20rumble%20mgp.png" alt="Full Image">
+   <div class="game-name">TAP TO PLAY</div></a>
+ </div>
+
+ <div class="full-image-container">
+  <a onclick="window.location.href='#';"><img class="full-image" src="file:///C:/Users/ADMIN/OneDrive/Desktop/brand%20assest/Untitled%20design%20(2).png" alt="Full Image">
+   <div class="game-name">COMING SOON</div></a>
+ </div>
+ <div class="upcoming-title">
+  <h2>In-Game Activities</h2>
+</div>
+
+<div class="iframe-container">
+  <iframe width="689" height="396" src="https://www.youtube.com/embed/ebdakf3oAAY" title="Warrior's Storm full song by T-GAMES" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div class="upcoming-title">
+  <h2>Connect with us</h2>
+</div>
+
+<div class="image-container1">
+ <a href="https://www.instagram.com/mastrovert_game_production/"> <img src="file:///C:/Users/ADMIN/Downloads/instagram.png" width="50px" height="50px"></a>
+ <a href="https://www.facebook.com/people/Mastrovert-Game-Production/61559137797282/"> <img src="file:///C:/Users/ADMIN/Downloads/facebook.png" width="50px" height="50px"></a>
+
+</div><br><br>
+
+<div class="footer">
+  <div class="footer-content">
+    <img src="file:///C:/Users/ADMIN/OneDrive/Desktop/brand%20assest/WhatsApp%20Image%202024-05-05%20at%208.21.37%20PM.jpeg" class="footer-image" alt="Left Image">
+    <b>About us</b>
+    <p> <b>Mastrovert Game Production (MGP) </b> is a leading Game Developer and Publisher dedicated to shaping the gaming landscape in India.  <br> <br> Our mission is to foster innovation and talent within the Indian gaming industry, contributing to its growth and global recognition. <br>  <br> 
+
+      At MGP,  we are committed to creating immersive gaming experiences that captivate audiences worldwide. <br>   <br> Our diverse portfolio spans across various genres, including online multiplayer, offline single-player, and hybrid games,  catering to a wide range of gaming preferences. <br>  <br> 
+      
+      With a focus on excellence and creativity, we strive to push the boundaries of game development,  delivering high-quality products that showcase India's prowess in the gaming arena. Join us as we embark on an exciting journey to elevate the Indian gaming industry and make our nation proud</p>
+  </div> <br>
+  <hr class="footer-divider">
+  <p>&copy; 2024 MGP All rights reserved.</p>
+</div>
+
+<script>
+
+  //this is for the main image shower script please don't edit if don't know about it!!
+  let currentIndex = 0;
+  const images = document.querySelectorAll('.image');
+  
+  function showImage(index) {
+    images.forEach((image, i) => {
+      image.style.transform = `translateX(-${index * 100}%)`;
+    });
+  }
+  
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  }
+  
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+  
+  showImage(currentIndex);
+</script>
+
 </body>
 </html>
