@@ -1,630 +1,397 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>T-Service</title>
-	<link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link rel="icon" href="https://i.ibb.co/NVqD5fw/t-service-blcack.jpg" type="image">
-	<style>
-		:root {
-  --primary-background: #0f0f1a;
-  --primary-color: #ffffff;
-  --accent-color: #675dff;
-  --box-shadow-color: rgba(0, 0, 0, 0.3);
-  --hover-box-shadow-color: rgba(0, 0, 0, 0.5);
-  --gradient-start: #40415c;
-  --gradient-end: #0f0f1a;
-  --featured-game-border: rgb(117, 102, 204);
-  --footer-gradient-start: rgb(54, 50, 77);
-  --footer-gradient-end: rgb(0, 0, 0);
-  --font-family: 'system-ui', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Service</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="icon" href="https://i.ibb.co/NVqD5fw/t-service-blcack.jpg" type="image">
+    <style>
+        /* Styles for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #888888;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
 
-body {
-  margin: 0;
-  font-family: var(--font-family);
-  padding: 0;
-  background-color: var(--primary-background);
-  color: var(--primary-color);
-  overflow: scroll;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  overflow-x: hidden;
-  margin-left: auto;
-  margin-right: auto;
-}
+        body.light-theme {
+            background-color: #f8f9fa;
+            color: #212529;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
+        
+        body.light-theme nav {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
+        
+        body.dark-theme nav {
+            background-color: #333333;
+            border-radius: 10px;
+            border: 2px solid #ffffff;
+        }
+        body.dark-theme p {
+            color:#ffffff;
+        }
+        body.dark-theme h2 {
+            color:rgb(255, 255, 255);
+        }
+        body.dark-theme footer {
+            color:white;
+        }
+        body.light-theme footer {
+            background-color:white;
+            color: #343a40;
+        }
+        body.dark-theme .about-section {
+            color:white;
+            background-color: #252525;
 
-#sticky-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--primary-background);
-  color: var(--primary-color);
-  padding: 10px;
-  z-index: 100;
-  border-bottom: 2px solid var(--accent-color);
-}
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
+        
+        .logo img {
+            width: 400px; /* Adjust width as needed */
+            height: 100; /* Maintain aspect ratio */
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
 
-.red {
-  color: red;
-}
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #007bff;
+        }
 
-.paro {
-  color: var(--primary-color);
-  font-family: var(--font-family);
-}
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 18px;
+            color: inherit;
+        }
 
-h2 {
-  color: var(--primary-color);
-  text-align: center;
-  font-family: var(--font-family);
-  background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
-}
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.img {
-  position: relative;
-  width: 5%;
-  height: 50%;
-  border-style: double;
-  border-radius: 10px;
-  opacity: 80%;
-}
+        .search-container input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-.token {
-  color: var(--primary-color);
-  font-family: var(--font-family);
-}
+        .search-container button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        
+        main {
+            padding: 40px 20px;
+        }
+        
+        footer {
+            padding: 20px 40px;
+            text-align: center;
+            background-color: #343a40;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
+        
+        .container {
+            margin-top: 40px;
+        }
+        
+        .container h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #007bff;
+        }
+        
+        .platforms {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .platform {
+            text-align: center;
+            margin: 20px;
+            max-width: 200px;
+        }
+        
+        .platform img {
+            width: 210px;
+            height: 210px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
 
-b {
-  color: red;
-}
+        .platform img:hover {
+            transform: scale(1.1);
+        }
+        
+        .platform p {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #6c757d;
+        }
 
-p {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+        /* Styles for About Us section */
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            color: #212529;
+            font-family: 'Arial', sans-serif;
+        }
+        .about-section img {
+            width: 200px;
+            height: 200px; 
+   
 
+        }
+        
+
+        .about-section .content {
+            flex-grow: 1;
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .about-section .extra-info {
+            max-width: 200px;
+        }
+        @media (max-width: 768px) {
+
+            /* Mobile Version CSS */
+
+/* Header */
 header {
-  background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
-  color: var(--primary-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  font-family: var(--font-family);
+    padding: 10px; /* Adjust padding for smaller header */
+}
+
+.logo img {
+    width: 250px; /* Adjust logo size for smaller screens */
+}
+
+/* Navigation */
+nav {
+    padding: 10px; /* Adjust padding for smaller nav */
+    ;
 }
 
 nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 3px;
+    flex-direction: row; /* Stack navigation items vertically on mobile */
+    gap: 10px; /* Add gap between items */
+    
 }
 
-nav li {
-  margin: 0 10px;
+/* Search Container */
+.search-container {
+    display: none;
 }
 
-nav a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-family: var(--font-family);
-}
-
-nav a:hover {
-  color: var(--accent-color);
-}
-
+/* Main Content */
 main {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
+    padding: 20px; /* Adjust padding for main content */
 }
 
-.welcome-text {
-  animation: slide-in 1s ease-out forwards;
+/* Service Platforms */
+.platform {
+    max-width: 150px; /* Adjust platform width for smaller screens */
+    margin: 10px; /* Add margin for separation */
 }
 
-@keyframes slide-in {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.platform img {
+    width: 100%; /* Make platform images responsive */
+    height: auto; /* Maintain aspect ratio */
 }
-#featured-games {
-    margin-top: 20px; /* Adjusted margin */
-  }
-  
-  #featured-games ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #featured-games li {
-    background: linear-gradient(to bottom, black, var(--featured-game-border));
-    border: 3px solid var(--featured-game-border);
-    box-shadow: 2px 2px 5px var(--box-shadow-color);
-    flex-basis: calc(33.33% - 10px); /* Adjusted flex-basis */
-    margin-bottom: 10px; /* Adjusted margin */
-    padding: 0;
-    text-align: center;
-    margin-top: 5px; /* Adjusted margin */
-  }
-  
-  #featured-games li:hover {
-    box-shadow: 2px 2px 5px var(--hover-box-shadow-color);
-    transform: translateY(-3px); /* Adjusted translateY */
-  }
-  
-  #featured-games li img {
-    max-width: 100%;
-  }
-  
-  #about {
-    margin-top: 20px; /* Adjusted margin */
-  }
-  
-  #contact {
-    margin-top: 20px; /* Adjusted margin */
-  }
-  
-  form label {
-    display: block;
-    margin-bottom: 3px; /* Adjusted margin */
-  }
-  
-  footer {
-    background: linear-gradient(to bottom, var(--footer-gradient-start), var(--footer-gradient-end));
-    padding: 10px; /* Adjusted padding */
-    text-align: center;
-  }
-  
-  footer p {
-    margin: 0;
-    padding: 0;
-  }
-  
 
-			
-		@media (max-width: 1000px) {
-		/* Common styles for both large and small screens */
-#sticky-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-color: #333;
-	color: white;
-	padding: 10px;
-	z-index: 100;
-  }
-  
- 
-  .red {
-	color: red;
-  }
-  
-  .paro {
-	color: #ffffff;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  h2 {
-	color:  rgb(255, 255, 255);
-	text-align: center;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	background: linear-gradient(180deg,  #40415c,#0f0f1a);
-  }
-  
-  .img {
-	position: relative;
-	width: 5%;
-	height: 50%;
-	border-style: double;
-	border-radius: 10px;
-	opacity: 80%;
-  }
-  
-  .token {
-	color: rgb(255, 255, 255);
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  body {
-	margin-top: 80px;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	margin: 0;
-	padding: 0;
-	background-color: black;
-	color: rgb(255, 255, 255);
-	overflow: scroll;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
-	overflow-x: hidden;
-  }
-  
-  b {
-	color: red;
-  }
-  
-  p {
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  
-  header {
-	background: linear-gradient(to bottom, #0f0f1a, #40415c);
-	color: #ffffff;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px;
+/* About Us Section */
+.about-section {
+    flex-direction: column; /* Stack about section items vertically on mobile */
+    padding: 20px; /* Adjust padding for about section */
+}
 
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  nav ul {
-	display: flex;
-	list-style: none;
-	margin: 0;
-	padding: 3px;
-  }
-  
-  nav li {
-	margin: 0 10px;
-  }
-  
-  nav a {
-	color: #ffffff;
-	text-decoration: none;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  nav a:hover {
-	color: #ffffff;
-  }
-  
-  main {
-	max-width: 960px;
-	margin: 0 auto;
-	padding: 20px;
-  }
-  
-  
-  .welcome-text {
-	animation: slide-in 1s ease-out forwards;
-  }
-  
-  @keyframes slide-in {
-	from {
-	  transform: translateX(-100%);
-	  opacity: 0;
-	}
-	to {
-	  transform: translateX(0);
-	  opacity: 1;
-	}
-  }
-  
-  #featured-games {
-	margin-top: 50px;
-  }
-  
-  #featured-games ul {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-  }
-  
-  #featured-games li {
-	background: linear-gradient(to bottom, black,  rgb(117, 102, 204));
-			border: 3px solid  rgb(117, 102, 204);
-	flex-basis: calc(55.43% - 30px);
-	margin-bottom: 10px;
-	padding: 0;
-	text-align: center;
-	margin-top: 10px;
-	width: 300px;
-  }
-  
-  #featured-games li:hover {
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-	transform: translateY(-5px);
-  }
-  
-  #featured-games li img {
-	max-width: 100%;
-  }
-  
-  #about {
-	margin-top: 50px;
-  }
-  
-  #contact {
-	margin-top: 50px;
-  }
-  
-  form label {
-	display: block;
-	margin-bottom: 5px;
-  }
-  
-  
-  footer {
-    background: linear-gradient(to bottom, rgb(54, 50, 77), rgb(0, 0, 0));
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  footer p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  		  
-		}
-   
-    #banner {
-      background-image: url("https://i.ibb.co/tmRXg7T/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-40-09-removebg-preview.png");
-      background-size: cover;
-      background-position: center;
-      color: #000000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 470px;  
-      text-align: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: 46px;
-      font-size: 34px;
-      }
-	  /* emergency number */
-	  .popup {
-		display: none;
-		color: black;
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		background-color: #fff;
-		padding: 20px;
-		border: 1px solid #ccc;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-		z-index: 9999;
-		max-height: 80%; /* Maximum height for the scrollable popup */
-		overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
-	}
+.about-section img {
+    width: 100%; /* Make about image responsive */
+    max-width: 250px; /* Limit maximum width */
+    height: auto; /* Maintain aspect ratio */
+}
 
-	table {
-		border-collapse: collapse;
-		width: 100%;
-	}
+/* Popup */
+.popup {
+    width: 90%; /* Adjust popup width for smaller screens */
+    max-width: 300px; /* Limit maximum width */
+    padding: 15px; /* Adjust padding */
+}
 
-	th, td {
-		border: 1px solid #ccc;
-		padding: 8px;
-		text-align: left;
-	}
-	.search-container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		
-		
-		padding: 10px;
-	  }
-	  
-	  .search-input {
-		padding: 10px;
-		border: none;
-		border-radius: 5px;
-		outline: none;
-		background-color: #40415c;
-		color: white;
-		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White border shadow */
-	  }
-	  
-	  .search-button {
-		margin-left: 5px;
-		padding: 10px;
-		background-color: #40415c;
-		color: #fff;
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White border shadow */
-	  }
-	  
-	  /* Optional: Style the button on hover */
-	  .search-button:hover {
-		background-color:#675dff;
-	  }
-	  .search-input::placeholder {
-		color: #ffffff; /* Set the desired color for the placeholder text */
-	  }
-	  
-      #loading-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-        z-index: 999;
-      }
-  
-      .spinner {
-        border: 4px solid rgba(255, 255, 255, 0.3); /* Light border */
-        border-top: 4px solid #fff; /* White top border */
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        margin: 20% auto; /* Centered */
-        animation: spin 1s linear infinite;
-      }
-  
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
+/* Footer */
+footer {
+    padding: 10px; /* Adjust padding for footer */
+}
 
-      ::-webkit-scrollbar
-      {
-        width: 05px;
-      }
-      ::-webkit-scrollbar-track{
-        background-color: #6e6e6e;
-      }
-      ::-webkit-scrollbar-thumb{
-        background-color:#675dff;
-        border-radius: 10px;
-      }
-	</style>
+        }
+    </style>
 </head>
-<body><br><br>
-	<header id="sticky-header">
-		<img src="https://i.ibb.co/D7yvFLg/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-40-09.png" class="img" type="image" id="welcome-text">
-			<nav>	
-			<ul>
-				<div class="search-container">
-					<input type="text" class="search-input" placeholder="Search" id="searchInput">
-					<button class="search-button" onclick="performSearch()">🔍</button>
-				  </div>
-				</li>
-				<li id="welcome-text"><a href="https://teju0051.github.io/TService/home.html" class="token"></a></li>
-			</ul>
-		</nav>
-	</header>
-	
-	
-	<main>
-    <section id="banner">
-    </section>
-	
-			<section id="featured-games">
-				<h2 id="welcome-text">OUR PLATFORMS</h2>
-		<section id="featured-games">
-			
-			<ul>
-				
-				<li>
-					<!--<a href="https://teju0051.github.io/TService/T-Games-E-Sport.html">-->
-						<img src="file:///E:/Bharatiya%20Warrior/brand-assets/Check%20out%20my%20new%20logo%20made%20on%20Looka!%20-%20Google%20Chrome%2010_28_2023%2012_05_15%20PM.png" style="width: 100%;"id="welcome-text">
-					</a>
-					<h3 id="welcome-text">AVAILABLE SOON</h3>
-				</li>
-				<li>
-					<a href="https://teju0051.github.io/TService/mgp.html">
-						<img src="https://i.ibb.co/mDNnhpZ/MGP-NEW-TEMP.jpg" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-					</a>
-					<h3 id="welcome-text">MGP</h3>
-				</li>
-				  
-				<li>
-					<a href="https://teju0051.github.io/TService/T-Art.html">
-						<img src="https://i.ibb.co/XYFMs7m/Create-a-Logo-Online-Free-Logo-Maker-Generator-TURBOLOGO-Google-Chrome-12-23-2023-11-42-53-AM-transf.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-					</a>
-					<h3 id="welcome-text">T-ART</h3>
-				</li>
-               
-				<li><!---
-					<a href="https://teju0051.github.io/TService/tgc_esport_score_board.html"> -->
-						<img src="https://i.ibb.co/R6wtSww/Free-Logo-Maker-Get-Custom-Logo-Designs-in-Minutes-Looka-Google-Chrome-19-07-2023-16-59-59-png-509-5.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-					</a>
-					<h3 id="welcome-text"> 🚫Coming Soon..</h3>
-				</li>
-			</ul>
-		</section>
-		<section id="featured-games">
-			
-			<h2 id="welcome-text">Emergency Support</h2>
-			<ul>
-				<li>
-			<a href="https://www.friends2support.org/index.aspx">
-				<img src="https://i.ibb.co/bbfYt2W/Find-Blood-Donor.png" alt="Your Game Logo" style="width: 100%;"id="welcome-text">
-			</a>
-			<h3 id="welcome-text">Find Blood Donor</h3>
-		</li>
-		</ul>
-			</section>
-		
-		
-		<section id="about">
-			<h2 id="welcome-text">ABOUT T-SERVICE</h2>
-			<p class="paro" id="welcome-text">
-				Welcome to T Service, an innovative and dynamic company that offers a range of cutting-edge platforms to enhance your digital experience. We are proud to offer three unique platforms: T-Games, T-Art, and T-Tech. <br> <br>
-
-	</section>
-	
-        <div id="loading-overlay">
-            <div class="spinner"></div>
-          </div>
-		<script>
-            function performSearch() {
-                var searchInput = document.getElementById('searchInput').value.toLowerCase();
-            
-                // Check if search input is not null and matches certain keywords
-                if (searchInput && (searchInput === '#' || searchInput === '#')) {
-                    // Show loading spinner and background overlay
-                    document.getElementById('loading-overlay').style.display = 'block';
-            
-                    // Play audio
-                    var audio = new Audio('https://teju0051.github.io/TService/female_voice.mp3');
-                    audio.play();
-            
-                    // Redirect after 4 seconds
-                    setTimeout(function () {
-                        if (searchInput === '#') {
-                            window.location.href = '#';
-                        } else if (searchInput === '#') {
-                            window.location.href = '#';
-                        }
-            
-                        // Hide loading spinner and background overlay after redirect
-                        hideLoadingOverlay();
-                    }, 4000);
-                } else {
-                    // Handle case where search input is null or doesn't match keywords
-                    alert('No result found!');
-            
-                    // Hide loading spinner and background overlay
-                    hideLoadingOverlay();
-                }
-            }
-            
-            function hideLoadingOverlay() {
-                // Hide loading spinner and background overlay
-                document.getElementById('loading-overlay').style.display = 'none';
-            }
-            
-		  </script>
-
-	<footer>
-		<p id="copyright">© 2023-2024 T-Services. All rights reserved.</p>
+<body class="light-theme">
+    <header>
+        <div class="logo">
+            <img src="https://i.ibb.co/5Y49SyD/Untitled-design-4-removebg-preview.png" alt="Logo">
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="javascript:void(0);" onclick="showPopup('careerPopup')">Career</a></li>
 
 
-	</footer>
-	
-	
+            <li><div class="theme-toggle" onclick="toggleTheme()">Switch Theme</div></li>
+        </ul>
+
+        <div class="search-container">
+            <input type="text" id="searchQuery" placeholder="Disabled" disabled>
+            <button onclick="performSearch()" disabled>Search</button>
+        </div>
+    </nav>
   
-	<chat-bot platform_id="600b2165-a2ba-4b74-b50f-39f8b91e99ef" user_id="50011ea4-9c75-4ae4-8ea1-57bcf0a958a8" chatbot_id="4990e587-b5ae-43c0-917c-6d8d07049f39"><a href="https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral">[chatbot]</a></chat-bot><script src="https://chatsimple-widget.s3.us-east-2.amazonaws.com/chat-bot-loader.js" defer></script>
+    <main>
+        <div class="container">
+            <h2>Our Platforms</h2>
+            <div class="platforms">
+                <div class="platform">
+                    <a href="https://teju0051.github.io/TService/mgp.html" target="_blank">
+                        <img src="https://i.ibb.co/mDNnhpZ/MGP-NEW-TEMP.jpg" alt="Service 1 Logo">
+                    </a>
+                    <p>Online Games</p>
+                </div>
+                <div class="platform">
+                    <a href="https://teju0051.github.io/TService/T-Art.html" target="_blank">
+                        <img src="https://i.ibb.co/XYFMs7m/Create-a-Logo-Online-Free-Logo-Maker-Generator-TURBOLOGO-Google-Chrome-12-23-2023-11-42-53-AM-transf.png" alt="Service 2 Logo">
+                    </a>
+                    <p>Digital Art</p>
+                </div>
+                <div class="platform">
+                    <a href="https://teju0051.github.io/Zen-Tech/home.html" target="_blank">
+                        <img src="https://i.ibb.co/F4SjWtw/zentech-transformed.png">
+                    </a>
+                    <p>Zen-Tech</p>
+                </div>
+            
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <div class="about-section">
+            <img src="https://i.ibb.co/D7yvFLg/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-40-09.png" alt="About Us Image">
+            <div class="content">
+                <h2>About Us</h2>
+                <p>We are a leading company in online gaming and digital art, offering top-notch services to our clients. Our mission is to deliver exceptional experiences through innovative solutions.</p>
+            </div>
+          
+        </div>
+        
+    </main>
+    <div id="careerPopup" class="popup" style="display: none;">
+        <h2>Job Opportunities</h2>
+        <p>No job requirements at the moment. This page is updated bi-weekly. Check out the job openings on our <a href="https://www.linkedin.com/company/tgamesindia/" target="_blank">LinkedIn page</a>.</p>
+        <button onclick="closePopup('careerPopup')">Close</button>
+    </div>
+    
+    <footer>
+        &copy; 2024 T-Service all rights reserved.
+    </footer>
+    <!---
+    <audio id="searchAudio" src="your-audio-file.mp3" preload="auto"></audio> -->
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-theme');
+            body.classList.toggle('dark-theme');
+        }
+
+        /*
+        function performSearch() {
+            const query = document.getElementById('searchQuery').value;
+            if (query.trim()) {
+                const audio = document.getElementById('searchAudio');
+                audio.play();
+
+                // Example search URL
+                const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                setTimeout(() => {
+                    window.location.href = searchUrl;
+                }, 1000); // Adjust the delay as needed
+            }
+        }
+        */
+
+    /*For job requiremnets*/
+            function showPopup(popupId) {
+                document.getElementById(popupId).style.display = "block";
+            }
+        
+            function closePopup(popupId) {
+                document.getElementById(popupId).style.display = "none";
+            }
+      
+    </script>
+    <chat-bot platform_id="600b2165-a2ba-4b74-b50f-39f8b91e99ef" user_id="50011ea4-9c75-4ae4-8ea1-57bcf0a958a8" chatbot_id="4990e587-b5ae-43c0-917c-6d8d07049f39"><a href="https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral">chatsimple</a></chat-bot><script src="https://cdn.chatsimple.ai/chat-bot-loader.js" defer></script>
 </body>
 </html>
