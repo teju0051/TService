@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers at T-Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #eaeaea;
+            overflow-x: hidden;
+            background-color: #121212;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 15px;
+        }
+        /* Header */
+        header {
+            background: #1c1c1c;
+            padding: 1em 0;
+            border-bottom: 1px solid #333;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-color: #fff;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img.logo {
+            height: 50px;
+        }
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1em;
+        }
+        .nav-links a {
+            color: #eaeaea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            color: #007bff;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #eaeaea;
+        }
+        header .nav-links.active {
+            display: block;
+        }
+        /* Hero Section */
+        .hero {
+            background: url('hero.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 8em 0;
+            margin-top: 70px;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+        .hero .btn-primary {
+            background: #007bff;
+            color: #fff;
+            padding: 0.75em 1.5em;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .hero .btn-primary:hover {
+            background: #0056b3;
+        }
+        /* Sections */
+        section {
+            padding: 4em 0;
+        }
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+        section p {
+            text-align: center;
+            margin-bottom: 2em;
+            color: #b0b0b0;
+        }
+        .company-overview p {
+            max-width: 800px;
+            margin: auto;
+        }
+        .why-join .features,
+        .benefits .benefits-list {
+            display: flex;
+            gap: 2em;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .feature, .benefit {
+            flex: 1 1 calc(33.333% - 2em);
+            text-align: center;
+        }
+        .feature i, .benefit i {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 0.5em;
+        }
+        .feature h3, .benefit h3 {
+            color: #eaeaea;
+        }
+        .current-openings .job-listings {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: space-around;
+        }
+        .current-openings .job {
+            background: #1c1c1c;
+            border: 1px solid #333;
+            padding: 1em;
+            border-radius: 5px;
+            flex: 1 1 calc(33.333% - 2em);
+            text-align: center;
+        }
+        .current-openings .job h3 {
+            margin-bottom: 0.5em;
+            color: #eaeaea;
+        }
+        .current-openings .job p {
+            margin-bottom: 1em;
+            color: #b0b0b0;
+        }
+        .current-openings .btn-secondary {
+            background: #28a745;
+            color: #fff;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .current-openings .btn-secondary:hover {
+            background: #218838;
+        }
+        /* Testimonials Section */
+        .testimonials {
+            background: #1c1c1c;
+            padding: 4em 0;
+        }
+        .testimonial-slider {
+            display: flex;
+            gap: 1em;
+            overflow-x: auto;
+            padding: 1em 0;
+        }
+        .testimonial {
+            background: #2b2b2b;
+            padding: 1.5em;
+            border-radius: 10px;
+            flex: 0 0 calc(33.333% - 1em);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #eaeaea;
+            border: 1px solid #333;
+        }
+        .testimonial img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 1em;
+        }
+        .testimonial-content {
+            max-width: 300px;
+        }
+        .testimonial-content p {
+            font-style: italic;
+            color: #b0b0b0;
+            margin-bottom: 0.5em;
+        }
+        .testimonial-content span {
+            font-weight: bold;
+            color: #eaeaea;
+        }
+        /* Application Process */
+        .application-process {
+            background: #1c1c1c;
+            padding: 4em 0;
+            text-align: center;
+        }
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: space-around;
+        }
+        .step {
+            flex: 1 1 calc(25% - 2em);
+            background: #2b2b2b;
+            padding: 1.5em;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        .step i {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 0.5em;
+        }
+        .step h3 {
+            color: #eaeaea;
+            margin-bottom: 0.5em;
+        }
+        .step p {
+            color: #b0b0b0;
+        }
+        /* Footer */
+        footer {
+            background: #1c1c1c;
+            color: #eaeaea;
+            padding: 1em 0;
+            text-align: center;
+        }
+        .footer-info a {
+            color: #eaeaea;
+            text-decoration: none;
+            margin: 0 0.5em;
+        }
+        .footer-info a:hover {
+            text-decoration: underline;
+        }
+        .notice{
+            background-color: red;
+            color: white;
+            text-decoration: double;
+        }
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.75em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .why-join .features,
+            .benefits .benefits-list,
+            .current-openings .job-listings,
+            .testimonial-slider,
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature, .benefit, .job, .testimonial, .step {
+                flex: 1 1 100%;
+            }
+            header nav ul {
+                display: inline-block;
+                flex-direction: row;
+                justify-content: center;
+                gap: 0;
+                background: #1c1c1c;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                border-top: 1px solid #333;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="https://i.ibb.co/5Y49SyD/Untitled-design-4-removebg-preview.png" alt="T-Service Logo" class="logo">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="https://teju0051.github.io/TService/home.html">Home</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Join Our Team and Shape the Future of Services</h1>
+            <p>Be a part of a dynamic team that's making a difference.</p>
+            <a href="#current-openings" class="btn-primary">Explore Openings</a>
+        </div>
+    </section>
+    <marquee class="notice">It has come to our attention that there are fraudulent activities involving individuals posing as representatives of T-Service and requesting money in exchange for job offers. Please be aware that T-Service does not charge any fees or request payments at any stage of the recruitment process.</marquee>
+    <section class="company-overview">
+        <div class="container">
+            <h2>About T-Service</h2>
+            <p>At T-Service, we are committed to provide you the latest and fastest services.</p>
+        </div>
+    </section>
+    
+    <section class="why-join">
+        <div class="container">
+            <h2>Why Join Us?</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Career Growth</h3>
+                    <p>Opportunities for advancement and professional development.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>Inclusive Culture</h3>
+                    <p>A collaborative and inclusive work environment.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-star"></i>
+                    <h3>Employee Recognition</h3>
+                    <p>We celebrate achievements and recognize contributions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="current-openings" class="current-openings">
+        <div class="container">
+            <h2>Current Openings</h2>
+            <div class="job-listings">
+                <div class="job">
+                    <h3>No Job Opening</h3>
+                    <p>This is updated bi-weekly basis</p>
+                   <!--- <a href="#" class="btn-secondary"></a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2>Benefits & Perks</h2>
+            <div class="benefits-list">
+                <div class="benefit">
+                    <i class="fas fa-medkit"></i>
+                    <h3>Health & Wellness</h3>
+                    <p>Comprehensive health insurance and wellness programs.</p>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Financial</h3>
+                    <p>Competitive salary & bonuses.</p>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <h3>Work-Life Balance</h3>
+                    <p>Flexible working arrangements inc Work from home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!---
+    <section class="testimonials">
+        <div class="container">
+            <h2>Employee Testimonials</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <img src="employee1.jpg" alt="Employee Name">
+                    <div class="testimonial-content">
+                        <p>"[Quote]"</p>
+                        <span>- [Employee Name], [Job Title]</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <img src="employee2.jpg" alt="Employee Name">
+                    <div class="testimonial-content">
+                        <p>"[Quote]"</p>
+                        <span>- [Employee Name], [Job Title]</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <img src="employee3.jpg" alt="Employee Name">
+                    <div class="testimonial-content">
+                        <p>"[Quote]"</p>
+                        <span>- [Employee Name], [Job Title]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+    
+    <section class="application-process">
+        <div class="container">
+            <h2>Application Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Step 1</h3>
+                    <p>Submit your Resume via mail</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-user-check"></i>
+                    <h3>Step 2</h3>
+                    <p>Manual review by our HR team.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-comments"></i>
+                    <h3>Step 3</h3>
+                    <p>Interviews and skill proving tests.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Step 4</h3>
+                    <p>Receive an offer letter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container" id="contact">
+            <div class="footer-info">
+                <p>Contact Us: <a href="tserviceindiaofficial@proton.me">tserviceindiaofficial@proton.me</a></p>
+                <p>Follow Us: 
+                    <a href="https://www.linkedin.com/company/91059965/admin/feed/posts/"><i class="fab fa-linkedin"></i></a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Audio Element -->
+    <audio id="intro-audio" src="https://teju0051.github.io/TService/t-serivce_career_vocal_hindi.mp3"></audio>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const audio = document.getElementById('intro-audio');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Function to play audio only once
+        function playAudioOnce() {
+            // Check if the audio has been played before
+            if (!localStorage.getItem('audioPlayed')) {
+                // Play the audio
+                audio.play();
+                // Set the flag in localStorage
+                localStorage.setItem('audioPlayed', 'true');
+            }
+        }
+
+        // Event listener to play audio on page load
+        window.addEventListener('load', playAudioOnce);
+    </script>
+</body>
+</html>
