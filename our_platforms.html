@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Service</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="icon" href="https://i.ibb.co/NVqD5fw/t-service-blcack.jpg" type="image">
+    <style>
+        /* Styles for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #888888;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+
+        body.light-theme {
+            background-color: #f8f9fa;
+            color: #212529;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
+        
+        body.light-theme nav {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
+        
+        body.dark-theme nav {
+            background-color: #333333;
+            border-radius: 10px;
+            border: 2px solid #ffffff;
+        }
+        body.dark-theme p {
+            color:#ffffff;
+        }
+        body.dark-theme h2 {
+            color:rgb(255, 255, 255);
+        }
+        body.dark-theme footer {
+            color:white;
+        }
+        body.light-theme footer {
+            background-color:white;
+            color: #343a40;
+        }
+        body.dark-theme .about-section {
+            color:white;
+            background-color: #252525;
+
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
+        
+        .logo img {
+            width: 400px; /* Adjust width as needed */
+            height: 100; /* Maintain aspect ratio */
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 18px;
+            color: inherit;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        
+        main {
+            padding: 40px 20px;
+        }
+        
+        footer {
+            padding: 20px 40px;
+            text-align: center;
+            background-color: #343a40;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif; /* New font family */
+        }
+        
+        .container {
+            margin-top: 40px;
+        }
+        
+        .container h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #007bff;
+        }
+        
+        .platforms {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .platform {
+            text-align: center;
+            margin: 20px;
+            max-width: 200px;
+        }
+        
+        .platform img {
+            width: 210px;
+            height: 210px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .platform img:hover {
+            transform: scale(1.1);
+        }
+        
+        .platform p {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #6c757d;
+        }
+
+        /* Styles for About Us section */
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            color: #212529;
+            font-family: 'Arial', sans-serif;
+        }
+        .about-section img {
+            width: 200px;
+            height: 200px; 
+   
+
+        }
+        
+
+        .about-section .content {
+            flex-grow: 1;
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .about-section .extra-info {
+            max-width: 200px;
+        }
+        @media (max-width: 768px) {
+
+            /* Mobile Version CSS */
+
+/* Header */
+header {
+    padding: 10px; /* Adjust padding for smaller header */
+}
+
+.logo img {
+    width: 250px; /* Adjust logo size for smaller screens */
+}
+
+/* Navigation */
+nav {
+    padding: 10px; /* Adjust padding for smaller nav */
+    ;
+}
+
+nav ul {
+    flex-direction: row; /* Stack navigation items vertically on mobile */
+    gap: 10px; /* Add gap between items */
+    
+}
+
+/* Search Container */
+.search-container {
+    display: none;
+}
+
+/* Main Content */
+main {
+    padding: 20px; /* Adjust padding for main content */
+}
+
+/* Service Platforms */
+.platform {
+    max-width: 150px; /* Adjust platform width for smaller screens */
+    margin: 10px; /* Add margin for separation */
+}
+
+.platform img {
+    width: 100%; /* Make platform images responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* About Us Section */
+.about-section {
+    flex-direction: column; /* Stack about section items vertically on mobile */
+    padding: 20px; /* Adjust padding for about section */
+}
+
+.about-section img {
+    width: 100%; /* Make about image responsive */
+    max-width: 250px; /* Limit maximum width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Popup */
+.popup {
+    width: 90%; /* Adjust popup width for smaller screens */
+    max-width: 300px; /* Limit maximum width */
+    padding: 15px; /* Adjust padding */
+}
+
+/* Footer */
+footer {
+    padding: 10px; /* Adjust padding for footer */
+}
+
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header>
+        <div class="logo">
+            <img src="https://i.ibb.co/5Y49SyD/Untitled-design-4-removebg-preview.png" alt="Logo">
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="https://teju0051.github.io/TService/career.html">Career</li></a>
+
+
+            <li><div class="theme-toggle" onclick="toggleTheme()">Switch Theme</div></li>
+        </ul>
+
+        <div class="search-container">
+            <input type="text" id="searchQuery" placeholder="Disabled" disabled>
+            <button onclick="performSearch()" disabled>Search</button>
+        </div>
+    </nav>
+  
+    <main>
+        <div class="container">
+            <h2>Our Platforms</h2>
+            <div class="platforms">
+                <div class="platform">
+                    <a href="https://teju0051.github.io/TService/mgp.html" target="_blank">
+                        <img src="https://i.ibb.co/mDNnhpZ/MGP-NEW-TEMP.jpg" alt="Service 1 Logo">
+                    </a>
+                    <p>Online Games</p>
+                </div>
+                <div class="platform">
+                    <a href="https://teju0051.github.io/TService/T-Art.html" target="_blank">
+                        <img src="https://i.ibb.co/XYFMs7m/Create-a-Logo-Online-Free-Logo-Maker-Generator-TURBOLOGO-Google-Chrome-12-23-2023-11-42-53-AM-transf.png" alt="Service 2 Logo">
+                    </a>
+                    <p>Digital Art</p>
+                </div>
+                <div class="platform">
+                    <a href="https://teju0051.github.io/Zen-Tech/home.html" target="_blank">
+                        <img src="https://i.ibb.co/F4SjWtw/zentech-transformed.png">
+                    </a>
+                    <p>Zen-Tech</p>
+                </div>
+            
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <div class="about-section">
+            <img src="https://i.ibb.co/D7yvFLg/Check-out-my-new-logo-made-on-Looka-Google-Chrome-04-09-2023-19-40-09.png" alt="About Us Image">
+            <div class="content">
+                <h2>About Us</h2>
+                <p>We are a leading company in online gaming and digital art, offering top-notch services to our clients. Our mission is to deliver exceptional experiences through innovative solutions.</p>
+            </div>
+          
+        </div>
+        
+    </main>
+ 
+    
+    <footer>
+        &copy; 2024 T-Service all rights reserved.
+    </footer>
+ 
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-theme');
+            body.classList.toggle('dark-theme');
+        }
+
+        /*
+        function performSearch() {
+            const query = document.getElementById('searchQuery').value;
+            if (query.trim()) {
+                const audio = document.getElementById('searchAudio');
+                audio.play();
+
+                // Example search URL
+                const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                setTimeout(() => {
+                    window.location.href = searchUrl;
+                }, 1000); // Adjust the delay as needed
+            }
+        }
+        */
+
+      
+    </script>
+    <chat-bot platform_id="600b2165-a2ba-4b74-b50f-39f8b91e99ef" user_id="50011ea4-9c75-4ae4-8ea1-57bcf0a958a8" chatbot_id="4990e587-b5ae-43c0-917c-6d8d07049f39"><a href="https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral">chatsimple</a></chat-bot><script src="https://cdn.chatsimple.ai/chat-bot-loader.js" defer></script>
+</body>
+</html>
