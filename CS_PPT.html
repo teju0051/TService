@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentor's Choice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        
+        #loading-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: green;
+            font-size: 2em;
+        }
+        
+        #main-content {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        #logout {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        
+        #canvas {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ddd;
+        }
+        
+        #slideshow {
+            max-width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+        }
+        
+        #fullscreen {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 10px auto;
+            display: block;
+        }
+        
+        footer {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        footer a {
+            color: blue;
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="loading-screen">
+        <p>Loading...</p>
+    </div>
+    <div id="main-content" style="display: none;">
+        <header>
+            <h1>Presentor's Choice</h1>
+            <nav>
+                <button id="logout">Logout</button>
+            </nav>
+        </header>
+        <main>
+            <div id="canvas">
+                <img id="slideshow" src="image1.jpg" alt="Slideshow Image">
+            </div>
+            <button id="fullscreen">Full Screen</button>
+        </main>
+        <footer>
+            <p>All rights reserved by ZenTech! || Designed & Developed by <a href="https://teju0051.github.io/Zen-Tech/home.html">Zen-Tech</a></p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            const mainContent = document.getElementById('main-content');
+            const slideshow = document.getElementById('slideshow');
+            const fullscreenButton = document.getElementById('fullscreen');
+            const imageUrls = [
+                'https://c8.alamy.com/comp/2GTKFJ6/set-of-random-objects-2GTKFJ6.jpg', 
+                'https://img.izismile.com/img/img3/20100111/photoshop_07.jpg', 
+                'https://cdn.ebaumsworld.com/mediaFiles/picture/2363893/85196722.jpg',
+                'https://cdn.ebaumsworld.com/mediaFiles/picture/1151541/84693449.png',
+                 'https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386506.jpg',
+
+                'https://media.craiyon.com/2023-09-09/10a4ec0fb6bd4dcf93d2ace60feb07c7.webp',
+                 'https://kidsactivitiesblog.com/wp-content/uploads/2015/10/Random_Facts-1-797x1024.png',
+                  'https://i.pinimg.com/originals/7f/46/f1/7f46f19a11cad27655478098f591651c.jpg', 
+                  'https://img.izismile.com/img/img3/20100111/photoshop_07.jpg', 'https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386506.jpg'
+            ];
+            let currentIndex = 0;
+        
+            // Loading screen
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                mainContent.style.display = 'block';
+            }, 3000);
+        
+            // Function to update the image
+            const updateImage = () => {
+                slideshow.src = imageUrls[currentIndex];
+            };
+        
+            // Event listeners for image click and keyboard arrows
+            slideshow.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % imageUrls.length;
+                updateImage();
+            });
+        
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % imageUrls.length;
+                } else if (event.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+                }
+                updateImage();
+            });
+        
+            // Fullscreen functionality
+            fullscreenButton.addEventListener('click', () => {
+                if (slideshow.requestFullscreen) {
+                    slideshow.requestFullscreen();
+                } else if (slideshow.mozRequestFullScreen) { // Firefox
+                    slideshow.mozRequestFullScreen();
+                } else if (slideshow.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    slideshow.webkitRequestFullscreen();
+                } else if (slideshow.msRequestFullscreen) { // IE/Edge
+                    slideshow.msRequestFullscreen();
+                }
+            });
+        
+            // Initialize the first image
+            updateImage();
+        });
+        
+    </script>
+</body>
+</html>
