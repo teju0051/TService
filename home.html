@@ -305,11 +305,10 @@ footer {
             <li><div class="theme-toggle" onclick="toggleTheme()">Switch Theme</div></li>
         </ul>
 
-        <div class="search-container">
-            <input type="text" id="searchQuery" placeholder="Disabled" disabled>
-            <button onclick="performSearch()" disabled>Search</button>
-        </div>
-    </nav>
+  <div class="search-container">
+        <input type="text" id="searchQuery" onkeyup="enableButton()">
+        <button onclick="performSearch()" disabled>Search</button>
+    </div>    </nav>
   
     <main>
         <div class="container">
@@ -353,7 +352,22 @@ footer {
     <footer>
         &copy; 2024 T-Service all rights reserved.
     </footer>
- 
+    <script>
+        function performSearch() {
+            var query = document.getElementById("searchQuery").value.trim();
+            if (query.toLowerCase() === "cs_ppt") {
+                window.location.href = "https://teju0051.github.io/TService/CS_PPT_login.html";
+            } else {
+                alert("No results found for: " + query);
+            }
+        }
+
+        function enableButton() {
+            var input = document.getElementById("searchQuery").value.trim();
+            var button = document.querySelector("button");
+            button.disabled = !input;
+        }
+    </script>
     <script>
         function toggleTheme() {
             const body = document.body;
@@ -361,21 +375,7 @@ footer {
             body.classList.toggle('dark-theme');
         }
 
-        /*
-        function performSearch() {
-            const query = document.getElementById('searchQuery').value;
-            if (query.trim()) {
-                const audio = document.getElementById('searchAudio');
-                audio.play();
-
-                // Example search URL
-                const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-                setTimeout(() => {
-                    window.location.href = searchUrl;
-                }, 1000); // Adjust the delay as needed
-            }
-        }
-        */
+    
 
       
     </script>
