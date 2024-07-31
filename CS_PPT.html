@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presentor's Choice</title>
+    <link rel="icon" href="https://teju0051.github.io/Assets/t-service.png" type="x/image">
     <link rel="stylesheet" href="styles.css">
     <style>
         body, html {
@@ -11,6 +12,8 @@
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
         }
         
         #loading-screen {
@@ -18,8 +21,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: black;
-            color: green;
+            background-color: #1e1e1e;
+            color: #76ff03;
             font-size: 2em;
         }
         
@@ -30,9 +33,10 @@
         }
         
         header {
-            background-color: #f8f8f8;
+            background-color: #1e1e1e;
             padding: 20px;
             text-align: center;
+            border-bottom: 1px solid #333;
         }
         
         nav {
@@ -45,6 +49,14 @@
             padding: 10px 20px;
             font-size: 1em;
             cursor: pointer;
+            background-color: #333;
+            color: #e0e0e0;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        #logout:hover {
+            background-color: #444;
         }
         
         #canvas {
@@ -52,7 +64,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ddd;
+            background-color: #212121;
         }
         
         #slideshow {
@@ -61,26 +73,40 @@
             cursor: pointer;
         }
         
-        #fullscreen {
+        .btn, #fullscreen {
             padding: 10px 20px;
             font-size: 1em;
             cursor: pointer;
-            margin: 10px auto;
-            display: block;
+            margin: 10px;
+            background-color: #333;
+            color: #e0e0e0;
+            border: none;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn:hover, #fullscreen:hover {
+            background-color: #444;
         }
         
         footer {
-            background-color: #f8f8f8;
+            background-color: #1e1e1e;
             text-align: center;
             padding: 10px;
+            border-top: 1px solid #333;
         }
         
         footer a {
-            color: blue;
+            color: #76ff03;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         
+        footer a:hover {
+            color: #b0ff57;
+        }
     </style>
+    
 </head>
 <body>
     <div id="loading-screen">
@@ -98,9 +124,10 @@
                 <img id="slideshow" src="image1.jpg" alt="Slideshow Image">
             </div>
             <button id="fullscreen">Full Screen</button>
+            <button class="btn">Let's Go</button>
         </main>
         <footer>
-            <p>All rights reserved by ZenTech! || Designed & Developed by <a href="https://teju0051.github.io/Zen-Tech/home.html">Zen-Tech</a></p>
+            <p>All rights reserved by ZenTech || Designed & Developed by <a href="https://teju0051.github.io/Zen-Tech/home.html">Zen-Tech</a></p>
         </footer>
     </div>
     <script>
@@ -110,16 +137,16 @@
             const slideshow = document.getElementById('slideshow');
             const fullscreenButton = document.getElementById('fullscreen');
             const imageUrls = [
-                'https://c8.alamy.com/comp/2GTKFJ6/set-of-random-objects-2GTKFJ6.jpg', 
-                'https://img.izismile.com/img/img3/20100111/photoshop_07.jpg', 
-                'https://cdn.ebaumsworld.com/mediaFiles/picture/2363893/85196722.jpg',
-                'https://cdn.ebaumsworld.com/mediaFiles/picture/1151541/84693449.png',
-                 'https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386506.jpg',
-
-                'https://media.craiyon.com/2023-09-09/10a4ec0fb6bd4dcf93d2ace60feb07c7.webp',
-                 'https://kidsactivitiesblog.com/wp-content/uploads/2015/10/Random_Facts-1-797x1024.png',
-                  'https://i.pinimg.com/originals/7f/46/f1/7f46f19a11cad27655478098f591651c.jpg', 
-                  'https://img.izismile.com/img/img3/20100111/photoshop_07.jpg', 'https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386506.jpg'
+                'https://i.ibb.co/zxkj2L1/ppt-1.png', 
+                'https://i.ibb.co/pX8BXY7/ppt-2.png', 
+                'https://i.ibb.co/G9zfs3R/ppt-3.png',
+                'https://i.ibb.co/0Xgdzmq/ppt-4.png',
+                'https://i.ibb.co/4KhkMfz/ppt-5.png',
+                'https://i.ibb.co/f0N6236/ppt-6.png',
+                'https://i.ibb.co/Dw3wK0k/ppt-7.png',
+                'https://i.ibb.co/XLSNGqK/ppt-8.png', 
+                'https://i.ibb.co/JrwTNy5/ppt-9.png',
+                'https://i.ibb.co/pjJm99w/ppt-10.png'
             ];
             let currentIndex = 0;
         
@@ -127,7 +154,7 @@
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
                 mainContent.style.display = 'block';
-            }, 3000);
+            }, 1000);
         
             // Function to update the image
             const updateImage = () => {
