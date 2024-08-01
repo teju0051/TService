@@ -105,6 +105,48 @@
         footer a:hover {
             color: #b0ff57;
         }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: rgb(0, 0, 0);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+        .popup h2 {
+            margin: 0 0 10px;
+        }
+        .popup p {
+            margin: 10px 0;
+        }
+        .popup button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #45a049;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
     </style>
     
 </head>
@@ -124,7 +166,7 @@
                 <img id="slideshow" src="image1.jpg" alt="Slideshow Image">
             </div>
             <button id="fullscreen">Full Screen</button>
-            <button class="btn">Let's Go</button>
+            <button class="btn" id="letsGoButton">Let's Go</button>
         </main>
         <footer>
             <p>All rights reserved by ZenTech || Designed & Developed by <a href="https://teju0051.github.io/Zen-Tech/home.html">Zen-Tech</a></p>
@@ -191,8 +233,27 @@
         
             // Initialize the first image
             updateImage();
-        });
         
+            // Show popup when "Let's Go" button is clicked
+            document.getElementById('letsGoButton').addEventListener('click', showPopup);
+        });
+
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
     </script>
+
+    <div id="overlay"></div>
+    <div class="popup" id="popup">
+        <h2>Notice</h2>
+        <p>The Zen-Tech Operations Team is currently working on it. Please check back later.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
 </body>
 </html>
