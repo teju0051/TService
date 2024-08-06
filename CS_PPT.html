@@ -105,6 +105,7 @@
         footer a:hover {
             color: #b0ff57;
         }
+
         .popup {
             display: none;
             position: fixed;
@@ -113,18 +114,21 @@
             transform: translate(-50%, -50%);
             width: 300px;
             padding: 20px;
-            background-color: rgb(0, 0, 0);
+            background-color: #000;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             text-align: center;
-            z-index: 1000;
+            z-index: 1002; /* Higher z-index to ensure it's above fullscreen content */
         }
+
         .popup h2 {
             margin: 0 0 10px;
         }
+
         .popup p {
             margin: 10px 0;
         }
+
         .popup button {
             padding: 10px 20px;
             border: none;
@@ -134,9 +138,11 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .popup button:hover {
             background-color: #45a049;
         }
+
         #overlay {
             display: none;
             position: fixed;
@@ -145,10 +151,9 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+            z-index: 1001; /* Slightly lower z-index than popup */
         }
     </style>
-    
 </head>
 <body>
     <div id="loading-screen">
@@ -172,12 +177,20 @@
             <p> &copy; All rights reserved || Designed & Developed by <a href="https://teju0051.github.io/Zen-Tech/home.html">Zen-Tech</a></p>
         </footer>
     </div>
+    <div id="popup" class="popup">
+        <h2>Tips</h2>
+        <p>You have reached to end of the slide.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    <div id="overlay" onclick="closePopup()"></div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const loadingScreen = document.getElementById('loading-screen');
             const mainContent = document.getElementById('main-content');
             const slideshow = document.getElementById('slideshow');
             const fullscreenButton = document.getElementById('fullscreen');
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
             const imageUrls = [
                 'https://i.ibb.co/W6wNTGx/ppt-1.png', 
                 'https://i.ibb.co/pX8BXY7/ppt-2.png', 
@@ -191,33 +204,52 @@
                 'https://i.ibb.co/pjJm99w/ppt-10.png'
             ];
             let currentIndex = 0;
-        
+
             // Loading screen
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
                 mainContent.style.display = 'block';
             }, 3000);
-        
+
             // Function to update the image
             const updateImage = () => {
                 slideshow.src = imageUrls[currentIndex];
             };
-        
+
+            // Function to show popup
+            const showPopup = () => {
+                popup.style.display = 'block';
+                overlay.style.display = 'block';
+            };
+
+            // Function to close popup
+            const closePopup = () => {
+                popup.style.display = 'none';
+                overlay.style.display = 'none';
+            };
+
             // Event listeners for image click and keyboard arrows
             slideshow.addEventListener('click', () => {
                 currentIndex = (currentIndex + 1) % imageUrls.length;
                 updateImage();
             });
-        
+
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'ArrowRight') {
-                    currentIndex = (currentIndex + 1) % imageUrls.length;
+                    if (currentIndex < imageUrls.length - 1) {
+                        currentIndex++;
+                        updateImage();
+                    } else {
+                        showPopup();
+                    }
                 } else if (event.key === 'ArrowLeft') {
-                    currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateImage();
+                    }
                 }
-                updateImage();
             });
-        
+
             // Fullscreen functionality
             fullscreenButton.addEventListener('click', () => {
                 if (slideshow.requestFullscreen) {
@@ -230,19 +262,15 @@
                     slideshow.msRequestFullscreen();
                 }
             });
-        
+
             // Initialize the first image
             updateImage();
-        
-            // Show popup when "Let's Go" button is clicked
-            document.getElementById('letsGoButton').addEventListener('click', showPopup);
         });
 
-
-        
-       
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
     </script>
-
-   
 </body>
 </html>
