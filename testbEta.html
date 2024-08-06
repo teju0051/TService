@@ -1,640 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2-Player Pong</title>
-  <style>
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Skill MCQ Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cf-ui/6.5.1/cf-ui.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
 
-  /* Default styles for the canvas */
-  canvas {
-    display: block;
-    margin: auto;
-    background-image: url("https://th.bing.com/th/id/R.0e6ac009562c2fec4f0360e0dc939337?rik=1FTe8WeFjxVqAg&riu=http%3a%2f%2fwww.photos-public-domain.com%2fwp-content%2fuploads%2f2011%2f03%2fblack-brick-wall-texture.jpg&ehk=Z2iMcIsq1kL07pwtJE%2ftenRLhQKKH%2fzpGbMYZNG%2f%2bkA%3d&risl=&pid=ImgRaw&r=0");
-    border: 1px solid red; /* Set border style and color for both sides */
-  }
+        .quiz-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+            border: 2px solid #007bff;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+        }
 
+        .quiz-container h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #333333;
+        }
 
-/* Styles for screens between 768px and 1000px */
-@media (min-width: 768px) and (max-width: 1000px) {
-  canvas {
-      width: 99%;
-      height: 475px;
-  }
-}.but {
-      background-color: purple; /* Change to the desired purple color */
-      padding: 20px;
-      color: white;
-      text-align: center;
-      box-shadow: 0 0 10px white;
-      border-color: white;
-      background: linear-gradient(45deg, #6c00f8, #800080); /* Change to the desired pink color */
-    }
-    body {
-      background: linear-gradient(45deg, #ff69b4, #6c00f8);
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 18px;
-      line-height: 1.5;
-      overflow-x: hidden;
-      zoom: 0.9;
-    }
-    
-    /* Apply styles only when the device is in portrait mode */
-    @media (orientation: portrait) {
-      body {
-        display: none; /* Hide the content in portrait mode */
-      }
-    
-      /* Optionally, you can show a message or provide instructions to rotate the device */
-     
-    }
-    .rotate-message {
-      display: block;
-      text-align: center;
-      font-size: 24px;
-      padding: 50px;
-      color: white;
-    }    
-    @media (orientation: landscape) { 
-      .rotate-message{
-        display: none;
-      }
-      body{
-        overflow-y: hidden;
-      }
-      }
-    
-	h1 {
-		color: white;
-		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-		font-size: 32px; /* Adjust the font size as needed */
-		font-weight: bold;
-		margin-bottom: 20px; /* Adjust margin as needed */
-		text-align: center; /* Center the text if desired */
-		text-transform: uppercase; /* Convert text to uppercase */
-	}
-	
-    /* Navigation */
-    nav {
-      margin-top: 20px;
-      padding: 10px;
-      background-color: purple; /* Change to the desired purple color */
-      border: 2px solid white;
-      box-shadow: 0 0 10px white;
-      background: linear-gradient(45deg, #ff69b4, #800080); /* Change to the desired pink color */
-    }
-    
+        .question {
+            font-weight: bold;
+            font-size: 1.4em;
+            margin: 20px 0;
+            color: #444444;
+        }
 
-    nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }   nav li {
-        display: inline-block;
-        margin-right: 20px;
-    }nav a {
-        color: #fff;
-        text-decoration: none;
-    }  nav a:hover {
-        color: #252525;
-        text-decoration: underline;
-    
-    } button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 10px;
-        background-color: #750000;
-        color: #fff;
-        font-size: 18px;
-        cursor: pointer;
-    }    button:hover {
-      img {
-        max-width: 100%;
-        height: auto;
-        margin: 20px 0;
-        max-height: 130px;
-        align-content: flex-start;
-        filter: drop-shadow(0 0 10px white); /* Add a drop shadow to the image */
-      }
-      
-      footer {
-        padding: 20px;
-        text-align: center;
-        background-color: #222;
-        color: white;
-        box-shadow: 0 0 10px white;
-        border-color: white;
-        background: linear-gradient(45deg, #ff69b4, #f85b00);
-      }
-    }      
-    #button-container {
-      position: fixed;
-      top: 10;
-      left: 120;
-      transform: translateY(90%);
-      transform: translateX(30%);
+        .answers label {
+            display: block;
+            margin: 15px 0;
+            text-align: left;
+            font-size: 1.1em;
+        }
 
-    }table {
-		border-collapse: collapse;
-		margin: auto;
-		width: 80%; /* Adjust the width of the table as needed */
-		margin-top: 20px; /* Add some space above the table */
-		box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8); /* White glowing shadow effect */
-	}
-	
-	td {
-		width: 100px;
-		height: 100px;
-		text-align: center;
-		vertical-align: middle;
-		border: 1px solid #2196F3; /* Use a blue color for the border */
-		font-size: 24px; /* Adjust the font size for better readability */
-		cursor: pointer;
-		transition: background-color 0.3s ease; /* Add a smooth transition effect */
-	}
-	
-	td:hover {
-		background-color: #E3F2FD; /* Use a lighter blue for hover effect */
-		transform: scale(1.1); /* Add a slight scale effect on hover */
-	}
-	
-	
-    hr{
-      color:red;
-    }
-	h3{
-		color:blue;
-		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	}
-	img {
-		max-height: 130px;
-		margin: 10px; 
-		align-content:flex-start;
-	  }
+        .cf-btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
 
-p{
-  text-align: center;
+        .cf-btn-primary:hover {
+            background-color: #0056b3;
+        }
 
-}
-b{
-  background-color: white;
-  color:red;
-}
+        .result {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #555555;
+        }
 
-#popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #252525;
-  border: 1px solid #fff; /* White border */
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  color: #fff; /* White text */
-  text-align: center;
-}
+        .footer {
+            margin-top: auto;
+            font-size: 0.9em;
+            color: #777777;
+        }
 
-#popup button {
-  background-color: #fff;
-  color: #252525;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-}
+        .correct {
+            color: green;
+        }
 
-/* Style for the overlay */
-#overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-#button-container {
-  position: fixed;
-  top:90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: row; /* Updated to row for horizontal alignment */
-  align-items: center;
-  justify-content: center;
-}
+        .incorrect {
+            color: red;
+        }
 
-#button-container button {
-  margin: 10px; /* Adjust the margin as needed */
-  padding: 15px; /* Adjust the padding as needed */
-  border: none;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 20px; /* Set the border radius for curved corners */
-}
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
 
-#blue-up, #blue-down {
-  background-color: blue; /* Set the background color for blue buttons */
-  top: 10%;
+        .popup {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 2;
+            max-width: 400px;
+            width: 90%;
+        }
 
-}
+        .popup-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-#red-up, #red-down {
-  background-color: red; /* Set the background color for red buttons */
-}
+        .popup-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
+        .popup-button:hover {
+            background-color: #0056b3;
+        }
 
- /* Your existing styles here */
- .logol {
-  width: auto;
-  height: auto;
-  transform: scale(5);
-  opacity: 0; /* Start with opacity set to 0 */
-  transition: opacity 1s ease-in-out; /* Transition effect for opacity */
-}
-/* New styles for the loading screen */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 999;
-}
+        .close-btn {
+            margin-top: 10px;
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-.loading-screen h2 {
-    color: green;
-    font-size: 24px;
-}
-
-.loading-screen p {
-    color: green;
-    font-size: 18px;
-}
-
-.loading-screen .logo {
-    opacity: 0;
-    animation: fade-in-out 5s ease-in-out;
-}
-
-@keyframes fade-in-out {
-    0% { opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-
-#fullscreen-button {
-
-  padding: 10px;
-
-  font-size: 16px;
-
-}
-  </style>
+        .close-btn:hover {
+            background-color: darkred;
+        }
+        #end-quiz-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        #end-quiz-modal img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Adjusts to fit within the container without clipping */
+        }
+        
+    </style>
 </head>
 
 <body>
-  
-  
-
-
-
-  <canvas id="gameCanvas" width="650" height="500"></canvas><br>
-
-
-
-<div id="confettiContainer"></div>
-<div id="button-container">
-  <!-- Left buttons connected to the blue paddle -->||
-  <button id="blue-up" onclick="moveBluePaddle('up')">Up</button>
-  <button id="blue-down" onclick="moveBluePaddle('down')">Down</button>
-  ||
-  <!-- Right buttons connected to the red paddle -->
-  <button id="red-up" onclick="moveRedPaddle('up')">Up</button>
-  <button id="red-down" onclick="moveRedPaddle('down')">Down</button>||
-</div>
-<div id="overlay"></div>
-<div id="popup">
-    <h2>TIPS</h2>
-    <p>Once you click/tap on the button the bar will not stop until it touches to top/bottom.</p>
-    <button onclick="closePopup()" id="fullscreen-button">Close</button>
-
-</div>
-<div class="rotate-message">
-  <p>Please switch to landscape mode to play the game.</p>
-</div>
-
-  <script>
- 
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
-
-    const paddleWidth = 20;
-    const paddleHeight = 100;
-    const paddleSpeed = 5;
-
-    const player1 = {
-      x: 20,
-      y: canvas.height / 2 - paddleHeight / 2,
-      dy: 0,
-      color: 'blue'  // Set color to blue for player 1
-    };
-
-    const player2 = {
-      x: canvas.width - paddleWidth - 20,
-      y: canvas.height / 2 - paddleHeight / 2,
-      dy: 0,
-      color: 'red'   // Set color to red for player 2
-    };
-
-    const ball = {
-      x: canvas.width / 2,
-      y: canvas.height / 2,
-      dx: 5,
-      dy: 5,
-      size: 10,
-      color: 'yellow'
-    };
-
-    function drawPaddle(x, y, color) {
-      ctx.fillStyle = color;
-      ctx.fillRect(x, y, paddleWidth, paddleHeight);
-    }
-
-    function drawBall(x, y, size, color) {
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.arc(x, y, size, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.closePath();
-    }
-
-    function update() {
-      // Update player positions
-      player1.y += player1.dy;
-      player2.y += player2.dy;
-
-      // Ensure paddles stay within the canvas boundaries
-      player1.y = Math.max(0, Math.min(player1.y, canvas.height - paddleHeight));
-      player2.y = Math.max(0, Math.min(player2.y, canvas.height - paddleHeight));
-
-      // Bounce the ball off the top and bottom walls
-      if (ball.y - ball.size < 0 || ball.y + ball.size > canvas.height) {
-        ball.dy *= -1;
-      }
-
-      // Bounce the ball off paddles
-      if (
-        (ball.x - ball.size < player1.x + paddleWidth && ball.y > player1.y && ball.y < player1.y + paddleHeight) ||
-        (ball.x + ball.size > player2.x && ball.y > player2.y && ball.y < player2.y + paddleHeight)
-      ) {
-        ball.dx *= -1;
-      }
-
-      // Move the ball
-      ball.x += ball.dx;
-      ball.y += ball.dy;
-
-      // Check for scoring
-      if (ball.x - ball.size < 0 || ball.x + ball.size > canvas.width) {
-        resetGame();
-      }
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-      // Draw paddles
-      drawPaddle(player1.x, player1.y, player1.color);
-      drawPaddle(player2.x, player2.y, player2.color);
-  
-      // Draw ball
-      drawBall(ball.x, ball.y, ball.size, ball.color);
-  
-      ctx.fillStyle = 'white';
-      ctx.font = '20px Arial';
-      
-      // Calculate the x-coordinate to center the text horizontally
-      const xCoordinate = canvas.width / 2 - ctx.measureText(' 2-Player Pong ').width / 2;
-      
-      // Set the y-coordinate to position the text at the top
-      const yCoordinate = 30;
-      
-      ctx.fillText(' 2-Player Pong. ', xCoordinate, yCoordinate);
-      
-  }
-
-    function gameLoop() {
-      update();
-      draw();
-      requestAnimationFrame(gameLoop);
-    }
-
-    function handleKeydown(event) {
-      switch (event.key) {
-        case 'ArrowUp':
-          player2.dy = -paddleSpeed;
-          break;
-        case 'ArrowDown':
-          player2.dy = paddleSpeed;
-          break;
-        case 'w':
-          player1.dy = -paddleSpeed;
-          break;
-        case 's':
-          player1.dy = paddleSpeed;
-          break;
-      }
-    }
-
-    function handleKeyup(event) {
-      switch (event.key) {
-        case 'ArrowUp':
-        case 'ArrowDown':
-          player2.dy = 0;
-          break;
-        case 'w':
-        case 's':
-          player1.dy = 0;
-          break;
-      }
-    }
-
-
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="difficulty-popup">
+        <div class="popup-buttons">
+            <h2>Select the Difficulty Level</h2>
+            <button class="popup-button" data-difficulty="easy">Easy</button>
+            <button class="popup-button" data-difficulty="medium">Medium</button>
+            <button class="popup-button" data-difficulty="difficult">Difficult</button>
+            <button class="popup-button" data-difficulty="cocktail">Cocktail</button>
+        </div>
+     
+    </div>
+    <div class="quiz-container cf-card">
+        <h1>Reading Skill MCQ Quiz</h1>
+        <div id="quiz"></div>
+        <button id="submit" class="cf-btn-primary">Submit</button>
+        <button id="show-answers" class="cf-btn-primary" disabled>Show Answers</button>
+        <button id="end-quiz" class="cf-btn-primary">End Quiz</button>
+        <div id="results" class="result"></div>
+        <div class="footer">
+            &copy; 2024 Zen-Tech. All rights reserved.
+        </div>
+    </div>
     
-    function resetGame() {
-      ball.x = canvas.width / 2;
-      ball.y = canvas.height / 2;
-      ball.dx = 5;
-      ball.dy = 5;
-    }
+    <!-- Modal for displaying the image -->
+    <div id="end-quiz-modal" style="display:none;">
+        <img src="https://i.ibb.co/12sZJJ1/ae37ff17-e042-4fd7-92a7-cee575d097f7-6i-Hx-E-Dtw-transformed.jpg" alt="End Quiz Image" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    
 
-    document.addEventListener('keydown', handleKeydown);
-    document.addEventListener('keyup', handleKeyup);
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const quizContainer = document.getElementById('quiz');
+            const resultsContainer = document.getElementById('results');
+            const submitButton = document.getElementById('submit');
+            const showAnswersButton = document.getElementById('show-answers');
+            const popup = document.getElementById('difficulty-popup');
+            const overlay = document.getElementById('overlay');
+            const closePopupButton = document.getElementById('close-popup');
+            const difficultyButtons = document.querySelectorAll('.popup-button');
+            let selectedDifficulty = null;
 
-    gameLoop();
+            // Sample questions for each difficulty level
+            const questions = {
+                easy: [
+                    { question: "What is the primary purpose of skimming a text?", answers: { a: "To understand detailed information", b: "To get the general idea quickly", c: "To memorize the text", d: "To analyze the author's style" }, correctAnswer: "b" },
+                    { question: "Which technique is best for finding specific information in a text?", answers: { a: "Skimming", b: "Scanning", c: "Close reading", d: "Paraphrasing" }, correctAnswer: "b" },
+                    { question: "What is one of the first steps in comprehending a passage?", answers: { a: "Reading the passage multiple times", b: "Identifying the main idea", c: "Memorizing key terms", d: "Counting the number of paragraphs" }, correctAnswer: "b" },
+                    { question: "How can you identify the tone of a passage?", answers: { a: "By examining the author's word choice and style", b: "By counting the number of sentences", c: "By summarizing each paragraph", d: "By listing all the adjectives used" }, correctAnswer: "a" },
+                    { question: "What is the purpose of scanning a text?", answers: { a: "To get an overview of the content", b: "To locate specific facts or details", c: "To enjoy the narrative", d: "To critique the author's arguments" }, correctAnswer: "b" },
+                    { question: "Which of the following is a common signal word for identifying an important detail in a passage?", answers: { a: "However", b: "Therefore", c: "For example", d: "In conclusion" }, correctAnswer: "c" },
+                    { question: "What is a common characteristic of a comprehensive passage?", answers: { a: "It contains a lot of unfamiliar vocabulary", b: "It covers a topic thoroughly with supporting details", c: "It is very short and concise", d: "It focuses only on one aspect of a topic" }, correctAnswer: "b" },
+                    { question: "Which facial expression might indicate that a reader is confused?", answers: { a: "Smiling broadly", b: "Furrowing the brow", c: "Nodding in agreement", d: "Relaxed face" }, correctAnswer: "b" },
+                    { question: "In the process of reading, what is the role of making predictions?", answers: { a: "It helps to understand the next part of the text", b: "It is a way to summarize the text", c: "It involves writing a response", d: "It focuses on grammar" }, correctAnswer: "a" },
+                    { question: "How does understanding the structure of a text help in reading comprehension?", answers: { a: "It allows for faster reading", b: "It makes it easier to find specific information", c: "It provides clues about the main idea and supporting details", d: "It helps in memorizing the text" }, correctAnswer: "c" },
+                ],
+                medium: [
+                { question: "Which technique is most effective for identifying the author's argument in a passage?", answers: { a: "Skimming", b: "Scanning", c: "Close reading", d: "Making predictions" }, correctAnswer: "c" },
+                { question: "How can readers improve their ability to infer meaning from a text?", answers: { a: "By reading quickly", b: "By analyzing context clues and word choice", c: "By focusing only on familiar words", d: "By ignoring unfamiliar terms" }, correctAnswer: "b" },
+                { question: "What is the role of transition words in reading comprehension?", answers: { a: "To add visual appeal to the text", b: "To indicate the relationship between ideas", c: "To highlight important details", d: "To provide additional information" }, correctAnswer: "b" },
+                { question: "How does reading comprehension differ from reading speed?", answers: { a: "Comprehension is about understanding, while speed is about how fast you read", b: "Comprehension is about memorizing details, while speed is about recognizing words", c: "Comprehension is about enjoying the text, while speed is about finishing quickly", d: "Comprehension is about finding specific details, while speed is about predicting content" }, correctAnswer: "a" },
+                { question: "Which of the following strategies is helpful for improving reading comprehension?", answers: { a: "Reading in a noisy environment", b: "Taking notes and summarizing", c: "Skipping difficult passages", d: "Rereading only the final paragraph" }, correctAnswer: "b" },
+                { question: "What is the purpose of a thesis statement in an argumentative text?", answers: { a: "To provide background information", b: "To summarize the conclusion", c: "To present the main argument", d: "To list supporting evidence" }, correctAnswer: "c" },
+                { question: "How can identifying the author's purpose enhance reading comprehension?", answers: { a: "It helps to focus on the main ideas and arguments", b: "It allows for quicker reading", c: "It simplifies the text's vocabulary", d: "It provides additional details about the topic" }, correctAnswer: "a" },
+                { question: "Which reading strategy involves asking questions about the text before, during, and after reading?", answers: { a: "Skimming", b: "Predicting", c: "Questioning", d: "Summarizing" }, correctAnswer: "c" },
+                { question: "What is one way to determine the meaning of an unfamiliar word in a text?", answers: { a: "Ignoring the word and continuing to read", b: "Looking at context clues in the surrounding text", c: "Counting the number of letters in the word", d: "Focusing on the word's appearance" }, correctAnswer: "b" },
+                { question: "Why is it important to understand the genre of a text?", answers: { a: "It provides clues about the text's structure and purpose", b: "It ensures that the text is read quickly", c: "It highlights unfamiliar vocabulary", d: "It helps to memorize the text" }, correctAnswer: "a" },
+            ],
+            difficult: [
+                { question: "What is the significance of analyzing the author's tone in a text?", answers: { a: "It helps to identify the author's attitude and perspective", b: "It provides a summary of the main points", c: "It highlights key vocabulary words", d: "It simplifies complex ideas" }, correctAnswer: "a" },
+                { question: "How can recognizing rhetorical devices enhance reading comprehension?", answers: { a: "By identifying persuasive techniques and stylistic choices", b: "By improving reading speed", c: "By memorizing key facts", d: "By focusing on the text's structure" }, correctAnswer: "a" },
+                { question: "What is the benefit of synthesizing information from multiple sources?", answers: { a: "It enhances understanding by combining different perspectives", b: "It increases reading speed", c: "It simplifies complex concepts", d: "It focuses on one aspect of a topic" }, correctAnswer: "a" },
+                { question: "How does identifying the author's bias impact reading comprehension?", answers: { a: "It helps to critically evaluate the text's objectivity and reliability", b: "It provides additional background information", c: "It simplifies the text's vocabulary", d: "It ensures a faster reading pace" }, correctAnswer: "a" },
+                { question: "Which strategy is useful for understanding complex and technical texts?", answers: { a: "Skimming", b: "Visualizing concepts and ideas", c: "Counting paragraphs", d: "Ignoring difficult terms" }, correctAnswer: "b" },
+                { question: "What role does context play in understanding figurative language?", answers: { a: "It helps to interpret metaphors, similes, and idioms", b: "It highlights important details", c: "It simplifies the text's structure", d: "It increases reading speed" }, correctAnswer: "a" },
+                { question: "How does making inferences contribute to reading comprehension?", answers: { a: "By drawing logical conclusions based on evidence in the text", b: "By summarizing the text", c: "By identifying key vocabulary words", d: "By focusing on the text's appearance" }, correctAnswer: "a" },
+                { question: "What is the importance of evaluating the credibility of sources?", answers: { a: "It ensures the information is accurate and reliable", b: "It simplifies complex ideas", c: "It provides additional details", d: "It increases reading speed" }, correctAnswer: "a" },
+                { question: "Which approach is effective for analyzing the structure of an argumentative text?", answers: { a: "Identifying the thesis, main points, and supporting evidence", b: "Memorizing key facts", c: "Reading quickly", d: "Focusing on the text's vocabulary" }, correctAnswer: "a" },
+                { question: "How can readers improve their critical thinking skills while reading?", answers: { a: "By questioning assumptions and evaluating arguments", b: "By reading quickly", c: "By summarizing the text", d: "By identifying key terms" }, correctAnswer: "a" },
+            ],
+                cocktail: [
+                    { question: "What is the primary purpose of skimming a text?", answers: { a: "To understand detailed information", b: "To get the general idea quickly", c: "To memorize the text", d: "To analyze the author's style" }, correctAnswer: "b" },
+                    { question: "Which technique is best for finding specific information in a text?", answers: { a: "Skimming", b: "Scanning", c: "Close reading", d: "Paraphrasing" }, correctAnswer: "b" },
+                    { question: "What is one of the first steps in comprehending a passage?", answers: { a: "Reading the passage multiple times", b: "Identifying the main idea", c: "Memorizing key terms", d: "Counting the number of paragraphs" }, correctAnswer: "b" },
+                    { question: "How can you identify the tone of a passage?", answers: { a: "By examining the author's word choice and style", b: "By counting the number of sentences", c: "By summarizing each paragraph", d: "By listing all the adjectives used" }, correctAnswer: "a" },
+                    { question: "What is the purpose of scanning a text?", answers: { a: "To get an overview of the content", b: "To locate specific facts or details", c: "To enjoy the narrative", d: "To critique the author's arguments" }, correctAnswer: "b" },
+                    { question: "Which technique is most effective for identifying the author's argument in a passage?", answers: { a: "Skimming", b: "Scanning", c: "Close reading", d: "Making predictions" }, correctAnswer: "c" },
+                    { question: "How can readers improve their ability to infer meaning from a text?", answers: { a: "By reading quickly", b: "By analyzing context clues and word choice", c: "By focusing only on familiar words", d: "By ignoring difficult passages" }, correctAnswer: "b" },
+                    { question: "What is a characteristic of expository writing?", answers: { a: "It tells a story", b: "It provides information and explanations", c: "It expresses personal opinions", d: "It uses figurative language extensively" }, correctAnswer: "b" },
+                    { question: "How does annotating a text help in reading comprehension?", answers: { a: "It speeds up the reading process", b: "It provides a summary of the text", c: "It engages the reader actively with the content", d: "It replaces the need to read the text multiple times" }, correctAnswer: "c" },
+                    { question: "What is the main purpose of a topic sentence in a paragraph?", answers: { a: "To introduce the main idea", b: "To provide supporting details", c: "To conclude the paragraph", d: "To transition between ideas" }, correctAnswer: "a" },
+                   ]
+            };
+
+            function displayQuestions(questions) {
+                const output = [];
+                questions.forEach((currentQuestion, questionNumber) => {
+                    const answers = [];
+                    for (let letter in currentQuestion.answers) {
+                        answers.push(
+                            `<label>
+                                <input type="radio" name="question${questionNumber}" value="${letter}">
+                                ${letter} : ${currentQuestion.answers[letter]}
+                            </label>`
+                        );
+                    }
+                    output.push(
+                        `<div class="question">${currentQuestion.question}</div>
+                        <div class="answers">${answers.join('')}</div>`
+                    );
+                });
+                quizContainer.innerHTML = output.join('');
+            }
+
+            function showResults(questions) {
+                const answerContainers = quizContainer.querySelectorAll('.answers');
+                let numCorrect = 0;
+
+                questions.forEach((currentQuestion, questionNumber) => {
+                    const answerContainer = answerContainers[questionNumber];
+                    const selector = `input[name=question${questionNumber}]:checked`;
+                    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+                    if (userAnswer === currentQuestion.correctAnswer) {
+                        numCorrect++;
+                        answerContainers[questionNumber].style.color = 'green';
+                    } else {
+                        answerContainers[questionNumber].style.color = 'red';
+                    }
+                });
+
+                resultsContainer.innerHTML = `${numCorrect} out of ${questions.length} correct`;
+            }
+
+            difficultyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    selectedDifficulty = button.getAttribute('data-difficulty');
+                    if (selectedDifficulty) {
+                        displayQuestions(questions[selectedDifficulty]);
+                        popup.style.display = 'none';
+                        overlay.style.display = 'none';
+                    }
+                });
+            });
+
+            submitButton.addEventListener('click', () => {
+                if (selectedDifficulty) {
+                    showResults(questions[selectedDifficulty]);
+                    showAnswersButton.disabled = false;
+                }
+            });
+
+            showAnswersButton.addEventListener('click', () => {
+                if (selectedDifficulty) {
+                    const answerContainers = quizContainer.querySelectorAll('.answers');
+                    questions[selectedDifficulty].forEach((currentQuestion, questionNumber) => {
+                        const answerContainer = answerContainers[questionNumber];
+                        const correctAnswer = currentQuestion.correctAnswer;
+                        const correctLabel = answerContainer.querySelector(`input[value=${correctAnswer}]`).parentNode;
+                        correctLabel.style.color = 'blue';
+                    });
+                }
+            });
 
 
-    document.addEventListener('keydown', function (event) {
-      // Check if the pressed key is an arrow key (left, up, right, down)
-      if (event.key.startsWith('Arrow')) {
-          // Prevent the default arrow key behavior (scrolling)
-          event.preventDefault();
-      }
-  });
-
-   // Function to play the sound
-   function playSound() {
-    const audio = new Audio('https://teju0051.github.io/TGames/lobbymusic.mp3'); // Replace with the path to your sound file
-    audio.play();
-  }
-
-  
-      // Function to enter fullscreen 
-
-      var isFullscreen=!1;function toggleFullscreen(){isFullscreen?document.exitFullscreen?.():document.documentElement.requestFullscreen?.(),isFullscreen=!isFullscreen}var button=document.getElementById("fullscreen-button");button.addEventListener("click",toggleFullscreen);
-
-  </script>
-
-
-  <div class="loading-screen">
-    <img class="logol" src="https://i.ibb.co/TtRswy0/mgp1-removebg-preview.png" alt="Logo" style="transform: scale(4); width: auto; height: auto;">
-
-
-
-  </div>
-  <script>
-    // Hide the loading screen after 5 seconds
-    window.onload = function() {
-        var loadingScreen = document.querySelector('.loading-screen');
-        setTimeout(function() {
-            loadingScreen.style.display = 'none';
-        }, 6000);
-    };
-
-
-   // JavaScript to trigger the fade-in and fade-out effect
-document.addEventListener('DOMContentLoaded', function () {
-  const logo = document.querySelector('.logol');
-
-  // Initial state: set opacity to 0
-  logo.style.opacity = '0';
-
-  // Wait for 2 seconds and then fade in the logo over 2 seconds
-  setTimeout(function () {
-    logo.style.transition = 'opacity 2s ease-in-out';
-    logo.style.opacity = '1';
-  }, 1000);
-
-  // Wait for another 2 seconds (total of 4 seconds) and then fade out the logo over 2 seconds
-  setTimeout(function () {
-    logo.style.transition = 'opacity 2s ease-in-out';
-    logo.style.opacity = '0';
-  }, 3000);
-});
-
-
-   // Function to show the popup after 7 seconds
-   function showPopup() {
-    document.getElementById('overlay').style.display = 'block';
-    document.getElementById('popup').style.display = 'block';
-}
-
-// Set timeout to show the popup after 7 seconds
-setTimeout(showPopup, 7000);
-
-
- // Function to close the popup
- function closePopup() {
-  document.getElementById('overlay').style.display = 'none';
-  document.getElementById('popup').style.display = 'none';
-}
-
-
-// Function to move the blue paddle up or down
-function moveBluePaddle(direction) {
-  switch (direction) {
-    case 'up':
-      player1.dy = -paddleSpeed;
-      break;
-    case 'down':
-      player1.dy = paddleSpeed;
-      break;
-  }
-}
-
-// Function to move the red paddle up or down
-function moveRedPaddle(direction) {
-  switch (direction) {
-    case 'up':
-      player2.dy = -paddleSpeed;
-      break;
-    case 'down':
-      player2.dy = paddleSpeed;
-      break;
-  }
-}
-
-// Function to stop the blue paddle movement
-function stopBluePaddle() {
-  player1.dy = 0;
-}
-
-// Function to stop the red paddle movement
-function stopRedPaddle() {
-  player2.dy = 0;
-}
-
-// Attach event listeners for button release
-document.getElementById('blue-up').addEventListener('mouseup', stopBluePaddle);
-document.getElementById('blue-down').addEventListener('mouseup', stopBluePaddle);
-document.getElementById('red-up').addEventListener('mouseup', stopRedPaddle);
-document.getElementById('red-down').addEventListener('mouseup', stopRedPaddle);
-
-// Prevent the default behavior for arrow keys
-document.addEventListener('keydown', function (event) {
-  if (event.key.startsWith('Arrow')) {
-    event.preventDefault();
-  }
-});
-
-
- // Display alert if the device is in portrait mode
- window.addEventListener('orientationchange', function () {
-  if (window.orientation === 0) {
-    alert('Please switch to landscape mode to start the game.');
-  }
-});
-  </script>
- 
-
-  <script>
-    // Function to prevent default behavior for right-click
-    function preventRightClick(event) {
-        event.preventDefault();
-    }
-
-    // Function to prevent default behavior for Ctrl+Shift+I
-    function preventCtrlShiftI(event) {
-        if (event.ctrlKey && event.shiftKey && event.key === 'I') {
-            event.preventDefault();
-        }
-    }
-
-    // Attach event listeners
-    document.addEventListener('contextmenu', preventRightClick);
-    document.addEventListener('keydown', preventCtrlShiftI);
-</script>
-
+            document.getElementById('end-quiz').addEventListener('click', function() {
+                // Show the modal with the image
+                var modal = document.getElementById('end-quiz-modal');
+                modal.style.display = 'flex';
+                
+                // Hide the modal after 10 seconds and redirect
+                setTimeout(function() {
+                    modal.style.display = 'none';
+                    window.location.href = 'https://teju0051.github.io/TService/CS_PPT_login.html';
+                }, 10000); // 10 seconds
+            });
+            
+            
+            
+            window.onload = function () {
+                popup.style.display = 'block';
+                overlay.style.display = 'block';
+            }});
+        </script>
+        <script>
+            document.getElementById("end-quiz").addEventListener("click", function() {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    document.documentElement.webkitRequestFullscreen();
+                } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                    document.documentElement.msRequestFullscreen();
+                }
+            });
+        </script>
+    </body>
 </html>
