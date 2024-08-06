@@ -166,10 +166,10 @@
                 <img id="slideshow" src="image1.jpg" alt="Slideshow Image">
             </div>
             <button id="fullscreen">Full Screen</button>
-            <button class="btn" id="letsGoButton">Let's Go</button>
+            <button class="btn" id="letsGoButton" onclick="window.location.href='https://teju0051.github.io/TService/testbEta.html';">Let's Go</button>
         </main>
         <footer>
-            <p>All rights reserved by ZenTech || Designed & Developed by <a href="https://teju0051.github.io/Zen-Tech/home.html">Zen-Tech</a></p>
+            <p> &copy; All rights reserved || Designed & Developed by <a href="https://teju0051.github.io/Zen-Tech/home.html">Zen-Tech</a></p>
         </footer>
     </div>
     <script>
@@ -196,7 +196,7 @@
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
                 mainContent.style.display = 'block';
-            }, 1000);
+            }, 3000);
         
             // Function to update the image
             const updateImage = () => {
@@ -238,22 +238,11 @@
             document.getElementById('letsGoButton').addEventListener('click', showPopup);
         });
 
-        function showPopup() {
-            document.getElementById('popup').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
 
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
+        
+       
     </script>
 
-    <div id="overlay"></div>
-    <div class="popup" id="popup">
-        <h2>Notice</h2>
-        <p>The Zen-Tech Operations Team is currently working on it. Please check back later.</p>
-        <button onclick="closePopup()">OK</button>
-    </div>
+   
 </body>
 </html>
