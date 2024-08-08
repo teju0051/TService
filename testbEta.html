@@ -8,161 +8,170 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cf-ui/6.5.1/cf-ui.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f9; /* Light, neutral background color */
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0;
             padding: 20px;
         }
-
+    
         .quiz-container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff; /* White background for the container */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for a professional look */
             width: 100%;
-            max-width: 700px;
+            max-width: 750px;
             text-align: center;
-            border: 2px solid #007bff;
+            border: 2px solid #007bff; /* Professional blue border */
             display: flex;
             flex-direction: column;
             min-height: 400px;
         }
-
+    
         .quiz-container h1 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: #333333;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            color: #333333; /* Dark grey for better readability */
         }
-
+    
         .question {
             font-weight: bold;
-            font-size: 1.4em;
-            margin: 20px 0;
-            color: #444444;
+            font-size: 1.5em;
+            margin: 25px 0;
+            color: #444444; /* Slightly lighter grey */
         }
-
+    
         .answers label {
             display: block;
             margin: 15px 0;
             text-align: left;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            color: #555555; /* Medium grey for contrast */
         }
-
+    
         .cf-btn-primary {
-            background-color: #007bff;
+            background-color: #007bff; /* Professional blue for primary buttons */
             color: #ffffff;
             border: none;
-            padding: 12px 24px;
+            padding: 14px 28px;
             cursor: pointer;
             border-radius: 5px;
             margin-top: 20px;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-
-        .cf-btn-primary:hover {
-            background-color: #0056b3;
-        }
-
-        .result {
-            margin-top: 20px;
             font-size: 1.1em;
-            color: #555555;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-
+    
+        .cf-btn-primary:hover {
+            background-color: #3594fa; /* Darker blue on hover */
+            transform: scale(1.05); /* Slight scaling effect for button */
+        }
+    
+        .result {
+            margin-top: 25px;
+            font-size: 1.2em;
+            color: #6c757d; /* Light grey for result text */
+        }
+    
         .footer {
             margin-top: auto;
-            font-size: 0.9em;
-            color: #777777;
+            font-size: 1em;
+            color: #000000; 
         }
-
+    
         .correct {
-            color: green;
+            color: #28a745; /* Green for correct answers */
         }
-
+    
         .incorrect {
-            color: red;
+            color: #dc3545; /* Red for incorrect answers */
         }
-
+    
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4); /* Slightly darker overlay */
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1;
         }
-
+    
         .popup {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff; /* White background for the popup */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Consistent shadow */
             text-align: center;
             z-index: 2;
-            max-width: 400px;
+            max-width: 450px;
             width: 90%;
         }
-
+    
         .popup-buttons {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
-
+    
         .popup-button {
-            background-color: #007bff;
+            background-color: #007bff; /* Blue for popup buttons */
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-
+    
         .popup-button:hover {
-            background-color: #0056b3;
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: scale(1.05); /* Slight scaling effect */
         }
-
+    
         .close-btn {
             margin-top: 10px;
-            background-color: red;
+            background-color: #dc3545; /* Red for close button */
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-
+    
         .close-btn:hover {
-            background-color: darkred;
+            background-color: #c82333; /* Darker red on hover */
+            transform: scale(1.05); /* Slight scaling effect */
         }
+    
         #end-quiz-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.7); /* Darker background for modal */
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
         }
-        
+    
         #end-quiz-modal img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain; /* Adjusts to fit within the container without clipping */
         }
-        
     </style>
+    
 </head>
 
 <body>
@@ -191,7 +200,7 @@
     
     <!-- Modal for displaying the image -->
     <div id="end-quiz-modal" style="display:none;">
-        <img src="https://i.ibb.co/12sZJJ1/ae37ff17-e042-4fd7-92a7-cee575d097f7-6i-Hx-E-Dtw-transformed.jpg" alt="End Quiz Image" style="width:100%; height:100%; object-fit:cover;">
+        <img src="https://i.ibb.co/NxDsMCy/Group-2.png" alt="End Quiz Image" style="width:100%; height:100%; object-fit:cover;">
     </div>
     
 
@@ -324,7 +333,7 @@
                         const answerContainer = answerContainers[questionNumber];
                         const correctAnswer = currentQuestion.correctAnswer;
                         const correctLabel = answerContainer.querySelector(`input[value=${correctAnswer}]`).parentNode;
-                        correctLabel.style.color = 'blue';
+                        correctLabel.style.color = 'green';
                     });
                 }
             });
@@ -339,7 +348,7 @@
                 setTimeout(function() {
                     modal.style.display = 'none';
                     window.location.href = 'https://teju0051.github.io/TService/CS_PPT_login.html';
-                }, 10000); // 10 seconds
+                }, 5000); // 5 seconds
             });
             
             
